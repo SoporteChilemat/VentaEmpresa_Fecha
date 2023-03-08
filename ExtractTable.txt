@@ -1,0 +1,2 @@
+Cantidad | Unidad | Código | Descripción | P.Unitario | P.Final | Total | 
+ 1  2.386,69 | M2 | V.E.PNCC-TECHOPP | PANEL CN-TECHO PPDO 0.4MM x 1.053 |  5.985,00 |  5.985,00 | 14.284.339,65 | 
