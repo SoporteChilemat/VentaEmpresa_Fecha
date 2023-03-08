@@ -49,7 +49,8 @@ public class notaCreditoDAO {
         if (tipo == 0) {
 
             ArrayList<NotaCredito> arrNotaCredito = new ArrayList<>();
-            try ( PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM dbo.notaCredito");  ResultSet res = consulta.executeQuery()) {
+            try ( PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM dbo.notaCredito "
+                    + "WHERE vendedor <> 'PATRICIO ROMAN' and vendedor <> 'NICOLAS ROJIC'");  ResultSet res = consulta.executeQuery()) {
                 while (res.next()) {
                     NotaCredito notaCredito = new NotaCredito();
                     notaCredito.setFolio(res.getString("folio"));

@@ -243,7 +243,8 @@ public class Logica {
         }).thenRunAsync(new Runnable() {
             @Override
             public void run() {
-                System.out.println("AH!");
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                System.out.println("AH!");
                 arrNumeroOC = new ArrayList<>();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 arrFacturas = new ArrayList<>();
@@ -251,39 +252,45 @@ public class Logica {
                 arrSumasNumeroOC = new ArrayList<>();
 
                 if (VentanaLogin.nombre.equals("MOYRIC")) {
-                    productoDAO.prueba("52", true);
-                    arrSumasNumeroOC = productoDAO.prueba2("52", true);
+                    productoDAO.prueba("52", "MOYRIC");
+                    arrSumasNumeroOC = productoDAO.prueba2("52", "MOYRIC");
+                } else if (VentanaLogin.nombre.equals("ROJICN")) {
+                    productoDAO.prueba("52", "ROJICN");
+                    arrSumasNumeroOC = productoDAO.prueba2("52", "ROJICN");
                 } else {
-                    productoDAO.prueba("52", false);
-                    arrSumasNumeroOC = productoDAO.prueba2("52", false);
+                    productoDAO.prueba("52", "");
+                    arrSumasNumeroOC = productoDAO.prueba2("52", "");
                 }
 
-                System.out.println("arrFacturas.size() " + arrFacturas.size());
-                System.out.println("arrSumasNumeroOC.size() " + arrSumasNumeroOC.size());
-                System.out.println("selectProductosPorFolio.size() " + selectProductosPorFolio.size());
+//                System.out.println("arrFacturas.size() " + arrFacturas.size());
+//                System.out.println("arrSumasNumeroOC.size() " + arrSumasNumeroOC.size());
+//                System.out.println("selectProductosPorFolio.size() " + selectProductosPorFolio.size());
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 arrFacturasF = new ArrayList<>();
                 selectProductosPorFolioF = new ArrayList<>();
                 arrSumasNumeroOCF = new ArrayList<>();
 
                 if (VentanaLogin.nombre.equals("MOYRIC")) {
-                    productoDAO.prueba("GDT", true);
-                    arrSumasNumeroOCF = productoDAO.prueba2("GDT", true);
+                    productoDAO.prueba("GDT", "MOYRIC");
+                    arrSumasNumeroOCF = productoDAO.prueba2("GDT", "MOYRIC");
+                } else if (VentanaLogin.nombre.equals("ROJICN")) {
+                    productoDAO.prueba("GDT", "ROJICN");
+                    arrSumasNumeroOCF = productoDAO.prueba2("GDT", "ROJICN");
                 } else {
-                    productoDAO.prueba("GDT", false);
-                    arrSumasNumeroOCF = productoDAO.prueba2("GDT", false);
+                    productoDAO.prueba("GDT", "");
+                    arrSumasNumeroOCF = productoDAO.prueba2("GDT", "");
                 }
 
-                System.out.println("arrFacturasF.size() " + arrFacturasF.size());
-                System.out.println("arrSumasNumeroOCF.size() " + arrSumasNumeroOCF.size());
-                System.out.println("selectProductosPorFolioF.size() " + selectProductosPorFolioF.size());
+//                System.out.println("arrFacturasF.size() " + arrFacturasF.size());
+//                System.out.println("arrSumasNumeroOCF.size() " + arrSumasNumeroOCF.size());
+//                System.out.println("selectProductosPorFolioF.size() " + selectProductosPorFolioF.size());
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 ArrayList<NotaCredito> selectNotaCredito = null;
                 try {
                     selectNotaCredito = selectNotaCredito(VentanaLogin.tipo, VentanaLogin.nombrex);
-                    System.out.println("-1");
+//                    System.out.println("-1");
                 } catch (IOException ex) {
                     Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (SQLException ex) {
@@ -293,7 +300,7 @@ public class Logica {
                 ArrayList<Flete> selectFlete = null;
                 try {
                     selectFlete = fleteDAO.selectFlete(VentanaLogin.tipo, VentanaLogin.nombrex);
-                    System.out.println("-1");
+//                    System.out.println("-1");
                 } catch (IOException | SQLException ex) {
                     Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -307,22 +314,21 @@ public class Logica {
                 sumaCargar = size0 + size01 + size02 + size03 + size04 + size05;
 
                 porcentaje0 = (size0 * 100 / sumaCargar);
-//                System.out.println("porcentaje0 " + porcentaje0);
+////                System.out.println("porcentaje0 " + porcentaje0);
                 porcentaje01 = size01 * 100 / sumaCargar;
-//                System.out.println("porcentaje01 " + porcentaje01);
+////                System.out.println("porcentaje01 " + porcentaje01);
                 porcentaje02 = size02 * 100 / sumaCargar;
-//                System.out.println("porcentaje02 " + porcentaje02);
+////                System.out.println("porcentaje02 " + porcentaje02);
                 porcentaje03 = size03 * 100 / sumaCargar;
-//                System.out.println("porcentaje03 " + porcentaje03);
+////                System.out.println("porcentaje03 " + porcentaje03);
                 porcentaje04 = size04 * 100 / sumaCargar;
-//                System.out.println("porcentaje04 " + porcentaje04);
+////                System.out.println("porcentaje04 " + porcentaje04);
                 porcentaje05 = size05 * 100 / sumaCargar;
-//                System.out.println("porcentaje05 " + porcentaje05);
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//                System.out.println(selectProductosPorFolio.size());
-
-                System.out.println("A");
-
+////                System.out.println("porcentaje05 " + porcentaje05);
+////////////////////////////////////////////////////////////////////////////////
+//<editor-fold defaultstate="collapsed" desc="TABLA FOLIO">
+////                System.out.println(selectProductosPorFolio.size());
+//                System.out.println("A");
                 fila = new Object[18];
                 model = (DefaultTableModel) jTable1.getModel();
 
@@ -399,11 +405,11 @@ public class Logica {
                 jTable1.getColumn("Utilidad").setCellRenderer(new CustomRenderer5());
                 jTable1.getColumn("Margen").setCellRenderer(new CustomRenderer5());
                 jTable1.getColumnModel().getColumn(10).setPreferredWidth(250);
-
+//</editor-fold>
 ////////////////////////////////////////////////////////////////////////////////
-//                System.out.println(selectProductosPorFolioF.size());
-                System.out.println("B");
-
+//<editor-fold defaultstate="collapsed" desc="TABLA FACTURA">
+////                System.out.println(selectProductosPorFolioF.size());
+//                System.out.println("B");
                 fila = new Object[20];
                 model = (DefaultTableModel) jTable6.getModel();
 
@@ -412,7 +418,7 @@ public class Logica {
                     int x = Integer.parseInt(at.toString());
                     int name = (x * porcentaje01) / size01;
 
-//                    System.out.println("selectProductosPorFolioF namenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamename " + name);
+////                    System.out.println("selectProductosPorFolioF namenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamename " + name);
                     Principal.newJFrame.jProgressBar1.setValue(250 + porcentaje0 + name);
 
 //                    Producto get = selectProductosPorFolioF.get(i);
@@ -423,7 +429,7 @@ public class Logica {
                     double netoTotal = Double.valueOf(get.getPrecioTotal());
 
                     String folio = get.getFolio();
-//                    System.out.println("folio " + folio);
+////                    System.out.println("folio " + folio);
 
                     arrFacturasF.stream().forEach((Factura factura) -> {
                         String folio2 = factura.getFolio();
@@ -586,9 +592,10 @@ public class Logica {
                     String get = arrNumeroOC.get(i);
                     jComboBox4.addItem(get);
                 }
+//</editor-fold>
 ////////////////////////////////////////////////////////////////////////////////
-                System.out.println("C");
-
+//<editor-fold defaultstate="collapsed" desc="TABLA RESUMEN">
+//                System.out.println("C");
                 arrNombresVendedores = new ArrayList<>();
                 ArrayList<String> arrOrigenes = new ArrayList<>();
 
@@ -608,10 +615,10 @@ public class Logica {
                         int andIncrement = atz.getAndIncrement();
                         dato = (andIncrement * porcentaje02) / size02;
 
-//                        System.out.println("arrFacturas namenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamename " + dato);
+////                        System.out.println("arrFacturas namenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamename " + dato);
                         Principal.newJFrame.jProgressBar1.setValue(250 + porcentaje0 + porcentaje01 + dato);
 
-//                        System.out.println("factura.getFolio() " + factura.getFolio());
+////                        System.out.println("factura.getFolio() " + factura.getFolio());
                         Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(factura.getFechaEmision());
                         filaTabla2[0] = date1;
                         filaTabla2[1] = factura.getFolio();
@@ -663,8 +670,8 @@ public class Logica {
                             }
                         }
 
-//                        System.out.println("Double.valueOf(factura.getMontoNeto() " + Double.valueOf(factura.getMontoNeto()));
-//                        System.out.println("sumaNetoTotal " + sumaCostoTotal);
+////                        System.out.println("Double.valueOf(factura.getMontoNeto() " + Double.valueOf(factura.getMontoNeto()));
+////                        System.out.println("sumaNetoTotal " + sumaCostoTotal);
                         double name = ((Double.valueOf(factura.getMontoNeto()) - sumaCostoTotal) / sumaCostoTotal) * 100;
 
                         filaTabla2[8] = new DecimalFormat("#.##").format(name) + "%";
@@ -700,7 +707,7 @@ public class Logica {
                         int andIncrement = at1.getAndIncrement();
                         dato = (andIncrement * porcentaje03) / size03;
 
-//                        System.out.println("arrFacturasF namenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamename " + dato);
+////                        System.out.println("arrFacturasF namenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamename " + dato);
                         Principal.newJFrame.jProgressBar1.setValue(250 + porcentaje0 + porcentaje01 + porcentaje02 + dato);
 
                         Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(factura.getFechaEmision());
@@ -754,8 +761,8 @@ public class Logica {
                             }
                         }
 
-//                        System.out.println("Double.valueOf(factura.getMontoNeto() " + Double.valueOf(factura.getMontoNeto()));
-//                        System.out.println("sumaNetoTotal " + sumaCostoTotal);
+////                        System.out.println("Double.valueOf(factura.getMontoNeto() " + Double.valueOf(factura.getMontoNeto()));
+////                        System.out.println("sumaNetoTotal " + sumaCostoTotal);
                         double name = ((Double.valueOf(factura.getMontoNeto()) - sumaCostoTotal) / sumaCostoTotal) * 100;
 
                         filaTabla2[8] = new DecimalFormat("#.##").format(name) + "%";
@@ -840,9 +847,10 @@ public class Logica {
                 jTable2.getColumnModel().getColumn(11).setPreferredWidth(0);
 
 //        AutoCompletion.enable(jComboBox3);
+//</editor-fold>
 ////////////////////////////////////////////////////////////////////////////////
-                System.out.println("D");
-
+//<editor-fold defaultstate="collapsed" desc="TABLA NOTA DE CREDITO">
+//                System.out.println("D");
                 Object[] filaTabla3 = new Object[11];
                 DefaultTableModel modelTabla3 = (DefaultTableModel) jTable3.getModel();
 
@@ -852,7 +860,7 @@ public class Logica {
                     int andIncrement = at2.getAndIncrement();
                     dato = (andIncrement * porcentaje04) / size04;
 
-//                    System.out.println("selectNotaCredito namenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamename " + dato);
+////                    System.out.println("selectNotaCredito namenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamename " + dato);
                     Principal.newJFrame.jProgressBar1.setValue(250 + porcentaje0 + porcentaje01 + porcentaje02 + porcentaje03 + dato);
 
                     Factura selectFacturaPorFolio = null;
@@ -881,37 +889,39 @@ public class Logica {
                             String costoUnitario = "";
                             double costoUnitarioTotal = 0.0;
                             ProductoNotaCredito productoNotaCredito = selectProductoNotaCreditoPorFolio.get(t);
-                            String codigoNC = productoNotaCredito.getCodigo().replace("V.E.", "");
+                            String codigo = productoNotaCredito.getCodigo().replace("V.E.", "");
+                            String descripcion = productoNotaCredito.getDescripcion();
 
                             for (int i = 0; i < jTable1.getModel().getRowCount(); i++) {
                                 String folio = jTable1.getModel().getValueAt(i, 2).toString();
-                                String codigo = jTable1.getModel().getValueAt(i, 6).toString();
+                                String codigo1 = jTable1.getModel().getValueAt(i, 6).toString();
+                                String descipcionTabla = jTable1.getModel().getValueAt(i, 8).toString();
 
-                                System.out.println("codigo " + codigo);
-                                System.out.println("codigoNC " + codigoNC);
-                                System.out.println("folio " + folio);
-                                System.out.println("folioReferencia " + folioReferencia);
-                                
-                                if (folio.equals(folioReferencia) && codigo.contains(codigoNC)) {
+//                                System.out.println("codigo " + codigo);
+//                                System.out.println("codigoNC " + codigoNC);
+//                                System.out.println("folio " + folio);
+//                                System.out.println("folioReferencia " + folioReferencia);
+                                if (folio.equals(folioReferencia) &&  (descipcionTabla.contains(descripcion) || descripcion.contains(descipcionTabla) || codigo1.contains(codigo))) {
                                     costoUnitario = jTable1.getModel().getValueAt(i, 10).toString();
                                     costoUnitarioTotal = convertStringToDouble(costoUnitario) * Double.valueOf(productoNotaCredito.getCantidad());
-//                                    System.out.println("--->");
-//                                    System.out.println(Double.valueOf(costoUnitario));
-//                                    System.out.println(Double.valueOf(productoNotaCredito.getCantidad()));
+////                                    System.out.println("--->");
+////                                    System.out.println(Double.valueOf(costoUnitario));
+////                                    System.out.println(Double.valueOf(productoNotaCredito.getCantidad()));
                                     break;
                                 }
                             }
 
                             for (int i = 0; i < jTable6.getModel().getRowCount(); i++) {
                                 String folio = jTable6.getModel().getValueAt(i, 2).toString();
-                                String codigo = jTable6.getModel().getValueAt(i, 6).toString();
+                                String codigo2 = jTable6.getModel().getValueAt(i, 6).toString();
+                                String descipcionTabla2 = jTable6.getModel().getValueAt(i, 6).toString();
 
-                                if (folio.equals(folioReferencia) && codigo.contains(codigoNC)) {
+                                if (folio.equals(folioReferencia)  &&  (descipcionTabla2.contains(descripcion) || descripcion.contains(descipcionTabla2) || codigo2.contains(codigo))) {
                                     costoUnitario = jTable6.getModel().getValueAt(i, 11).toString();
                                     costoUnitarioTotal = convertStringToDouble(costoUnitario) * Double.valueOf(productoNotaCredito.getCantidad());
-//                                    System.out.println("--->");
-//                                    System.out.println(Double.valueOf(costoUnitario));
-//                                    System.out.println(Double.valueOf(productoNotaCredito.getCantidad()));
+////                                    System.out.println("--->");
+////                                    System.out.println(Double.valueOf(costoUnitario));
+////                                    System.out.println(Double.valueOf(productoNotaCredito.getCantidad()));
                                     break;
                                 }
                             }
@@ -984,30 +994,32 @@ public class Logica {
                         }
                     } else if (notaCredito.getMotivo().equals("DEVOLUCION")) {
                         if (origen.equals("Local")) {
-//                            System.out.println("DEVOLUCION LOCAL");
+////                            System.out.println("DEVOLUCION LOCAL");
                             double suma = 0.0;
                             try {
                                 selectProductoNotaCreditoPorFolio = selectProductoNotaCreditoPorFolio(notaCredito.getFolio());
                                 String folio = notaCredito.getFolioReferencia();
-//                                System.out.println("--> folio " + folio);
+////                                System.out.println("--> folio " + folio);
 
                                 int size = selectProductoNotaCreditoPorFolio.size();
-//                                System.out.println("size " + size);
+////                                System.out.println("size " + size);
 
                                 for (int i = 0; i < selectProductoNotaCreditoPorFolio.size(); i++) {
                                     ProductoNotaCredito get = selectProductoNotaCreditoPorFolio.get(i);
-                                    String codigo = get.getCodigo();
+                                    String codigo = get.getCodigo().replace("V.E.", "");;
+                                    String descripcion = get.getDescripcion();
                                     String cantidad = get.getCantidad();
 
                                     for (int h = 0; h < jTable1.getModel().getRowCount(); h++) {
                                         String folio1 = jTable1.getModel().getValueAt(h, 2).toString();
                                         String codigo1 = jTable1.getModel().getValueAt(h, 6).toString();
+                                        String descipcionTabla = jTable1.getModel().getValueAt(h, 8).toString();
 
-//                                        System.out.println("folio " + folio);
-//                                        System.out.println("folio1 " + folio1);
-//                                        System.out.println("codigo " + codigo);
-//                                        System.out.println("codigo1 " + codigo1);
-                                        if (folio1.equals(folio) && codigo1.contains(codigo)) {
+////                                        System.out.println("folio " + folio);
+////                                        System.out.println("folio1 " + folio1);
+////                                        System.out.println("codigo " + codigo);
+////                                        System.out.println("codigo1 " + codigo1);
+                                        if (folio1.equals(folio) && (descipcionTabla.contains(descripcion) || descripcion.contains(descipcionTabla) || codigo1.contains(codigo))) {
                                             String utilidad = jTable1.getModel().getValueAt(h, 14).toString();
                                             Double valueOf = convertStringToDouble(utilidad);
                                             Double valueOf1 = convertStringToDouble(cantidad);
@@ -1018,9 +1030,9 @@ public class Logica {
                                             suma = suma + name1;
                                             break;
                                         }
-//                                        System.out.println("-> ");
+////                                        System.out.println("-> ");
                                     }
-//                                    System.out.println("/////////////////////////////");
+////                                    System.out.println("/////////////////////////////");
                                 }
                             } catch (IOException ex) {
                                 Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
@@ -1041,30 +1053,32 @@ public class Logica {
                                 }
                             }
                         } else {
-//                            System.out.println("DEVOLUCION FABRICA");
+////                            System.out.println("DEVOLUCION FABRICA");
                             double suma = 0.0;
                             try {
                                 selectProductoNotaCreditoPorFolio = selectProductoNotaCreditoPorFolio(notaCredito.getFolio());
                                 String folio = notaCredito.getFolioReferencia();
-//                                System.out.println("--> folio " + folio);
+////                                System.out.println("--> folio " + folio);
 
                                 int size = selectProductoNotaCreditoPorFolio.size();
-//                                System.out.println("size " + size);
+////                                System.out.println("size " + size);
 
                                 for (int i = 0; i < selectProductoNotaCreditoPorFolio.size(); i++) {
                                     ProductoNotaCredito get = selectProductoNotaCreditoPorFolio.get(i);
-                                    String codigo = get.getCodigo().replace("V.E.", "");
+                                    String codigo = get.getCodigo().replace("V.E.", "");;
+                                    String descripcion = get.getDescripcion();
                                     String cantidad = get.getCantidad();
 
                                     for (int h = 0; h < jTable6.getModel().getRowCount(); h++) {
                                         String folio1 = jTable6.getModel().getValueAt(h, 2).toString();
                                         String codigo1 = jTable6.getModel().getValueAt(h, 6).toString();
+                                        String descipcionTabla = jTable6.getModel().getValueAt(h, 8).toString();
 
 //                                        System.out.println("folio " + folio);
 //                                        System.out.println("folio1 " + folio1);
 //                                        System.out.println("codigo " + codigo);
 //                                        System.out.println("codigo1 " + codigo1);
-                                        if (folio1.equals(folio) && codigo1.contains(codigo)) {
+                                        if (folio1.equals(folio) && (descipcionTabla.contains(descripcion) || descripcion.contains(descipcionTabla) || codigo1.contains(codigo))) {
                                             String utilidad = jTable6.getModel().getValueAt(h, 15).toString();
                                             Double valueOf = convertStringToDouble(utilidad);
 
@@ -1077,9 +1091,9 @@ public class Logica {
                                             suma = suma + name1;
                                             break;
                                         }
-//                                        System.out.println("-> ");
+////                                        System.out.println("-> ");
                                     }
-//                                    System.out.println("/////////////////////////////");
+////                                    System.out.println("/////////////////////////////");
                                 }
                             } catch (IOException ex) {
                                 Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
@@ -1135,8 +1149,10 @@ public class Logica {
                 jTable3.getColumn("Fecha").setCellEditor(new CustomEditor4(jTable3, VentanaLogin.bool, 1));
 
                 jTable3.getColumnModel().getColumn(0).setPreferredWidth(180);
-////////////////////////////////////////////////////////////////////////
-                System.out.println("E");
+//</editor-fold>
+////////////////////////////////////////////////////////////////////////////////
+//<editor-fold defaultstate="collapsed" desc="TABLA FLETE">
+//                System.out.println("E");
 
                 Object[] filaTabla4 = new Object[10];
                 DefaultTableModel modelTabla4 = (DefaultTableModel) jTable4.getModel();
@@ -1150,7 +1166,7 @@ public class Logica {
                     int andIncrement = at3.getAndIncrement();
                     dato = (andIncrement * porcentaje05) / size05;
 
-//                    System.out.println("selectFlete namenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamename " + dato);
+////                    System.out.println("selectFlete namenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamename " + dato);
                     Principal.newJFrame.jProgressBar1.setValue(250 + porcentaje0 + porcentaje01 + porcentaje02 + porcentaje03 + porcentaje04 + dato);
 
                     filaTabla4[0] = fletex.getFechaFa();
@@ -1207,8 +1223,10 @@ public class Logica {
                 jTable4.getColumn("Eliminar").setCellEditor(new CustomEditor("Eliminar", VentanaLogin.bool));
 
                 jTable4.getColumnModel().getColumn(5).setPreferredWidth(400);
+//</editor-fold>
 ////////////////////////////////////////////////////////////////////////////////
-                System.out.println("F");
+//<editor-fold defaultstate="collapsed" desc="TABLA COMISIONES">
+//                System.out.println("F");
 
                 String nombrex = VentanaLogin.nombrex;
                 int tipo = VentanaLogin.tipo;
@@ -1287,7 +1305,7 @@ public class Logica {
                                 sumaCosto = sumaCosto + costo;
 
                                 String replace = margen.replace("%", "").replace(",", ".");
-                                System.out.println("replace " + replace);
+//                                System.out.println("replace " + replace);
                                 Double valueOf = 0.0;
                                 try {
                                     valueOf = Double.valueOf(replace);
@@ -1296,7 +1314,7 @@ public class Logica {
                                 }
 
                                 if (valueOf >= 10) {
-                                    System.out.println("valueOf " + valueOf);
+//                                    System.out.println("valueOf " + valueOf);
                                     sumaBono = sumaBono + utilidad;
 
                                     for (int r = 0; r < jTable3.getModel().getRowCount(); r++) {
@@ -1321,14 +1339,13 @@ public class Logica {
 
                         double porcentaje = (((sumaUtilidadLocal) - sumaUtilidadNCLocal) / ((sumaCostoLocal) - sumaCostoNCLocal)) * 100;
 
-                        System.out.println("toString " + toString);
-                        System.out.println("sumaUtilidad " + sumaUtilidad);
-                        System.out.println("porcentaje " + porcentaje);
-                        System.out.println("sumaUtilidadNC " + sumaUtilidadNC);
-                        System.out.println("sumaFlete " + sumaFlete);
-                        System.out.println("sumaBono " + sumaBono);
-                        System.out.println("sumaUtilidadNCBono " + sumaUtilidadNCBono);
-
+//                        System.out.println("toString " + toString);
+//                        System.out.println("sumaUtilidad " + sumaUtilidad);
+//                        System.out.println("porcentaje " + porcentaje);
+//                        System.out.println("sumaUtilidadNC " + sumaUtilidadNC);
+//                        System.out.println("sumaFlete " + sumaFlete);
+//                        System.out.println("sumaBono " + sumaBono);
+//                        System.out.println("sumaUtilidadNCBono " + sumaUtilidadNCBono);
                         double name = (sumaUtilidad - sumaUtilidadNC - sumaFlete) * 0.1;
 
                         double namex = 0.0;
@@ -1336,9 +1353,8 @@ public class Logica {
                             namex = (sumaBono - sumaUtilidadNCBono - sumaFlete) * 0.05;
                         }
 
-                        System.out.println("name " + name);
-                        System.out.println("namex " + namex);
-
+//                        System.out.println("name " + name);
+//                        System.out.println("namex " + namex);
                         if (toString.equals("FRANCESCA PEREZ") || toString.equals("MARIO BRITO") || toString.equals("JUAN PABLO ARANDA") || toString.equals("CARLOS SEREY")) {
                             sumaUtilidad1 = sumaUtilidad1 + (sumaUtilidad - sumaUtilidadNC - sumaFlete);
                         }
@@ -1530,6 +1546,7 @@ public class Logica {
                 renderer.setHorizontalAlignment(JLabel.CENTER);
 
                 Principal.jLabel27.setText("" + jTable2.getRowCount());
+//</editor-fold>
 ////////////////////////////////////////////////////////////////////////////////
                 jComboBox5.removeAllItems();
                 for (int i = 0; i < arrNombresVendedores.size(); i++) {
@@ -3675,7 +3692,7 @@ public class Logica {
 
         return arrArrFolios;
     }
-    
+
     public static ArrayList<ActualizaCodigoPrecio> arrReportes3(String path) throws FileNotFoundException, IOException {
         System.out.println("path " + path);
         ArrayList<ActualizaCodigoPrecio> arrActualizaCodigoPrecio = new ArrayList<>();
@@ -3973,1360 +3990,6 @@ public class Logica {
             }
         });
         thread.start();
-    }
-
-    public static void cargaTablaLocalCambiado() throws IOException, SQLException {
-        CompletableFuture.runAsync(() -> {
-            Principal.newJFrame.jTabbedPane1.setVisible(false);
-            Principal.newJFrame.jPanel15.setVisible(true);
-
-            Principal.newJFrame.jProgressBar1.setMaximum(350);
-            Principal.newJFrame.jProgressBar1.setValue(0);
-        }).thenRunAsync(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("AH!");
-                arrNumeroOC = new ArrayList<>();
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                arrFacturas = new ArrayList<>();
-                selectProductosPorFolio = new ArrayList<>();
-                arrSumasNumeroOC = new ArrayList<>();
-
-                if (VentanaLogin.nombre.equals("MOYRIC")) {
-                    productoDAO.prueba("52", true);
-                    arrSumasNumeroOC = productoDAO.prueba2("52", true);
-                } else {
-                    productoDAO.prueba("52", false);
-                    arrSumasNumeroOC = productoDAO.prueba2("52", false);
-                }
-
-                System.out.println("arrFacturas.size() " + arrFacturas.size());
-                System.out.println("arrSumasNumeroOC.size() " + arrSumasNumeroOC.size());
-                System.out.println("selectProductosPorFolio.size() " + selectProductosPorFolio.size());
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                arrFacturasF = new ArrayList<>();
-                selectProductosPorFolioF = new ArrayList<>();
-                arrSumasNumeroOCF = new ArrayList<>();
-
-                if (VentanaLogin.nombre.equals("MOYRIC")) {
-                    productoDAO.prueba("GDT", true);
-                    arrSumasNumeroOCF = productoDAO.prueba2("GDT", true);
-                } else {
-                    productoDAO.prueba("GDT", false);
-                    arrSumasNumeroOCF = productoDAO.prueba2("GDT", false);
-                }
-
-                System.out.println("arrFacturasF.size() " + arrFacturasF.size());
-                System.out.println("arrSumasNumeroOCF.size() " + arrSumasNumeroOCF.size());
-                System.out.println("selectProductosPorFolioF.size() " + selectProductosPorFolioF.size());
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                ArrayList<NotaCredito> selectNotaCredito = null;
-                try {
-                    selectNotaCredito = selectNotaCredito(VentanaLogin.tipo, VentanaLogin.nombrex);
-                    System.out.println("-1");
-                } catch (IOException ex) {
-                    Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (SQLException ex) {
-                    Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
-                }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                ArrayList<Flete> selectFlete = null;
-                try {
-                    selectFlete = fleteDAO.selectFlete(VentanaLogin.tipo, VentanaLogin.nombrex);
-                    System.out.println("-1");
-                } catch (IOException | SQLException ex) {
-                    Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-                }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                size0 = selectProductosPorFolio.size();
-                size01 = selectProductosPorFolioF.size();
-                size02 = arrFacturas.size();
-                size03 = arrFacturasF.size();
-                size04 = selectNotaCredito.size();
-                size05 = selectFlete.size();
-                sumaCargar = size0 + size01 + size02 + size03 + size04 + size05;
-
-                porcentaje0 = (size0 * 100 / sumaCargar);
-//                System.out.println("porcentaje0 " + porcentaje0);
-                porcentaje01 = size01 * 100 / sumaCargar;
-//                System.out.println("porcentaje01 " + porcentaje01);
-                porcentaje02 = size02 * 100 / sumaCargar;
-//                System.out.println("porcentaje02 " + porcentaje02);
-                porcentaje03 = size03 * 100 / sumaCargar;
-//                System.out.println("porcentaje03 " + porcentaje03);
-                porcentaje04 = size04 * 100 / sumaCargar;
-//                System.out.println("porcentaje04 " + porcentaje04);
-                porcentaje05 = size05 * 100 / sumaCargar;
-//                System.out.println("porcentaje05 " + porcentaje05);
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//                System.out.println(selectProductosPorFolio.size());
-
-                fila = new Object[18];
-                model = (DefaultTableModel) jTable1.getModel();
-
-                System.out.println("LLENA TABLA 1");
-
-                AtomicInteger index = new AtomicInteger(1);
-                selectProductosPorFolio.forEach((Producto producto) -> {
-                    int currentIndex = index.getAndIncrement();
-                    int progressBarValue = (currentIndex * porcentaje0) / size0 + 250;
-                    Principal.newJFrame.jProgressBar1.setValue(progressBarValue);
-                    String costoUnitarioStr = producto.getCostoUnitario();
-                    double costoUnitario = Double.parseDouble(costoUnitarioStr);
-                    double costoTotal = costoUnitario * Double.parseDouble(producto.getCantidad());
-                    String netoUnitarioStr = producto.getPrecioUnitario();
-                    double netoUnitario = Double.parseDouble(netoUnitarioStr);
-                    double netoTotal = Double.parseDouble(producto.getPrecioTotal());
-                    String folio = producto.getFolio();
-                    String fechaEmision = null;
-                    String fechaReferencia = null;
-                    String folioReferencia = null;
-                    String rutCliente = null;
-                    String ocCliente = null;
-                    String vendedor = null;
-
-                    for (Factura factura : arrFacturas) {
-                        if (folio.equals(factura.getFolio())) {
-                            fechaEmision = factura.getFechaEmision();
-                            fechaReferencia = factura.getFechaReferencia();
-                            folioReferencia = factura.getFolioReferencia();
-                            rutCliente = factura.getRutCliente();
-                            ocCliente = factura.getOcCliente();
-                            vendedor = factura.getVendedor();
-                            break;
-                        }
-                    }
-
-                    Object[] row = {
-                        fechaEmision,
-                        fechaReferencia,
-                        folio,
-                        folioReferencia,
-                        rutCliente,
-                        ocCliente,
-                        producto.getCodigo(),
-                        producto.getCantidad(),
-                        producto.getDescripcion(),
-                        producto.getUnidad(),
-                        formatCurrency(costoUnitario),
-                        formatCurrency(netoUnitario),
-                        formatCurrency(costoTotal),
-                        formatCurrency(netoTotal),
-                        formatCurrency(netoTotal - costoTotal),
-                        new DecimalFormat("#.##").format(((netoUnitario - costoUnitario) / costoUnitario) * 100) + "%",
-                        vendedor
-                    };
-
-                    model.addRow(row);
-                });
-
-                ((DefaultTableCellRenderer) jTable1.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
-                resizeColumnWidth(jTable1);
-
-                jTable1.setRowHeight(35);
-                jTable1.setShowHorizontalLines(true);
-                jTable1.setShowVerticalLines(true);
-
-                DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
-                int columnCount = jTable1.getColumnCount();
-                for (int i = 0; i < columnCount; i++) {
-                    jTable1.getColumnModel().getColumn(i).setCellRenderer(renderer);
-                }
-                renderer.setHorizontalAlignment(JLabel.CENTER);
-
-                jTable1.getColumn("Costo Unitario").setCellRenderer(new CustomRenderer1(jTable1, VentanaLogin.bool));
-                jTable1.getColumn("Costo Unitario").setCellEditor(new CustomEditor1(jTable1, VentanaLogin.bool));
-                jTable1.getColumn("Utilidad").setCellRenderer(new CustomRenderer5());
-                jTable1.getColumn("Margen").setCellRenderer(new CustomRenderer5());
-                jTable1.getColumnModel().getColumn(10).setPreferredWidth(250);
-
-////////////////////////////////////////////////////////////////////////////////
-//                System.out.println(selectProductosPorFolioF.size());
-                fila = new Object[20];
-                model = (DefaultTableModel) jTable6.getModel();
-
-                System.out.println("LLENA TABLA 2");
-
-                AtomicInteger at = new AtomicInteger(1);
-                selectProductosPorFolioF.stream().forEach((Producto get) -> {
-                    int x = Integer.parseInt(at.toString());
-                    int name = (x * porcentaje01) / size01;
-
-//                    System.out.println("selectProductosPorFolioF namenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamename " + name);
-                    Principal.newJFrame.jProgressBar1.setValue(250 + porcentaje0 + name);
-
-//                    Producto get = selectProductosPorFolioF.get(i);
-                    double costoUnitario = Double.valueOf(get.getCostoUnitario());
-                    double costoTotal = Double.valueOf(get.getCostoUnitario()) * Double.valueOf(get.getCantidad());
-
-                    double netoUnitario = Double.parseDouble(get.getPrecioUnitario());
-                    double netoTotal = Double.valueOf(get.getPrecioTotal());
-
-                    String folio = get.getFolio();
-//                    System.out.println("folio " + folio);
-
-                    arrFacturasF.stream().forEach((Factura factura) -> {
-                        String folio2 = factura.getFolio();
-                        if (folio.equals(folio2)) {
-                            fila[0] = factura.getFechaEmision();
-                        }
-                    });
-
-                    arrFacturasF.stream().forEach((Factura factura) -> {
-                        String folio2 = factura.getFolio();
-                        if (folio.equals(folio2)) {
-                            fila[1] = factura.getFechaReferencia();
-                        }
-                    });
-
-                    fila[2] = folio;
-
-                    arrFacturasF.stream().forEach((Factura factura) -> {
-                        String folio2 = factura.getFolio();
-                        if (folio.equals(folio2)) {
-                            fila[3] = factura.getFolioReferencia();
-                        }
-                    });
-
-                    arrFacturasF.stream().forEach((Factura factura) -> {
-                        String folio2 = factura.getFolio();
-                        if (folio.equals(folio2)) {
-                            fila[4] = factura.getRutCliente();
-                        }
-                    });
-
-                    arrFacturasF.stream().forEach((Factura factura) -> {
-                        String folio2 = factura.getFolio();
-                        if (folio.equals(folio2)) {
-                            fila[5] = factura.getOcCliente();
-                        }
-                    });
-
-                    fila[6] = get.getCodigo();
-                    fila[7] = get.getCantidadOC();
-                    fila[8] = get.getCantidad();
-                    fila[9] = get.getDescripcion();
-                    fila[10] = get.getUnidad();
-
-                    Locale chileLocale = new Locale("es", "CL");
-                    NumberFormat nf = NumberFormat.getNumberInstance(chileLocale);
-                    String format = nf.format(costoUnitario);
-                    String[] split = format.split(",");
-
-                    try {
-                        fila[11] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                    } catch (Exception ex) {
-                        try {
-                            fila[11] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                        } catch (Exception exx) {
-                            fila[11] = "$ " + split[0];
-                        }
-                    }
-
-                    format = nf.format(netoUnitario);
-                    split = format.split(",");
-
-                    try {
-                        fila[12] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                    } catch (Exception ex) {
-                        try {
-                            fila[12] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                        } catch (Exception exx) {
-                            fila[12] = "$ " + split[0];
-                        }
-                    }
-
-                    format = nf.format(costoTotal);
-                    split = format.split(",");
-
-                    try {
-                        fila[13] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                    } catch (Exception ex) {
-                        try {
-                            fila[13] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                        } catch (Exception exx) {
-                            fila[13] = "$ " + split[0];
-                        }
-                    }
-
-                    format = nf.format(netoTotal);
-                    split = format.split(",");
-
-                    try {
-                        fila[14] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                    } catch (Exception ex) {
-                        try {
-                            fila[14] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                        } catch (Exception exx) {
-                            fila[14] = "$ " + split[0];
-                        }
-                    }
-
-                    format = nf.format(netoTotal - costoTotal);
-                    split = format.split(",");
-
-                    try {
-                        fila[15] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                    } catch (Exception ex) {
-                        try {
-                            fila[15] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                        } catch (Exception exx) {
-                            fila[15] = "$ " + split[0];
-                        }
-                    }
-
-                    fila[16] = new DecimalFormat("#.##").format(((netoUnitario - costoUnitario) / costoUnitario) * 100) + "%";
-                    arrFacturasF.stream().forEach((Factura factura) -> {
-                        String folio2 = factura.getFolio();
-                        if (folio.equals(folio2)) {
-                            fila[17] = factura.getVendedor();
-                        }
-                    });
-
-                    fila[18] = get.getNumeroOC();
-
-                    arrNumeroOC.add(get.getNumeroOC());
-
-                    model.addRow(fila);
-                    at.getAndIncrement();
-                });
-
-                ((DefaultTableCellRenderer) jTable6.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
-                resizeColumnWidth(jTable6);
-
-                jTable6.setRowHeight(35);
-                jTable6.setShowHorizontalLines(true);
-                jTable6.setShowVerticalLines(true);
-
-                renderer = new DefaultTableCellRenderer();
-                columnCount = jTable6.getColumnCount();
-                for (int i = 0; i < columnCount; i++) {
-                    jTable6.getColumnModel().getColumn(i).setCellRenderer(renderer);
-                }
-                renderer.setHorizontalAlignment(JLabel.CENTER);
-
-                jTable6.getColumn("Costo Unitario").setCellRenderer(new CustomRenderer1(jTable6, VentanaLogin.bool));
-                jTable6.getColumn("Costo Unitario").setCellEditor(new CustomEditor1(jTable6, VentanaLogin.bool));
-
-                jTable6.getColumn("Utilidad").setCellRenderer(new CustomRenderer5());
-
-                jTable6.getColumn("Margen").setCellRenderer(new CustomRenderer5());
-
-                jTable6.getColumnModel().getColumn(11).setPreferredWidth(250);
-
-                HashSet hs = new HashSet();
-                hs.addAll(arrNumeroOC);
-                arrNumeroOC.clear();
-                arrNumeroOC.addAll(hs);
-
-                jComboBox4.removeAllItems();
-                jComboBox4.addItem("-");
-
-                for (int i = 0; i < arrNumeroOC.size(); i++) {
-                    String get = arrNumeroOC.get(i);
-                    jComboBox4.addItem(get);
-                }
-////////////////////////////////////////////////////////////////////////////////
-                arrNombresVendedores = new ArrayList<>();
-                ArrayList<String> arrOrigenes = new ArrayList<>();
-
-                Object[] filaTabla2 = new Object[18];
-                DefaultTableModel modelTabla2 = (DefaultTableModel) jTable2.getModel();
-
-                System.out.println("LLENA TABLA 3");
-
-                AtomicInteger atz = new AtomicInteger(0);
-                arrFacturas.stream().forEach(new Consumer<Factura>() {
-                    @Override
-                    public void accept(Factura factura) {
-                        try {
-                            numeroOC = "";
-                            sumaCostoTotal = 0.0;
-
-                            SumasNumeroOC sumaNumeroOC = arrSumasNumeroOC.get(atz.get());
-                            sumaCostoTotal = sumaNumeroOC.getSuma();
-                            numeroOC = sumaNumeroOC.getNumeroOC();
-
-                            int andIncrement = atz.getAndIncrement();
-                            dato = (andIncrement * porcentaje02) / size02;
-
-//                        System.out.println("arrFacturas namenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamename " + dato);
-                            Principal.newJFrame.jProgressBar1.setValue(250 + porcentaje0 + porcentaje01 + dato);
-
-//                        System.out.println("factura.getFolio() " + factura.getFolio());
-                            Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(factura.getFechaEmision());
-                            filaTabla2[0] = date1;
-                            filaTabla2[1] = factura.getFolio();
-                            filaTabla2[2] = factura.getRazonSocial();
-                            filaTabla2[3] = factura.getRutCliente();
-                            filaTabla2[4] = factura.getVendedor();
-
-                            arrNombresVendedores.add(factura.getVendedor());
-
-                            Locale chileLocale = new Locale("es", "CL");
-                            NumberFormat nf = NumberFormat.getNumberInstance(chileLocale);
-
-                            String format = nf.format(sumaCostoTotal);
-                            String[] split = format.split(",");
-
-                            try {
-                                filaTabla2[5] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                            } catch (Exception ex) {
-                                try {
-                                    filaTabla2[5] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                                } catch (Exception exx) {
-                                    filaTabla2[5] = "$ " + split[0];
-                                }
-                            }
-
-                            format = nf.format(Double.valueOf(factura.getMontoNeto()));
-                            split = format.split(",");
-
-                            try {
-                                filaTabla2[6] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                            } catch (Exception ex) {
-                                try {
-                                    filaTabla2[6] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                                } catch (Exception exx) {
-                                    filaTabla2[6] = "$ " + split[0];
-                                }
-                            }
-
-                            format = nf.format(Double.valueOf(factura.getMontoNeto()) - sumaCostoTotal);
-                            split = format.split(",");
-
-                            try {
-                                filaTabla2[7] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                            } catch (Exception ex) {
-                                try {
-                                    filaTabla2[7] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                                } catch (Exception exx) {
-                                    filaTabla2[7] = "$ " + split[0];
-                                }
-                            }
-
-//                        System.out.println("Double.valueOf(factura.getMontoNeto() " + Double.valueOf(factura.getMontoNeto()));
-//                        System.out.println("sumaNetoTotal " + sumaCostoTotal);
-                            double name = ((Double.valueOf(factura.getMontoNeto()) - sumaCostoTotal) / sumaCostoTotal) * 100;
-
-                            filaTabla2[8] = new DecimalFormat("#.##").format(name) + "%";
-                            filaTabla2[9] = factura.getOrigen();
-
-                            if (numeroOC == null || numeroOC.equals("null")) {
-                                filaTabla2[10] = "-";
-                            } else {
-                                filaTabla2[10] = numeroOC;
-                            }
-
-                            filaTabla2[11] = factura.getPagada();
-
-                            arrOrigenes.add(factura.getOrigen());
-
-                            modelTabla2.addRow(filaTabla2);
-
-                        } catch (ParseException ex) {
-                            Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                });
-
-                System.out.println("FIN AQUI");
-
-                AtomicInteger at1 = new AtomicInteger(0);
-                arrFacturasF.stream().forEach((Factura factura) -> {
-                    try {
-                        numeroOC = "";
-                        sumaCostoTotal = 0.0;
-                        SumasNumeroOC sumaNumeroOC = arrSumasNumeroOCF.get(at1.get());
-                        sumaCostoTotal = sumaNumeroOC.getSuma();
-                        numeroOC = sumaNumeroOC.getNumeroOC();
-
-                        int andIncrement = at1.getAndIncrement();
-                        dato = (andIncrement * porcentaje03) / size03;
-
-//                        System.out.println("arrFacturasF namenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamename " + dato);
-                        Principal.newJFrame.jProgressBar1.setValue(250 + porcentaje0 + porcentaje01 + porcentaje02 + dato);
-
-                        Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(factura.getFechaEmision());
-                        filaTabla2[0] = date1;
-                        filaTabla2[1] = factura.getFolio();
-                        filaTabla2[2] = factura.getRazonSocial();
-                        filaTabla2[3] = factura.getRutCliente();
-                        filaTabla2[4] = factura.getVendedor();
-
-                        arrNombresVendedores.add(factura.getVendedor());
-
-                        Locale chileLocale = new Locale("es", "CL");
-                        NumberFormat nf = NumberFormat.getNumberInstance(chileLocale);
-
-                        String format = nf.format(sumaCostoTotal);
-                        String[] split = format.split(",");
-
-                        try {
-                            filaTabla2[5] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                        } catch (Exception ex) {
-                            try {
-                                filaTabla2[5] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                            } catch (Exception exx) {
-                                filaTabla2[5] = "$ " + split[0];
-                            }
-                        }
-
-                        format = nf.format(Double.valueOf(factura.getMontoNeto()));
-                        split = format.split(",");
-
-                        try {
-                            filaTabla2[6] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                        } catch (Exception ex) {
-                            try {
-                                filaTabla2[6] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                            } catch (Exception exx) {
-                                filaTabla2[6] = "$ " + split[0];
-                            }
-                        }
-
-                        format = nf.format(Double.valueOf(factura.getMontoNeto()) - sumaCostoTotal);
-                        split = format.split(",");
-
-                        try {
-                            filaTabla2[7] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                        } catch (Exception ex) {
-                            try {
-                                filaTabla2[7] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                            } catch (Exception exx) {
-                                filaTabla2[7] = "$ " + split[0];
-                            }
-                        }
-
-//                        System.out.println("Double.valueOf(factura.getMontoNeto() " + Double.valueOf(factura.getMontoNeto()));
-//                        System.out.println("sumaNetoTotal " + sumaCostoTotal);
-                        double name = ((Double.valueOf(factura.getMontoNeto()) - sumaCostoTotal) / sumaCostoTotal) * 100;
-
-                        filaTabla2[8] = new DecimalFormat("#.##").format(name) + "%";
-                        filaTabla2[9] = factura.getOrigen();
-
-                        if (numeroOC == null || numeroOC.equals("null")) {
-                            filaTabla2[10] = "-";
-                        } else {
-                            filaTabla2[10] = numeroOC;
-                        }
-
-                        filaTabla2[11] = factura.getPagada();
-
-                        arrOrigenes.add(factura.getOrigen());
-
-                        modelTabla2.addRow(filaTabla2);
-
-                    } catch (Exception ex) {
-
-                    }
-                });
-
-                ((DefaultTableCellRenderer) jTable2.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
-                resizeColumnWidth(jTable2);
-
-                jTable2.setRowHeight(35);
-                jTable2.setShowHorizontalLines(true);
-                jTable2.setShowVerticalLines(true);
-
-                renderer = new DefaultTableCellRenderer();
-                columnCount = jTable2.getColumnCount();
-                for (int i = 0; i < columnCount; i++) {
-                    jTable2.getColumnModel().getColumn(i).setCellRenderer(renderer);
-                }
-                renderer.setHorizontalAlignment(JLabel.CENTER);
-
-                Set<String> set = new HashSet<>(arrNombresVendedores);
-                arrNombresVendedores.clear();
-                arrNombresVendedores.addAll(set);
-
-                Set<String> set2 = new HashSet<>(arrOrigenes);
-                arrOrigenes.clear();
-                arrOrigenes.addAll(set2);
-
-                jComboBox1.removeAllItems();
-                jComboBox2.removeAllItems();
-
-                jComboBox1.addItem("Todos");
-                jComboBox2.addItem("Todos");
-
-                jComboBox3.removeAllItems();
-                jComboBox3.addItem("");
-
-                for (int i = 0; i < arrNombresVendedores.size(); i++) {
-                    String get = arrNombresVendedores.get(i);
-                    if (!get.equals("")) {
-                        jComboBox1.addItem(get);
-                        jComboBox3.addItem(get);
-                    }
-                }
-
-                for (int i = 0; i < arrOrigenes.size(); i++) {
-                    String get = arrOrigenes.get(i);
-                    if (!get.equals("")) {
-                        jComboBox2.addItem(get);
-                    }
-                }
-
-                jTable2.getColumn("Vendedor").setCellRenderer(new CustomRenderer3(jTable2, VentanaLogin.bool));
-                jTable2.getColumn("Vendedor").setCellEditor(new CustomEditor3(jTable2, VentanaLogin.bool));
-
-                jTable2.getColumn("Fecha FA").setCellRenderer(new CustomRenderer4(jTable2, VentanaLogin.bool));
-                jTable2.getColumn("Fecha FA").setCellEditor(new CustomEditor4(jTable2, VentanaLogin.bool, 0));
-
-                jTable2.getColumn("Utilidad").setCellRenderer(new CustomRenderer5());
-
-                jTable2.getColumn("Pagada").setCellRenderer(new CustomRenderer6(jTable2, VentanaLogin.bool));
-                jTable2.getColumn("Pagada").setCellEditor(new CustomEditor6(jTable2, VentanaLogin.bool));
-
-                jTable2.getColumnModel().getColumn(4).setPreferredWidth(250);
-                jTable2.getColumnModel().getColumn(0).setPreferredWidth(180);
-
-                jTable2.getColumnModel().getColumn(11).setMaxWidth(0);
-                jTable2.getColumnModel().getColumn(11).setMinWidth(0);
-                jTable2.getColumnModel().getColumn(11).setPreferredWidth(0);
-
-//        AutoCompletion.enable(jComboBox3);
-////////////////////////////////////////////////////////////////////////////////
-                System.out.println("LLENA TABLA 4");
-
-                Object[] filaTabla3 = new Object[11];
-                DefaultTableModel modelTabla3 = (DefaultTableModel) jTable3.getModel();
-
-                AtomicInteger at2 = new AtomicInteger(0);
-                selectNotaCredito.stream().forEach((NotaCredito notaCredito) -> {
-
-                    int andIncrement = at2.getAndIncrement();
-                    dato = (andIncrement * porcentaje04) / size04;
-
-//                    System.out.println("selectNotaCredito namenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamename " + dato);
-                    Principal.newJFrame.jProgressBar1.setValue(250 + porcentaje0 + porcentaje01 + porcentaje02 + porcentaje03 + dato);
-
-                    Factura selectFacturaPorFolio = null;
-                    try {
-                        selectFacturaPorFolio = selectFacturaPorFolio(notaCredito.getFolioReferencia());
-                    } catch (IOException ex) {
-                        Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
-
-                    } catch (SQLException ex) {
-                        Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-
-                    filaTabla3[0] = notaCredito.getFecha();
-                    filaTabla3[1] = notaCredito.getCliente();
-                    filaTabla3[2] = notaCredito.getFolio();
-                    filaTabla3[3] = notaCredito.getFolioReferencia();
-
-                    double sumaCostoUnitario = 0.0;
-                    String folioReferencia = notaCredito.getFolioReferencia();
-                    ArrayList<ProductoNotaCredito> selectProductoNotaCreditoPorFolio;
-
-                    try {
-                        selectProductoNotaCreditoPorFolio = selectProductoNotaCreditoPorFolio(notaCredito.getFolio());
-
-                        for (int t = 0; t < selectProductoNotaCreditoPorFolio.size(); t++) {
-                            String costoUnitario = "";
-                            double costoUnitarioTotal = 0.0;
-                            ProductoNotaCredito productoNotaCredito = selectProductoNotaCreditoPorFolio.get(t);
-                            String codigoNC = productoNotaCredito.getCodigo().replace("V.E.", "");
-
-                            for (int i = 0; i < jTable1.getModel().getRowCount(); i++) {
-                                String folio = jTable1.getModel().getValueAt(i, 2).toString();
-                                String codigo = jTable1.getModel().getValueAt(i, 6).toString();
-
-                                if (folio.equals(folioReferencia) && codigo.contains(codigoNC)) {
-                                    try {
-                                        costoUnitario = jTable1.getModel().getValueAt(i, 10).toString().replace(".", "").replace(",", ".").replace("$", "");
-                                    } catch (Exception ex) {
-                                        costoUnitario = jTable1.getModel().getValueAt(i, 10).toString().replace(".", "").replace(",", ".").replace("Ch$", "");
-                                    }
-                                    costoUnitarioTotal = Double.valueOf(costoUnitario) * Double.valueOf(productoNotaCredito.getCantidad());
-//                                    System.out.println("--->");
-//                                    System.out.println(Double.valueOf(costoUnitario));
-//                                    System.out.println(Double.valueOf(productoNotaCredito.getCantidad()));
-                                    break;
-                                }
-                            }
-
-                            for (int i = 0; i < jTable6.getModel().getRowCount(); i++) {
-                                String folio = jTable6.getModel().getValueAt(i, 2).toString();
-                                String codigo = jTable6.getModel().getValueAt(i, 6).toString();
-
-                                if (folio.equals(folioReferencia) && codigo.contains(codigoNC)) {
-                                    try {
-                                        costoUnitario = jTable1.getModel().getValueAt(i, 10).toString().replace(".", "").replace(",", ".").replace("$", "");
-                                    } catch (Exception ex) {
-                                        costoUnitario = jTable1.getModel().getValueAt(i, 10).toString().replace(".", "").replace(",", ".").replace("Ch$", "");
-                                    }
-                                    costoUnitarioTotal = Double.valueOf(costoUnitario) * Double.valueOf(productoNotaCredito.getCantidad());
-//                                    System.out.println("--->");
-//                                    System.out.println(Double.valueOf(costoUnitario));
-//                                    System.out.println(Double.valueOf(productoNotaCredito.getCantidad()));
-                                    break;
-                                }
-                            }
-
-                            sumaCostoUnitario = sumaCostoUnitario + costoUnitarioTotal;
-                        }
-                    } catch (IOException | SQLException ex) {
-                        Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-
-                    Locale chileLocale = new Locale("es", "CL");
-                    NumberFormat nf = NumberFormat.getNumberInstance(chileLocale);
-                    String format = nf.format(Double.valueOf(sumaCostoUnitario));
-                    String[] split = format.split(",");
-
-                    try {
-                        filaTabla3[4] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                    } catch (Exception ex) {
-                        try {
-                            filaTabla3[4] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                        } catch (Exception exx) {
-                            filaTabla3[4] = "$ " + split[0];
-                        }
-                    }
-
-                    String origen = selectFacturaPorFolio.getOrigen();
-
-                    format = nf.format(Double.valueOf(notaCredito.getNeto()));
-                    split = format.split(",");
-
-                    try {
-                        filaTabla3[5] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                    } catch (Exception ex) {
-                        try {
-                            filaTabla3[5] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                        } catch (Exception exx) {
-                            filaTabla3[5] = "$ " + split[0];
-                        }
-                    }
-
-                    if (notaCredito.getMotivo().equals("ANULA")) {
-                        if (origen.equals("Local")) {
-                            for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
-                                String folio = jTable2.getModel().getValueAt(i, 1).toString();
-                                if (folio.equals(notaCredito.getFolioReferencia())) {
-                                    String utilidad = jTable2.getModel().getValueAt(i, 7).toString();
-                                    filaTabla3[6] = utilidad;
-                                    break;
-                                }
-                            }
-                        } else {
-                            for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
-                                String folio = jTable2.getModel().getValueAt(i, 1).toString();
-                                if (folio.equals(notaCredito.getFolioReferencia())) {
-                                    String utilidad = jTable2.getModel().getValueAt(i, 7).toString();
-                                    filaTabla3[6] = utilidad;
-                                    break;
-                                }
-                            }
-                        }
-                    } else if (notaCredito.getMotivo().equals("DIFERENCIA PRECIO") || notaCredito.getMotivo().equals("ESPECIAL")) {
-                        try {
-                            filaTabla3[6] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                        } catch (Exception ex) {
-                            try {
-                                filaTabla3[6] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                            } catch (Exception exx) {
-                                filaTabla3[6] = "$ " + split[0];
-                            }
-                        }
-                    } else if (notaCredito.getMotivo().equals("DEVOLUCION")) {
-                        if (origen.equals("Local")) {
-//                            System.out.println("DEVOLUCION LOCAL");
-                            double suma = 0.0;
-                            try {
-                                selectProductoNotaCreditoPorFolio = selectProductoNotaCreditoPorFolio(notaCredito.getFolio());
-                                String folio = notaCredito.getFolioReferencia();
-//                                System.out.println("--> folio " + folio);
-
-                                int size = selectProductoNotaCreditoPorFolio.size();
-//                                System.out.println("size " + size);
-
-                                for (int i = 0; i < selectProductoNotaCreditoPorFolio.size(); i++) {
-                                    ProductoNotaCredito get = selectProductoNotaCreditoPorFolio.get(i);
-                                    String codigo = get.getCodigo();
-                                    String cantidad = get.getCantidad();
-
-                                    for (int h = 0; h < jTable1.getModel().getRowCount(); h++) {
-                                        String folio1 = jTable1.getModel().getValueAt(h, 2).toString();
-                                        String codigo1 = jTable1.getModel().getValueAt(h, 6).toString();
-
-//                                        System.out.println("folio " + folio);
-//                                        System.out.println("folio1 " + folio1);
-//                                        System.out.println("codigo " + codigo);
-//                                        System.out.println("codigo1 " + codigo1);
-                                        if (folio1.equals(folio) && codigo1.contains(codigo)) {
-                                            String utilidad = jTable1.getModel().getValueAt(h, 14).toString();
-                                            String replace = utilidad.replace(".", "");
-                                            String replace1 = replace.replace(",", ".");
-                                            String replace2 = "";
-                                            try {
-                                                replace2 = replace1.replace("$", "");
-                                            } catch (Exception ex) {
-                                                replace2 = replace1.replace("Ch$", "");
-                                            }
-                                            Double valueOf = Double.valueOf(replace2);
-
-                                            String canttidad = jTable1.getModel().getValueAt(h, 7).toString();
-                                            String replace3 = canttidad.replace(".", "");
-                                            String replace4 = replace3.replace(",", ".");
-                                            String replace5 = "";
-                                            try {
-                                                replace5 = replace4.replace("$", "");
-                                            } catch (Exception ex) {
-                                                replace5 = replace4.replace("Ch$", "");
-                                            }
-                                            Double valueOf1 = Double.valueOf(replace5);
-
-                                            double name = valueOf / valueOf1;
-                                            double name1 = name * Double.valueOf(cantidad);
-
-                                            suma = suma + name1;
-                                            break;
-                                        }
-//                                        System.out.println("-> ");
-                                    }
-//                                    System.out.println("/////////////////////////////");
-                                }
-                            } catch (IOException ex) {
-                                Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
-
-                            } catch (SQLException ex) {
-                                Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                            format = nf.format(Double.valueOf(suma));
-                            split = format.split(",");
-
-                            try {
-                                filaTabla3[6] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                            } catch (Exception ex) {
-                                try {
-                                    filaTabla3[6] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                                } catch (Exception exx) {
-                                    filaTabla3[6] = "$ " + split[0];
-                                }
-                            }
-                        } else {
-//                            System.out.println("DEVOLUCION FABRICA");
-                            double suma = 0.0;
-                            try {
-                                selectProductoNotaCreditoPorFolio = selectProductoNotaCreditoPorFolio(notaCredito.getFolio());
-                                String folio = notaCredito.getFolioReferencia();
-//                                System.out.println("--> folio " + folio);
-
-                                int size = selectProductoNotaCreditoPorFolio.size();
-//                                System.out.println("size " + size);
-
-                                for (int i = 0; i < selectProductoNotaCreditoPorFolio.size(); i++) {
-                                    ProductoNotaCredito get = selectProductoNotaCreditoPorFolio.get(i);
-                                    String codigo = get.getCodigo().replace("V.E.", "");
-                                    String cantidad = get.getCantidad();
-
-                                    for (int h = 0; h < jTable6.getModel().getRowCount(); h++) {
-                                        String folio1 = jTable6.getModel().getValueAt(h, 2).toString();
-                                        String codigo1 = jTable6.getModel().getValueAt(h, 6).toString();
-
-//                                        System.out.println("folio " + folio);
-//                                        System.out.println("folio1 " + folio1);
-//                                        System.out.println("codigo " + codigo);
-//                                        System.out.println("codigo1 " + codigo1);
-                                        if (folio1.equals(folio) && codigo1.contains(codigo)) {
-                                            String utilidad = jTable6.getModel().getValueAt(h, 15).toString();
-                                            String replace = utilidad.replace(".", "");
-                                            String replace1 = replace.replace(",", ".");
-                                            String replace2 = "";
-                                            try {
-                                                replace2 = replace1.replace("$", "");
-                                            } catch (Exception ex) {
-                                                replace2 = replace1.replace("Ch$", "");
-                                            }
-                                            Double valueOf = Double.valueOf(replace2);
-
-                                            String canttidad = jTable6.getModel().getValueAt(h, 8).toString();
-                                            String replace3 = canttidad.replace(".", "");
-                                            String replace4 = replace3.replace(",", ".");
-                                            String replace5 = "";
-                                            try {
-                                                replace5 = replace4.replace("$", "");
-                                            } catch (Exception ex) {
-                                                replace5 = replace4.replace("Ch$", "");
-                                            }
-                                            Double valueOf1 = Double.valueOf(replace5);
-
-                                            double name = valueOf / valueOf1;
-                                            double name1 = name * Double.valueOf(cantidad);
-
-                                            suma = suma + name1;
-                                            break;
-                                        }
-//                                        System.out.println("-> ");
-                                    }
-//                                    System.out.println("/////////////////////////////");
-                                }
-                            } catch (IOException ex) {
-                                Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
-
-                            } catch (SQLException ex) {
-                                Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                            format = nf.format(Double.valueOf(suma));
-                            split = format.split(",");
-
-                            try {
-                                filaTabla3[6] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                            } catch (Exception ex) {
-                                try {
-                                    filaTabla3[6] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                                } catch (Exception exx) {
-                                    filaTabla3[6] = "$ " + split[0];
-                                }
-                            }
-                        }
-                    }
-
-                    filaTabla3[7] = notaCredito.getVendedor();
-                    filaTabla3[8] = notaCredito.getMotivo();
-                    filaTabla3[9] = selectFacturaPorFolio.getOrigen();
-
-                    for (int i = 0; i < jTable6.getModel().getRowCount(); i++) {
-                        String toString = jTable6.getModel().getValueAt(i, 2).toString();
-                        if (toString.equals(notaCredito.getFolioReferencia())) {
-                            filaTabla3[10] = jTable6.getModel().getValueAt(i, 18).toString();
-                            break;
-                        }
-                    }
-
-                    modelTabla3.addRow(filaTabla3);
-                });
-
-                ((DefaultTableCellRenderer) jTable3.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
-                resizeColumnWidth(jTable3);
-
-                jTable3.setRowHeight(35);
-                jTable3.setShowHorizontalLines(true);
-                jTable3.setShowVerticalLines(true);
-
-                renderer = new DefaultTableCellRenderer();
-                columnCount = jTable3.getColumnCount();
-                for (int i = 0; i < columnCount; i++) {
-                    jTable3.getColumnModel().getColumn(i).setCellRenderer(renderer);
-                }
-                renderer.setHorizontalAlignment(JLabel.CENTER);
-
-                jTable3.getColumn("Fecha").setCellRenderer(new CustomRenderer4(jTable3, VentanaLogin.bool));
-                jTable3.getColumn("Fecha").setCellEditor(new CustomEditor4(jTable3, VentanaLogin.bool, 1));
-
-                jTable3.getColumnModel().getColumn(0).setPreferredWidth(180);
-////////////////////////////////////////////////////////////////////////
-                System.out.println("LLENA TABLA 5");
-
-                Object[] filaTabla4 = new Object[10];
-                DefaultTableModel modelTabla4 = (DefaultTableModel) jTable4.getModel();
-
-                Locale chileLocale = new Locale("es", "CL");
-                NumberFormat nf = NumberFormat.getNumberInstance(chileLocale);
-
-                AtomicInteger at3 = new AtomicInteger(0);
-                selectFlete.stream().forEach((Flete fletex) -> {
-
-                    int andIncrement = at3.getAndIncrement();
-                    dato = (andIncrement * porcentaje05) / size05;
-
-//                    System.out.println("selectFlete namenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamenamename " + dato);
-                    Principal.newJFrame.jProgressBar1.setValue(250 + porcentaje0 + porcentaje01 + porcentaje02 + porcentaje03 + porcentaje04 + dato);
-
-                    filaTabla4[0] = fletex.getFechaFa();
-                    filaTabla4[1] = fletex.getNumeroFa();
-                    filaTabla4[2] = fletex.getVendedor();
-
-                    String format = nf.format(Double.valueOf(fletex.getMontoFa()));
-                    String[] split = format.split(",");
-
-                    try {
-                        filaTabla4[3] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                    } catch (Exception ex) {
-                        try {
-                            filaTabla4[3] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                        } catch (Exception exx) {
-                            filaTabla4[3] = "$ " + split[0];
-                        }
-                    }
-
-                    format = nf.format(Double.valueOf(fletex.getMontoFaVendedor()));
-                    split = format.split(",");
-
-                    try {
-                        filaTabla4[4] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                    } catch (Exception ex) {
-                        try {
-                            filaTabla4[4] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                        } catch (Exception exx) {
-                            filaTabla4[4] = "$ " + split[0];
-                        }
-                    }
-                    filaTabla4[5] = fletex.getObservacion();
-                    modelTabla4.addRow(filaTabla4);
-                });
-
-                ((DefaultTableCellRenderer) jTable4.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
-                resizeColumnWidth(jTable4);
-
-                jTable4.setRowHeight(60);
-                jTable4.setShowHorizontalLines(true);
-                jTable4.setShowVerticalLines(true);
-
-                renderer = new DefaultTableCellRenderer();
-                columnCount = jTable4.getColumnCount();
-                for (int i = 0; i < columnCount; i++) {
-                    jTable4.getColumnModel().getColumn(i).setCellRenderer(renderer);
-                }
-                renderer.setHorizontalAlignment(JLabel.CENTER);
-
-                jTable4.getColumn("Observacion").setCellRenderer(new CustomRenderer2(jTable4, VentanaLogin.bool));
-                jTable4.getColumn("Observacion").setCellEditor(new CustomEditor2(jTable4, VentanaLogin.bool));
-
-                jTable4.getColumn("Eliminar").setCellRenderer(new CustomRenderer("Eliminar", VentanaLogin.bool));
-                jTable4.getColumn("Eliminar").setCellEditor(new CustomEditor("Eliminar", VentanaLogin.bool));
-
-                jTable4.getColumnModel().getColumn(5).setPreferredWidth(400);
-////////////////////////////////////////////////////////////////////////////////
-                String nombrex = VentanaLogin.nombrex;
-                int tipo = VentanaLogin.tipo;
-
-                double sumaUtilidad1 = 0;
-                double sumaUtilidad2 = 0;
-                double sumaNeto = 0;
-
-                Object[] filaTabla5 = new Object[4];
-                DefaultTableModel modelTabla5 = (DefaultTableModel) jTable5.getModel();
-
-                for (int j = 0; j < jTable2.getModel().getRowCount(); j++) {
-                    double neto = Double.parseDouble(jTable2.getModel().getValueAt(j, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
-                    double utilidad = Double.parseDouble(jTable2.getModel().getValueAt(j, 7).toString().replace("$", "").replace(".", "").replace(",", "."));
-
-                    if (utilidad > 0) {
-                        sumaNeto = sumaNeto + neto;
-                    }
-                }
-
-                for (int i = 0; i < jComboBox1.getItemCount(); i++) {
-                    String toString = jComboBox1.getItemAt(i);
-                    if (!toString.equals("EDUARDO VEGA") && !toString.equals("VICTOR ESPINOZA R.") && !toString.equals("CARLOS MATURANA") && !toString.equals("Todos") && !toString.equals("CHERYL BERRIOS")) {
-                        double sumaUtilidadNCBono = 0;
-                        double sumaUtilidadNCLocal = 0;
-                        double sumaUtilidadNC = 0;
-                        double sumaUtilidadLocal = 0;
-                        double sumaUtilidad = 0;
-                        double sumaFlete = 0;
-                        double sumaBono = 0;
-                        double sumaCostoLocal = 0;
-                        double sumaCosto = 0;
-                        double sumaCostoNCLocal = 0;
-                        double sumaCostoNC = 0;
-
-                        for (int x = 0; x < jTable4.getModel().getRowCount(); x++) {
-                            String vendedor = jTable4.getValueAt(x, 2).toString();
-                            double monto = Double.parseDouble(jTable4.getValueAt(x, 4).toString().replace(".", "").replace(",", ".").replace("$", ""));
-
-                            if (toString.equals(vendedor)) {
-                                sumaFlete = sumaFlete + monto;
-                            }
-                        }
-
-                        for (int j = 0; j < jTable3.getModel().getRowCount(); j++) {
-                            String fecha = jTable3.getModel().getValueAt(j, 0).toString();
-                            String vendedor = jTable3.getModel().getValueAt(j, 7).toString();
-                            String origen = jTable3.getModel().getValueAt(j, 9).toString();
-                            double costo = Double.parseDouble(jTable3.getModel().getValueAt(j, 4).toString().replace("$", "").replace(".", "").replace(",", "."));
-                            double utilidad = Double.parseDouble(jTable3.getModel().getValueAt(j, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
-
-                            if (toString.equals(vendedor)) {
-                                if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(fecha.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(fecha.replace("-", ""))) {
-                                    sumaUtilidadNC = sumaUtilidadNC + utilidad;
-                                    sumaCostoNC = sumaCostoNC + costo;
-
-                                    if (origen.equals("Local")) {
-                                        sumaUtilidadNCLocal = sumaUtilidadNCLocal + utilidad;
-                                        sumaCostoNCLocal = sumaCostoNCLocal + costo;
-                                    }
-                                }
-                            }
-                        }
-
-                        for (int j = 0; j < jTable2.getModel().getRowCount(); j++) {
-                            String folio = jTable2.getModel().getValueAt(j, 1).toString();
-                            String vendedor = jTable2.getModel().getValueAt(j, 4).toString();
-                            double costo = Double.parseDouble(jTable2.getModel().getValueAt(j, 5).toString().replace("$", "").replace(".", "").replace(",", "."));
-                            double utilidad = Double.parseDouble(jTable2.getModel().getValueAt(j, 7).toString().replace("$", "").replace(".", "").replace(",", "."));
-                            String margen = jTable2.getModel().getValueAt(j, 8).toString();
-                            String origen = jTable2.getModel().getValueAt(j, 9).toString();
-
-                            if (toString.equals(vendedor)) {
-
-                                sumaUtilidad = sumaUtilidad + utilidad;
-                                sumaCosto = sumaCosto + costo;
-
-                                String replace = margen.replace("%", "").replace(",", ".");
-                                System.out.println("replace " + replace);
-                                Double valueOf = 0.0;
-                                try {
-                                    valueOf = Double.valueOf(replace);
-                                } catch (Exception ex) {
-
-                                }
-
-                                if (valueOf >= 10) {
-                                    System.out.println("valueOf " + valueOf);
-                                    sumaBono = sumaBono + utilidad;
-
-                                    for (int r = 0; r < jTable3.getModel().getRowCount(); r++) {
-                                        String foliox = jTable3.getValueAt(r, 2).toString();
-                                        String vendedorx = jTable3.getValueAt(r, 7).toString();
-                                        double utilidadx = Double.parseDouble(jTable3.getModel().getValueAt(r, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
-
-                                        if (toString.equals(vendedorx)) {
-                                            if (folio.equals(foliox)) {
-                                                sumaUtilidadNCBono = sumaUtilidadNCBono + utilidadx;
-                                            }
-                                        }
-                                    }
-                                }
-
-                                if (origen.equals("Local")) {
-                                    sumaUtilidadLocal = sumaUtilidadLocal + utilidad;
-                                    sumaCostoLocal = sumaCostoLocal + costo;
-                                }
-                            }
-                        }
-
-                        double porcentaje = (((sumaUtilidadLocal) - sumaUtilidadNCLocal) / ((sumaCostoLocal) - sumaCostoNCLocal)) * 100;
-
-                        System.out.println("toString " + toString);
-                        System.out.println("sumaUtilidad " + sumaUtilidad);
-                        System.out.println("porcentaje " + porcentaje);
-                        System.out.println("sumaUtilidadNC " + sumaUtilidadNC);
-                        System.out.println("sumaFlete " + sumaFlete);
-                        System.out.println("sumaBono " + sumaBono);
-                        System.out.println("sumaUtilidadNCBono " + sumaUtilidadNCBono);
-
-                        double name = (sumaUtilidad - sumaUtilidadNC - sumaFlete) * 0.1;
-
-                        double namex = 0.0;
-                        if (porcentaje >= 10) {
-                            namex = (sumaBono - sumaUtilidadNCBono - sumaFlete) * 0.05;
-                        }
-
-                        System.out.println("name " + name);
-                        System.out.println("namex " + namex);
-
-                        if (toString.equals("FRANCESCA PEREZ") || toString.equals("MARIO BRITO") || toString.equals("JUAN PABLO ARANDA") || toString.equals("CARLOS SEREY")) {
-                            sumaUtilidad1 = sumaUtilidad1 + (sumaUtilidad - sumaUtilidadNC - sumaFlete);
-                        }
-
-                        if (toString.equals("GONZALO ORDENES") || toString.equals("SERGIO HIDALGO") || toString.equals("GROVER IBACETA") || toString.equals("CLAUDIA RIQUELME")) {
-                            sumaUtilidad2 = sumaUtilidad2 + (sumaUtilidad - sumaUtilidadNC - sumaFlete);
-                        }
-
-                        filaTabla5[0] = toString;
-
-                        String format = nf.format(name);
-                        String[] split = format.split(",");
-
-                        try {
-                            filaTabla5[1] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                        } catch (Exception ex) {
-                            try {
-                                filaTabla5[1] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                            } catch (Exception exx) {
-                                filaTabla5[1] = "$ " + split[0];
-                            }
-                        }
-
-                        format = nf.format(namex);
-                        split = format.split(",");
-
-                        try {
-                            filaTabla5[2] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                        } catch (Exception ex) {
-                            try {
-                                filaTabla5[2] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                            } catch (Exception exx) {
-                                filaTabla5[2] = "$ " + split[0];
-                            }
-                        }
-
-                        format = nf.format(name + namex);
-                        split = format.split(",");
-
-                        try {
-                            filaTabla5[3] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                        } catch (Exception ex) {
-                            try {
-                                filaTabla5[3] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                            } catch (Exception exx) {
-                                filaTabla5[3] = "$ " + split[0];
-                            }
-                        }
-
-                        if (tipo == 0) {
-                            modelTabla5.addRow(filaTabla5);
-                        } else {
-                            if (nombrex.equals(toString)) {
-                                modelTabla5.addRow(filaTabla5);
-                            }
-                        }
-                    }
-                }
-
-                double sumaUtilidadTotal = sumaUtilidad1 + sumaUtilidad2;
-
-                double porcentajeVega = ((sumaUtilidad1 * 100) / sumaUtilidadTotal) / 100;
-                double porcentajeMaturana = ((sumaUtilidad2 * 100) / sumaUtilidadTotal) / 100;
-                double totalVega = 0;
-                double totalMaturana = 0;
-
-                if (sumaUtilidadTotal >= 21000000 && sumaUtilidadTotal <= 29999999) {
-                    totalVega = 500000 * porcentajeVega;
-                    totalMaturana = 500000 * porcentajeMaturana;
-                } else if (sumaUtilidadTotal >= 30000000 && sumaUtilidadTotal <= 39999999) {
-                    totalVega = 700000 * porcentajeVega;
-                    totalMaturana = 700000 * porcentajeMaturana;
-                } else if (sumaUtilidadTotal >= 40000000 && sumaUtilidadTotal <= 49999999) {
-                    totalVega = 800000 * porcentajeVega;
-                    totalMaturana = 800000 * porcentajeMaturana;
-                } else if (sumaUtilidadTotal >= 50000000 && sumaUtilidadTotal <= 59999999) {
-                    totalVega = 900000 * porcentajeVega;
-                    totalMaturana = 900000 * porcentajeMaturana;
-                } else if (sumaUtilidadTotal >= 60000000 && sumaUtilidadTotal <= 69999999) {
-                    totalVega = 1000000 * porcentajeVega;
-                    totalMaturana = 1000000 * porcentajeMaturana;
-                } else if (sumaUtilidadTotal >= 70000000 && sumaUtilidadTotal <= 79999999) {
-                    totalVega = 1100000 * porcentajeVega;
-                    totalMaturana = 1100000 * porcentajeMaturana;
-                } else if (sumaUtilidadTotal >= 80000000 && sumaUtilidadTotal <= 89999999) {
-                    totalVega = 1200000 * porcentajeVega;
-                    totalMaturana = 1200000 * porcentajeMaturana;
-                } else if (sumaUtilidadTotal >= 90000000 && sumaUtilidadTotal <= 99999999) {
-                    totalVega = 1300000 * porcentajeVega;
-                    totalMaturana = 1300000 * porcentajeMaturana;
-                } else if (sumaUtilidadTotal >= 100000000 && sumaUtilidadTotal <= 109999999) {
-                    totalVega = 1400000 * porcentajeVega;
-                    totalMaturana = 1400000 * porcentajeMaturana;
-                } else if (sumaUtilidadTotal >= 110000000 && sumaUtilidadTotal <= 119999999) {
-                    totalVega = 1500000 * porcentajeVega;
-                    totalMaturana = 1500000 * porcentajeMaturana;
-                }
-
-                filaTabla5[0] = "EDUARDO VEGA";
-
-                String format = nf.format(totalVega);
-                String[] split = format.split(",");
-
-                try {
-                    filaTabla5[1] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                } catch (Exception ex) {
-                    try {
-                        filaTabla5[1] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                    } catch (Exception exx) {
-                        filaTabla5[1] = "$ " + split[0];
-                    }
-                }
-
-                filaTabla5[2] = "";
-                filaTabla5[3] = "";
-
-                if (tipo == 0) {
-                    modelTabla5.addRow(filaTabla5);
-                } else {
-                    if (nombrex.equals("EDUARDO VEGA")) {
-                        modelTabla5.addRow(filaTabla5);
-                    }
-                }
-
-                filaTabla5[0] = "CARLOS MATURANA";
-
-                format = nf.format(totalMaturana);
-                split = format.split(",");
-
-                try {
-                    filaTabla5[1] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                } catch (Exception ex) {
-                    try {
-                        filaTabla5[1] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                    } catch (Exception exx) {
-                        filaTabla5[1] = "$ " + split[0];
-                    }
-                }
-
-                filaTabla5[2] = "";
-                filaTabla5[3] = "";
-
-                if (tipo == 0) {
-                    modelTabla5.addRow(filaTabla5);
-                } else {
-                    if (nombrex.equals("CARLOS MATURANA")) {
-                        modelTabla5.addRow(filaTabla5);
-                    }
-                }
-
-                filaTabla5[0] = "VICTOR ESPINOZA R.";
-
-                format = nf.format(sumaNeto * 0.003);
-                split = format.split(",");
-
-                try {
-                    filaTabla5[1] = "$ " + split[0] + "," + split[1].substring(0, 2);
-                } catch (Exception ex) {
-                    try {
-                        filaTabla5[1] = "$ " + split[0] + "," + split[1].substring(0, 1);
-                    } catch (Exception exx) {
-                        filaTabla5[1] = "$ " + split[0];
-                    }
-                }
-
-                filaTabla5[2] = "";
-                filaTabla5[3] = "";
-
-                if (tipo == 0) {
-                    modelTabla5.addRow(filaTabla5);
-                } else {
-                    if (nombrex.equals("VICTOR ESPINOZA R.")) {
-                        modelTabla5.addRow(filaTabla5);
-                    }
-                }
-
-                ((DefaultTableCellRenderer) jTable5.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
-                resizeColumnWidth(jTable5);
-
-                jTable5.setRowHeight(25);
-                jTable5.setShowHorizontalLines(true);
-                jTable5.setShowVerticalLines(true);
-
-                renderer = new DefaultTableCellRenderer();
-                columnCount = jTable5.getColumnCount();
-                for (int i = 0; i < columnCount; i++) {
-                    jTable5.getColumnModel().getColumn(i).setCellRenderer(renderer);
-                }
-                renderer.setHorizontalAlignment(JLabel.CENTER);
-
-                Principal.jLabel27.setText("" + jTable2.getRowCount());
-////////////////////////////////////////////////////////////////////////////////
-                jComboBox5.removeAllItems();
-                for (int i = 0; i < arrNombresVendedores.size(); i++) {
-                    String get = arrNombresVendedores.get(i);
-                    if (!get.equals("")) {
-                        jComboBox5.addItem(get);
-                    }
-                }
-            }
-        }).thenRunAsync(() -> {
-            Principal.newJFrame.jTabbedPane1.setVisible(true);
-            Principal.newJFrame.jPanel15.setVisible(false);
-        });
     }
 
     private static String formatCurrency(double value) {

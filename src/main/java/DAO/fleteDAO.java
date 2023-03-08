@@ -30,7 +30,8 @@ public class fleteDAO {
     public static ArrayList<Flete> selectFlete(int tipo, String nombrex) throws IOException, SQLException {
         if (tipo == 0) {
             ArrayList<Flete> arrFlete = new ArrayList<>();
-            try ( PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM dbo.flete");  ResultSet res = consulta.executeQuery()) {
+            try ( PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM dbo.flete "
+                    + "WHERE vendedor <> 'PATRICIO ROMAN' and vendedor <> 'NICOLAS ROJIC'");  ResultSet res = consulta.executeQuery()) {
                 while (res.next()) {
                     Flete flete = new Flete();
                     flete.setFechaFa(res.getString("fechaFa"));

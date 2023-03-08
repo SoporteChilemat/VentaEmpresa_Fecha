@@ -60,10 +60,10 @@ public class productoDAO {
         }
     }
 
-    public static void prueba(String tipo, Boolean bool) {
+    public static void prueba(String tipo, String usuario) {
         try {
             String query = "";
-            if (bool) {
+            if (usuario.equals("MOYRIC")) {
                 query = "SELECT a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
                         + "                     fechaReferencia, ocCliente, origen, vendedor, pagada, codigo, descripcion, unidad, precioUnitario, costoUnitario, cantidad, precioTotal, b.folio, \n"
                         + "                     costoFinal, numeroOC, codigoOC, cantidadOC, \n"
@@ -74,6 +74,17 @@ public class productoDAO {
                         + "                     fechaReferencia, ocCliente, origen, vendedor, pagada) rownum \n"
                         + "					 \n"
                         + "					 FROM dbo.factura as a inner join dbo.producto as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and a.vendedor = 'PATRICIO ROMAN' order by a.folio asc";
+            } else if (usuario.equals("ROJICN")) {
+                query = "SELECT a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
+                        + "                     fechaReferencia, ocCliente, origen, vendedor, pagada, codigo, descripcion, unidad, precioUnitario, costoUnitario, cantidad, precioTotal, b.folio, \n"
+                        + "                     costoFinal, numeroOC, codigoOC, cantidadOC, \n"
+                        + "		ROW_NUMBER() OVER (\n"
+                        + "            PARTITION BY a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
+                        + "                     fechaReferencia, ocCliente, origen, vendedor, pagada\n"
+                        + "            ORDER BY a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
+                        + "                     fechaReferencia, ocCliente, origen, vendedor, pagada) rownum \n"
+                        + "					 \n"
+                        + "					 FROM dbo.factura as a inner join dbo.producto as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and a.vendedor = 'NICOLAS ROJIC' order by a.folio asc";
             } else {
                 query = "SELECT a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
                         + "                     fechaReferencia, ocCliente, origen, vendedor, pagada, codigo, descripcion, unidad, precioUnitario, costoUnitario, cantidad, precioTotal, b.folio, \n"
@@ -84,7 +95,7 @@ public class productoDAO {
                         + "            ORDER BY a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
                         + "                     fechaReferencia, ocCliente, origen, vendedor, pagada) rownum \n"
                         + "					 \n"
-                        + "					 FROM dbo.factura as a inner join dbo.producto as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and a.vendedor <> 'PATRICIO ROMAN' order by a.folio asc";
+                        + "					 FROM dbo.factura as a inner join dbo.producto as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and a.vendedor <> 'NICOLAS ROJIC' and a.vendedor <> 'PATRICIO ROMAN' order by a.folio asc";
             }
 
             PreparedStatement estatuto = conex.getConnection().prepareStatement(query);
@@ -151,16 +162,19 @@ public class productoDAO {
         }
     }
 
-    public static ArrayList<SumasNumeroOC> prueba2(String tipo, Boolean bool) {
+    public static ArrayList<SumasNumeroOC> prueba2(String tipo, String usuario) {
         ArrayList<SumasNumeroOC> arrsumasNumeroOC = new ArrayList<>();
         try {
             String query = "";
-            if (bool) {
+            if (usuario.equals("MOYRIC")) {
                 query = "SELECT sum(cast(costoUnitario as float) * cast(cantidad as float)) as suma, a.numeroOC "
                         + "FROM dbo.producto as a inner join dbo.factura as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and b.vendedor = 'PATRICIO ROMAN' group by b.folio, a.numeroOC order by b.folio asc";
+            } else if (usuario.equals("ROJICN")) {
+                query = "SELECT sum(cast(costoUnitario as float) * cast(cantidad as float)) as suma, a.numeroOC "
+                        + "FROM dbo.producto as a inner join dbo.factura as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and b.vendedor = 'NICOLAS ROJIC' group by b.folio, a.numeroOC order by b.folio asc";
             } else {
                 query = "SELECT sum(cast(costoUnitario as float) * cast(cantidad as float)) as suma , a.numeroOC "
-                        + "FROM dbo.producto as a inner join dbo.factura as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and b.vendedor <> 'PATRICIO ROMAN' group by b.folio, a.numeroOC order by b.folio asc";
+                        + "FROM dbo.producto as a inner join dbo.factura as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and b.vendedor <> 'NICOLAS ROJIC' and b.vendedor <> 'PATRICIO ROMAN' group by b.folio, a.numeroOC order by b.folio asc";
             }
 
             PreparedStatement estatuto = conex.getConnection().prepareStatement(query);
