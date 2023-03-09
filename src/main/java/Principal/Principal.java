@@ -45,6 +45,9 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel15.setVisible(false);
         jPanel15.setSize(0, 0);
+        
+        jCheckBox1.setVisible(false);
+        jCheckBox2.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -55,7 +58,7 @@ public class Principal extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTableResumen = new javax.swing.JTable();
         jPanel8 = new javax.swing.JPanel();
         rSDateChooser2 = new rojeru_san.componentes.RSDateChooser();
         jButton1 = new javax.swing.JButton();
@@ -99,16 +102,16 @@ public class Principal extends javax.swing.JFrame {
         jCheckBox2 = new javax.swing.JCheckBox();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableLocal = new javax.swing.JTable();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
+        jTableFabrica = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jTableNotaDeCredito = new javax.swing.JTable();
         jPanel12 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        jTableFlete = new javax.swing.JTable();
         jPanel13 = new javax.swing.JPanel();
         jTextField2 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
@@ -120,7 +123,7 @@ public class Principal extends javax.swing.JFrame {
         rSDateChooser3 = new rojeru_san.componentes.RSDateChooser();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        jTableComisiones = new javax.swing.JTable();
         jPanel14 = new javax.swing.JPanel();
         rSDateChooser6 = new rojeru_san.componentes.RSDateChooser();
         rSDateChooser7 = new rojeru_san.componentes.RSDateChooser();
@@ -131,7 +134,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel16 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTable7 = new javax.swing.JTable();
+        jTableEstadisticas = new javax.swing.JTable();
         jPanel18 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         jComboBox5 = new javax.swing.JComboBox<>();
@@ -164,7 +167,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableResumen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -172,9 +175,9 @@ public class Principal extends javax.swing.JFrame {
                 "Fecha FA", "N° Factura", "Razon Social", "Cliente", "Vendedor", "Costo Total", "Neto Total", "Utilidad", "Margen", "Origen", "N° Orden de Compra", "Pagada", "Vendedor 2"
             }
         ));
-        jTable2.setCellSelectionEnabled(true);
-        jScrollPane2.setViewportView(jTable2);
-        jTable2.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        jTableResumen.setCellSelectionEnabled(true);
+        jScrollPane2.setViewportView(jTableResumen);
+        jTableResumen.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -572,7 +575,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableLocal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -580,8 +583,8 @@ public class Principal extends javax.swing.JFrame {
                 "Fecha Factura", "Fecha GD", "Folio", "OC Cliente", "Rut Cliente", "N° G.D.", "Codigo", "Cantidad", "Descripcion", "Unidad", "Costo Unitario", "Neto Unitario", "Costo Total", "Neto Total", "Utilidad", "Margen", "Vendedor", "Vendedor 2"
             }
         ));
-        jTable1.setCellSelectionEnabled(true);
-        jScrollPane1.setViewportView(jTable1);
+        jTableLocal.setCellSelectionEnabled(true);
+        jScrollPane1.setViewportView(jTableLocal);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -604,7 +607,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+        jTableFabrica.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -612,9 +615,9 @@ public class Principal extends javax.swing.JFrame {
                 "Fecha Factura", "Fecha GD", "Folio", "Folio Referencia", "Rut Cliente", "OC Cliente", "Codigo", "Cantidad OC", "Cantidad", "Descripcion", "Unidad", "Costo Unitario", "Neto Unitario", "Costo Total", "Neto Total", "Utilidad", "Margen", "Vendedor", "N° Orden de Compra"
             }
         ));
-        jTable6.setCellSelectionEnabled(true);
-        jScrollPane6.setViewportView(jTable6);
-        jTable6.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        jTableFabrica.setCellSelectionEnabled(true);
+        jScrollPane6.setViewportView(jTableFabrica);
+        jTableFabrica.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -637,7 +640,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        jTableNotaDeCredito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -645,8 +648,8 @@ public class Principal extends javax.swing.JFrame {
                 "Fecha", "Cliente", "Folio NC", "Folio FA", "Costo Total", "Neto N.C.", "Utilidad", "Vendedor", "Observacion", "Origen", "OC Referencia", "Vendedor2"
             }
         ));
-        jTable3.setCellSelectionEnabled(true);
-        jScrollPane3.setViewportView(jTable3);
+        jTableNotaDeCredito.setCellSelectionEnabled(true);
+        jScrollPane3.setViewportView(jTableNotaDeCredito);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -669,7 +672,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        jTableFlete.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -677,8 +680,8 @@ public class Principal extends javax.swing.JFrame {
                 "Fecha FA.", "N° FA.", "Vendedor", "Monto FA.", "Monto FA. Vendedor", "Observacion", "Eliminar"
             }
         ));
-        jTable4.setCellSelectionEnabled(true);
-        jScrollPane4.setViewportView(jTable4);
+        jTableFlete.setCellSelectionEnabled(true);
+        jScrollPane4.setViewportView(jTableFlete);
 
         jPanel13.setBackground(new java.awt.Color(51, 0, 51));
         jPanel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -756,7 +759,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        jTableComisiones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -764,7 +767,7 @@ public class Principal extends javax.swing.JFrame {
                 "Vendedor", "Comision", "Bono 2", "Total"
             }
         ));
-        jScrollPane5.setViewportView(jTable5);
+        jScrollPane5.setViewportView(jTableComisiones);
 
         jPanel14.setBackground(new java.awt.Color(51, 0, 51));
         jPanel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -869,7 +872,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jTable7.setModel(new javax.swing.table.DefaultTableModel(
+        jTableEstadisticas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -877,7 +880,7 @@ public class Principal extends javax.swing.JFrame {
                 "RUT", "Razon Social", "Neto"
             }
         ));
-        jScrollPane7.setViewportView(jTable7);
+        jScrollPane7.setViewportView(jTableEstadisticas);
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -1133,37 +1136,37 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
         try {
-            ((DefaultTableModel) jTable1.getModel()).setNumRows(0);
+            ((DefaultTableModel) jTableLocal.getModel()).setNumRows(0);
         } catch (Exception ex) {
 
         }
         try {
-            ((DefaultTableModel) jTable2.getModel()).setNumRows(0);
+            ((DefaultTableModel) jTableResumen.getModel()).setNumRows(0);
         } catch (Exception ex) {
 
         }
         try {
-            ((DefaultTableModel) jTable3.getModel()).setNumRows(0);
+            ((DefaultTableModel) jTableNotaDeCredito.getModel()).setNumRows(0);
         } catch (Exception ex) {
 
         }
         try {
-            ((DefaultTableModel) jTable4.getModel()).setNumRows(0);
+            ((DefaultTableModel) jTableFlete.getModel()).setNumRows(0);
         } catch (Exception ex) {
 
         }
         try {
-            ((DefaultTableModel) jTable5.getModel()).setNumRows(0);
+            ((DefaultTableModel) jTableComisiones.getModel()).setNumRows(0);
         } catch (Exception ex) {
 
         }
         try {
-            ((DefaultTableModel) jTable5.getModel()).setNumRows(0);
+            ((DefaultTableModel) jTableComisiones.getModel()).setNumRows(0);
         } catch (Exception ex) {
 
         }
         try {
-            ((DefaultTableModel) jTable7.getModel()).setNumRows(0);
+            ((DefaultTableModel) jTableEstadisticas.getModel()).setNumRows(0);
         } catch (Exception ex) {
 
         }
@@ -1238,7 +1241,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        jTable2.setRowSorter(null);
+        jTableResumen.setRowSorter(null);
 
         jLabel4.setText("-");
         jLabel5.setText("-");
@@ -1493,13 +1496,13 @@ public class Principal extends javax.swing.JFrame {
 
                 Monitor();
 
-                TableFilterHeader filter = new TableFilterHeader(jTable1, AutoChoices.ENABLED);
-                TableFilterHeader filter2 = new TableFilterHeader(jTable2, AutoChoices.ENABLED);
-                TableFilterHeader filter3 = new TableFilterHeader(jTable3, AutoChoices.ENABLED);
-                TableFilterHeader filter4 = new TableFilterHeader(jTable4, AutoChoices.ENABLED);
-                TableFilterHeader filter5 = new TableFilterHeader(jTable5, AutoChoices.ENABLED);
-                TableFilterHeader filter6 = new TableFilterHeader(jTable6, AutoChoices.ENABLED);
-                TableFilterHeader filter7 = new TableFilterHeader(jTable7, AutoChoices.ENABLED);
+                TableFilterHeader filter = new TableFilterHeader(jTableLocal, AutoChoices.ENABLED);
+                TableFilterHeader filter2 = new TableFilterHeader(jTableResumen, AutoChoices.ENABLED);
+                TableFilterHeader filter3 = new TableFilterHeader(jTableNotaDeCredito, AutoChoices.ENABLED);
+                TableFilterHeader filter4 = new TableFilterHeader(jTableFlete, AutoChoices.ENABLED);
+                TableFilterHeader filter5 = new TableFilterHeader(jTableComisiones, AutoChoices.ENABLED);
+                TableFilterHeader filter6 = new TableFilterHeader(jTableFabrica, AutoChoices.ENABLED);
+                TableFilterHeader filter7 = new TableFilterHeader(jTableEstadisticas, AutoChoices.ENABLED);
 
                 newJFrame.setVisible(true);
 
@@ -1524,37 +1527,37 @@ public class Principal extends javax.swing.JFrame {
                 jLabel15.setVisible(false);
 
                 try {
-                    ((DefaultTableModel) jTable1.getModel()).setNumRows(0);
+                    ((DefaultTableModel) jTableLocal.getModel()).setNumRows(0);
                 } catch (Exception ex) {
 
                 }
                 try {
-                    ((DefaultTableModel) jTable2.getModel()).setNumRows(0);
+                    ((DefaultTableModel) jTableResumen.getModel()).setNumRows(0);
                 } catch (Exception ex) {
 
                 }
                 try {
-                    ((DefaultTableModel) jTable3.getModel()).setNumRows(0);
+                    ((DefaultTableModel) jTableNotaDeCredito.getModel()).setNumRows(0);
                 } catch (Exception ex) {
 
                 }
                 try {
-                    ((DefaultTableModel) jTable4.getModel()).setNumRows(0);
+                    ((DefaultTableModel) jTableFlete.getModel()).setNumRows(0);
                 } catch (Exception ex) {
 
                 }
                 try {
-                    ((DefaultTableModel) jTable5.getModel()).setNumRows(0);
+                    ((DefaultTableModel) jTableComisiones.getModel()).setNumRows(0);
                 } catch (Exception ex) {
 
                 }
                 try {
-                    ((DefaultTableModel) jTable6.getModel()).setNumRows(0);
+                    ((DefaultTableModel) jTableFabrica.getModel()).setNumRows(0);
                 } catch (Exception ex) {
 
                 }
                 try {
-                    ((DefaultTableModel) jTable7.getModel()).setNumRows(0);
+                    ((DefaultTableModel) jTableEstadisticas.getModel()).setNumRows(0);
                 } catch (Exception ex) {
 
                 }
@@ -1579,10 +1582,10 @@ public class Principal extends javax.swing.JFrame {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         try {
-                            int selectedRow = jTable6.getSelectedRow();
+                            int selectedRow = jTableFabrica.getSelectedRow();
                             System.out.println("selectedRow " + selectedRow);
 
-                            numeroOC = jTable6.getValueAt(selectedRow, 18).toString();
+                            numeroOC = jTableFabrica.getValueAt(selectedRow, 18).toString();
                             selectOrdenCompra = ordenCompraDAO.selectOrdenCompra(numeroOC);
                             productoOC = productoOCDAO.productoOC(numeroOC);
 
@@ -1605,9 +1608,9 @@ public class Principal extends javax.swing.JFrame {
                         SwingUtilities.invokeLater(new Runnable() {
                             @Override
                             public void run() {
-                                int rowAtPoint = jTable6.rowAtPoint(SwingUtilities.convertPoint(popupMenu, new Point(0, 0), jTable6));
+                                int rowAtPoint = jTableFabrica.rowAtPoint(SwingUtilities.convertPoint(popupMenu, new Point(0, 0), jTableFabrica));
                                 if (rowAtPoint > -1) {
-                                    jTable6.setRowSelectionInterval(rowAtPoint, rowAtPoint);
+                                    jTableFabrica.setRowSelectionInterval(rowAtPoint, rowAtPoint);
                                 }
                             }
                         });
@@ -1624,7 +1627,7 @@ public class Principal extends javax.swing.JFrame {
                     }
                 });
 
-                jTable6.setComponentPopupMenu(popupMenu);
+                jTableFabrica.setComponentPopupMenu(popupMenu);
 
 ////////////////////////////////////////////////////////////////////////////////
                 JPopupMenu popupMenu1 = new JPopupMenu();
@@ -1634,10 +1637,10 @@ public class Principal extends javax.swing.JFrame {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         try {
-                            int selectedRow = jTable2.getSelectedRow();
+                            int selectedRow = jTableResumen.getSelectedRow();
                             System.out.println("selectedRow " + selectedRow);
 
-                            numeroOC = jTable2.getValueAt(selectedRow, 10).toString();
+                            numeroOC = jTableResumen.getValueAt(selectedRow, 10).toString();
 
                             if (!numeroOC.equals("-")) {
                                 selectOrdenCompra = ordenCompraDAO.selectOrdenCompra(numeroOC);
@@ -1662,9 +1665,9 @@ public class Principal extends javax.swing.JFrame {
                         SwingUtilities.invokeLater(new Runnable() {
                             @Override
                             public void run() {
-                                int rowAtPoint = jTable2.rowAtPoint(SwingUtilities.convertPoint(popupMenu1, new Point(0, 0), jTable2));
+                                int rowAtPoint = jTableResumen.rowAtPoint(SwingUtilities.convertPoint(popupMenu1, new Point(0, 0), jTableResumen));
                                 if (rowAtPoint > -1) {
-                                    jTable2.setRowSelectionInterval(rowAtPoint, rowAtPoint);
+                                    jTableResumen.setRowSelectionInterval(rowAtPoint, rowAtPoint);
                                 }
                             }
                         });
@@ -1681,7 +1684,7 @@ public class Principal extends javax.swing.JFrame {
                     }
                 });
 
-                jTable2.setComponentPopupMenu(popupMenu1);
+                jTableResumen.setComponentPopupMenu(popupMenu1);
 
 ////////////////////////////////////////////////////////////////////////////////
                 vl = new VentanaLogin(Principal.newJFrame, true);
@@ -1776,13 +1779,13 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     public static javax.swing.JScrollPane jScrollPane7;
     public static javax.swing.JTabbedPane jTabbedPane1;
-    public static javax.swing.JTable jTable1;
-    public static javax.swing.JTable jTable2;
-    public static javax.swing.JTable jTable3;
-    public static javax.swing.JTable jTable4;
-    public static javax.swing.JTable jTable5;
-    public static javax.swing.JTable jTable6;
-    public static javax.swing.JTable jTable7;
+    public static javax.swing.JTable jTableComisiones;
+    public static javax.swing.JTable jTableEstadisticas;
+    public static javax.swing.JTable jTableFabrica;
+    public static javax.swing.JTable jTableFlete;
+    public static javax.swing.JTable jTableLocal;
+    public static javax.swing.JTable jTableNotaDeCredito;
+    public static javax.swing.JTable jTableResumen;
     public static javax.swing.JTextField jTextField2;
     public static javax.swing.JTextField jTextField4;
     public static javax.swing.JTextField jTextField5;

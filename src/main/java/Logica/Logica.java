@@ -52,11 +52,6 @@ import static Principal.Principal.jLabel4;
 import static Principal.Principal.jLabel5;
 import static Principal.Principal.jLabel6;
 import static Principal.Principal.jLabel8;
-import static Principal.Principal.jTable1;
-import static Principal.Principal.jTable2;
-import static Principal.Principal.jTable3;
-import static Principal.Principal.jTable4;
-import static Principal.Principal.jTable6;
 import static Principal.Principal.jTextField2;
 import static Principal.Principal.jTextField4;
 import static Principal.Principal.jTextField5;
@@ -160,8 +155,6 @@ import static Principal.Principal.jCheckBox2;
 import static Principal.Principal.jCheckBox3;
 import static Principal.Principal.jCheckBox4;
 import static Principal.Principal.jComboBox5;
-import static Principal.Principal.jTable5;
-import static Principal.Principal.jTable7;
 import static Principal.Principal.rSDateChooser6;
 import static Principal.Principal.rSDateChooser7;
 import Principal.VentanaLogin;
@@ -184,7 +177,6 @@ import java.util.Currency;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JCheckBox;
@@ -192,6 +184,14 @@ import javax.swing.RowFilter;
 import javax.swing.RowFilter.ComparisonType;
 import javax.swing.SwingConstants;
 import javax.swing.table.TableRowSorter;
+import static Principal.Principal.jTableResumen;
+import static Principal.Principal.jTableLocal;
+import static Principal.Principal.jTableFabrica;
+import static Principal.Principal.jTableNotaDeCredito;
+import static Principal.Principal.jTableFlete;
+import static Principal.Principal.jTableComisiones;
+import static Principal.Principal.jTableEstadisticas;
+import javax.swing.table.TableModel;
 
 public class Logica {
 
@@ -331,7 +331,7 @@ public class Logica {
 ////                System.out.println(selectProductosPorFolio.size());
 //                System.out.println("A");
                 fila = new Object[18];
-                model = (DefaultTableModel) jTable1.getModel();
+                model = (DefaultTableModel) jTableLocal.getModel();
 
                 AtomicInteger index = new AtomicInteger(1);
                 selectProductosPorFolio.forEach((Producto producto) -> {
@@ -390,32 +390,32 @@ public class Logica {
                     model.addRow(row);
                 });
 
-                ((DefaultTableCellRenderer) jTable1.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
-                resizeColumnWidth(jTable1);
+                ((DefaultTableCellRenderer) jTableLocal.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
+                resizeColumnWidth(jTableLocal);
 
-                jTable1.setRowHeight(35);
-                jTable1.setShowHorizontalLines(true);
-                jTable1.setShowVerticalLines(true);
+                jTableLocal.setRowHeight(35);
+                jTableLocal.setShowHorizontalLines(true);
+                jTableLocal.setShowVerticalLines(true);
 
                 DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
-                int columnCount = jTable1.getColumnCount();
+                int columnCount = jTableLocal.getColumnCount();
                 for (int i = 0; i < columnCount; i++) {
-                    jTable1.getColumnModel().getColumn(i).setCellRenderer(renderer);
+                    jTableLocal.getColumnModel().getColumn(i).setCellRenderer(renderer);
                 }
                 renderer.setHorizontalAlignment(JLabel.CENTER);
 
-                jTable1.getColumn("Costo Unitario").setCellRenderer(new CustomRenderer1(jTable1, VentanaLogin.bool));
-                jTable1.getColumn("Costo Unitario").setCellEditor(new CustomEditor1(jTable1, VentanaLogin.bool));
-                jTable1.getColumn("Utilidad").setCellRenderer(new CustomRenderer5());
-                jTable1.getColumn("Margen").setCellRenderer(new CustomRenderer5());
-                jTable1.getColumnModel().getColumn(10).setPreferredWidth(250);
+                jTableLocal.getColumn("Costo Unitario").setCellRenderer(new CustomRenderer1(jTableLocal, VentanaLogin.bool));
+                jTableLocal.getColumn("Costo Unitario").setCellEditor(new CustomEditor1(jTableLocal, VentanaLogin.bool));
+                jTableLocal.getColumn("Utilidad").setCellRenderer(new CustomRenderer5());
+                jTableLocal.getColumn("Margen").setCellRenderer(new CustomRenderer5());
+                jTableLocal.getColumnModel().getColumn(10).setPreferredWidth(250);
 //</editor-fold>
 ////////////////////////////////////////////////////////////////////////////////
 //<editor-fold defaultstate="collapsed" desc="TABLA FACTURA">
 ////                System.out.println(selectProductosPorFolioF.size());
 //                System.out.println("B");
                 fila = new Object[20];
-                model = (DefaultTableModel) jTable6.getModel();
+                model = (DefaultTableModel) jTableFabrica.getModel();
 
                 AtomicInteger at = new AtomicInteger(1);
                 selectProductosPorFolioF.stream().forEach((Producto get) -> {
@@ -561,28 +561,28 @@ public class Logica {
                     at.getAndIncrement();
                 });
 
-                ((DefaultTableCellRenderer) jTable6.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
-                resizeColumnWidth(jTable6);
+                ((DefaultTableCellRenderer) jTableFabrica.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
+                resizeColumnWidth(jTableFabrica);
 
-                jTable6.setRowHeight(35);
-                jTable6.setShowHorizontalLines(true);
-                jTable6.setShowVerticalLines(true);
+                jTableFabrica.setRowHeight(35);
+                jTableFabrica.setShowHorizontalLines(true);
+                jTableFabrica.setShowVerticalLines(true);
 
                 renderer = new DefaultTableCellRenderer();
-                columnCount = jTable6.getColumnCount();
+                columnCount = jTableFabrica.getColumnCount();
                 for (int i = 0; i < columnCount; i++) {
-                    jTable6.getColumnModel().getColumn(i).setCellRenderer(renderer);
+                    jTableFabrica.getColumnModel().getColumn(i).setCellRenderer(renderer);
                 }
                 renderer.setHorizontalAlignment(JLabel.CENTER);
 
-                jTable6.getColumn("Costo Unitario").setCellRenderer(new CustomRenderer1(jTable6, VentanaLogin.bool));
-                jTable6.getColumn("Costo Unitario").setCellEditor(new CustomEditor1(jTable6, VentanaLogin.bool));
+                jTableFabrica.getColumn("Costo Unitario").setCellRenderer(new CustomRenderer1(jTableFabrica, VentanaLogin.bool));
+                jTableFabrica.getColumn("Costo Unitario").setCellEditor(new CustomEditor1(jTableFabrica, VentanaLogin.bool));
 
-                jTable6.getColumn("Utilidad").setCellRenderer(new CustomRenderer5());
+                jTableFabrica.getColumn("Utilidad").setCellRenderer(new CustomRenderer5());
 
-                jTable6.getColumn("Margen").setCellRenderer(new CustomRenderer5());
+                jTableFabrica.getColumn("Margen").setCellRenderer(new CustomRenderer5());
 
-                jTable6.getColumnModel().getColumn(11).setPreferredWidth(250);
+                jTableFabrica.getColumnModel().getColumn(11).setPreferredWidth(250);
 
                 HashSet hs = new HashSet();
                 hs.addAll(arrNumeroOC);
@@ -604,7 +604,7 @@ public class Logica {
                 ArrayList<String> arrOrigenes = new ArrayList<>();
 
                 Object[] filaTabla2 = new Object[18];
-                DefaultTableModel modelTabla2 = (DefaultTableModel) jTable2.getModel();
+                DefaultTableModel modelTabla2 = (DefaultTableModel) jTableResumen.getModel();
 
                 AtomicInteger atz = new AtomicInteger(0);
                 arrFacturas.stream().forEach((Factura factura) -> {
@@ -794,17 +794,17 @@ public class Logica {
                     }
                 });
 
-                ((DefaultTableCellRenderer) jTable2.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
-                resizeColumnWidth(jTable2);
+                ((DefaultTableCellRenderer) jTableResumen.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
+                resizeColumnWidth(jTableResumen);
 
-                jTable2.setRowHeight(35);
-                jTable2.setShowHorizontalLines(true);
-                jTable2.setShowVerticalLines(true);
+                jTableResumen.setRowHeight(35);
+                jTableResumen.setShowHorizontalLines(true);
+                jTableResumen.setShowVerticalLines(true);
 
                 renderer = new DefaultTableCellRenderer();
-                columnCount = jTable2.getColumnCount();
+                columnCount = jTableResumen.getColumnCount();
                 for (int i = 0; i < columnCount; i++) {
-                    jTable2.getColumnModel().getColumn(i).setCellRenderer(renderer);
+                    jTableResumen.getColumnModel().getColumn(i).setCellRenderer(renderer);
                 }
                 renderer.setHorizontalAlignment(JLabel.CENTER);
 
@@ -840,23 +840,23 @@ public class Logica {
                     }
                 }
 
-                jTable2.getColumn("Vendedor").setCellRenderer(new CustomRenderer3(jTable2, VentanaLogin.bool));
-                jTable2.getColumn("Vendedor").setCellEditor(new CustomEditor3(jTable2, VentanaLogin.bool));
+                jTableResumen.getColumn("Vendedor").setCellRenderer(new CustomRenderer3(jTableResumen, VentanaLogin.bool));
+                jTableResumen.getColumn("Vendedor").setCellEditor(new CustomEditor3(jTableResumen, VentanaLogin.bool));
 
-                jTable2.getColumn("Fecha FA").setCellRenderer(new CustomRenderer4(jTable2, VentanaLogin.bool));
-                jTable2.getColumn("Fecha FA").setCellEditor(new CustomEditor4(jTable2, VentanaLogin.bool, 0));
+                jTableResumen.getColumn("Fecha FA").setCellRenderer(new CustomRenderer4(jTableResumen, VentanaLogin.bool));
+                jTableResumen.getColumn("Fecha FA").setCellEditor(new CustomEditor4(jTableResumen, VentanaLogin.bool, 0));
 
-                jTable2.getColumn("Utilidad").setCellRenderer(new CustomRenderer5());
+                jTableResumen.getColumn("Utilidad").setCellRenderer(new CustomRenderer5());
 
-                jTable2.getColumn("Pagada").setCellRenderer(new CustomRenderer6(jTable2, VentanaLogin.bool));
-                jTable2.getColumn("Pagada").setCellEditor(new CustomEditor6(jTable2, VentanaLogin.bool));
+                jTableResumen.getColumn("Pagada").setCellRenderer(new CustomRenderer6(jTableResumen, VentanaLogin.bool));
+                jTableResumen.getColumn("Pagada").setCellEditor(new CustomEditor6(jTableResumen, VentanaLogin.bool));
 
-                jTable2.getColumnModel().getColumn(4).setPreferredWidth(250);
-                jTable2.getColumnModel().getColumn(0).setPreferredWidth(180);
+                jTableResumen.getColumnModel().getColumn(4).setPreferredWidth(250);
+                jTableResumen.getColumnModel().getColumn(0).setPreferredWidth(180);
 
-                jTable2.getColumnModel().getColumn(11).setMaxWidth(0);
-                jTable2.getColumnModel().getColumn(11).setMinWidth(0);
-                jTable2.getColumnModel().getColumn(11).setPreferredWidth(0);
+                jTableResumen.getColumnModel().getColumn(11).setMaxWidth(0);
+                jTableResumen.getColumnModel().getColumn(11).setMinWidth(0);
+                jTableResumen.getColumnModel().getColumn(11).setPreferredWidth(0);
 
 //        AutoCompletion.enable(jComboBox3);
 //</editor-fold>
@@ -864,7 +864,7 @@ public class Logica {
 //<editor-fold defaultstate="collapsed" desc="TABLA NOTA DE CREDITO">
 //                System.out.println("D");
                 Object[] filaTabla3 = new Object[12];
-                DefaultTableModel modelTabla3 = (DefaultTableModel) jTable3.getModel();
+                DefaultTableModel modelTabla3 = (DefaultTableModel) jTableNotaDeCredito.getModel();
 
                 AtomicInteger at2 = new AtomicInteger(0);
                 selectNotaCredito.stream().forEach((NotaCredito notaCredito) -> {
@@ -904,17 +904,17 @@ public class Logica {
                             String codigo = productoNotaCredito.getCodigo().replace("V.E.", "");
                             String descripcion = productoNotaCredito.getDescripcion();
 
-                            for (int i = 0; i < jTable1.getModel().getRowCount(); i++) {
-                                String folio = jTable1.getModel().getValueAt(i, 2).toString();
-                                String codigo1 = jTable1.getModel().getValueAt(i, 6).toString();
-                                String descipcionTabla = jTable1.getModel().getValueAt(i, 8).toString();
+                            for (int i = 0; i < jTableLocal.getModel().getRowCount(); i++) {
+                                String folio = jTableLocal.getModel().getValueAt(i, 2).toString();
+                                String codigo1 = jTableLocal.getModel().getValueAt(i, 6).toString();
+                                String descipcionTabla = jTableLocal.getModel().getValueAt(i, 8).toString();
 
 //                                System.out.println("codigo " + codigo);
 //                                System.out.println("codigoNC " + codigoNC);
 //                                System.out.println("folio " + folio);
 //                                System.out.println("folioReferencia " + folioReferencia);
                                 if (folio.equals(folioReferencia) && (descipcionTabla.contains(descripcion) || descripcion.contains(descipcionTabla) || codigo1.contains(codigo))) {
-                                    costoUnitario = jTable1.getModel().getValueAt(i, 10).toString();
+                                    costoUnitario = jTableLocal.getModel().getValueAt(i, 10).toString();
                                     costoUnitarioTotal = convertStringToDouble(costoUnitario) * Double.valueOf(productoNotaCredito.getCantidad());
 ////                                    System.out.println("--->");
 ////                                    System.out.println(Double.valueOf(costoUnitario));
@@ -923,13 +923,13 @@ public class Logica {
                                 }
                             }
 
-                            for (int i = 0; i < jTable6.getModel().getRowCount(); i++) {
-                                String folio = jTable6.getModel().getValueAt(i, 2).toString();
-                                String codigo2 = jTable6.getModel().getValueAt(i, 6).toString();
-                                String descipcionTabla2 = jTable6.getModel().getValueAt(i, 6).toString();
+                            for (int i = 0; i < jTableFabrica.getModel().getRowCount(); i++) {
+                                String folio = jTableFabrica.getModel().getValueAt(i, 2).toString();
+                                String codigo2 = jTableFabrica.getModel().getValueAt(i, 6).toString();
+                                String descipcionTabla2 = jTableFabrica.getModel().getValueAt(i, 6).toString();
 
                                 if (folio.equals(folioReferencia) && (descipcionTabla2.contains(descripcion) || descripcion.contains(descipcionTabla2) || codigo2.contains(codigo))) {
-                                    costoUnitario = jTable6.getModel().getValueAt(i, 11).toString();
+                                    costoUnitario = jTableFabrica.getModel().getValueAt(i, 11).toString();
                                     costoUnitarioTotal = convertStringToDouble(costoUnitario) * Double.valueOf(productoNotaCredito.getCantidad());
 ////                                    System.out.println("--->");
 ////                                    System.out.println(Double.valueOf(costoUnitario));
@@ -976,19 +976,19 @@ public class Logica {
 
                     if (notaCredito.getMotivo().equals("ANULA")) {
                         if (origen.equals("Local")) {
-                            for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
-                                String folio = jTable2.getModel().getValueAt(i, 1).toString();
+                            for (int i = 0; i < jTableResumen.getModel().getRowCount(); i++) {
+                                String folio = jTableResumen.getModel().getValueAt(i, 1).toString();
                                 if (folio.equals(notaCredito.getFolioReferencia())) {
-                                    String utilidad = jTable2.getModel().getValueAt(i, 7).toString();
+                                    String utilidad = jTableResumen.getModel().getValueAt(i, 7).toString();
                                     filaTabla3[6] = utilidad;
                                     break;
                                 }
                             }
                         } else {
-                            for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
-                                String folio = jTable2.getModel().getValueAt(i, 1).toString();
+                            for (int i = 0; i < jTableResumen.getModel().getRowCount(); i++) {
+                                String folio = jTableResumen.getModel().getValueAt(i, 1).toString();
                                 if (folio.equals(notaCredito.getFolioReferencia())) {
-                                    String utilidad = jTable2.getModel().getValueAt(i, 7).toString();
+                                    String utilidad = jTableResumen.getModel().getValueAt(i, 7).toString();
                                     filaTabla3[6] = utilidad;
                                     break;
                                 }
@@ -1022,17 +1022,17 @@ public class Logica {
                                     String descripcion = get.getDescripcion();
                                     String cantidad = get.getCantidad();
 
-                                    for (int h = 0; h < jTable1.getModel().getRowCount(); h++) {
-                                        String folio1 = jTable1.getModel().getValueAt(h, 2).toString();
-                                        String codigo1 = jTable1.getModel().getValueAt(h, 6).toString();
-                                        String descipcionTabla = jTable1.getModel().getValueAt(h, 8).toString();
+                                    for (int h = 0; h < jTableLocal.getModel().getRowCount(); h++) {
+                                        String folio1 = jTableLocal.getModel().getValueAt(h, 2).toString();
+                                        String codigo1 = jTableLocal.getModel().getValueAt(h, 6).toString();
+                                        String descipcionTabla = jTableLocal.getModel().getValueAt(h, 8).toString();
 
 ////                                        System.out.println("folio " + folio);
 ////                                        System.out.println("folio1 " + folio1);
 ////                                        System.out.println("codigo " + codigo);
 ////                                        System.out.println("codigo1 " + codigo1);
                                         if (folio1.equals(folio) && (descipcionTabla.contains(descripcion) || descripcion.contains(descipcionTabla) || codigo1.contains(codigo))) {
-                                            String utilidad = jTable1.getModel().getValueAt(h, 14).toString();
+                                            String utilidad = jTableLocal.getModel().getValueAt(h, 14).toString();
                                             Double valueOf = convertStringToDouble(utilidad);
                                             Double valueOf1 = convertStringToDouble(cantidad);
 
@@ -1081,20 +1081,20 @@ public class Logica {
                                     String descripcion = get.getDescripcion();
                                     String cantidad = get.getCantidad();
 
-                                    for (int h = 0; h < jTable6.getModel().getRowCount(); h++) {
-                                        String folio1 = jTable6.getModel().getValueAt(h, 2).toString();
-                                        String codigo1 = jTable6.getModel().getValueAt(h, 6).toString();
-                                        String descipcionTabla = jTable6.getModel().getValueAt(h, 8).toString();
+                                    for (int h = 0; h < jTableFabrica.getModel().getRowCount(); h++) {
+                                        String folio1 = jTableFabrica.getModel().getValueAt(h, 2).toString();
+                                        String codigo1 = jTableFabrica.getModel().getValueAt(h, 6).toString();
+                                        String descipcionTabla = jTableFabrica.getModel().getValueAt(h, 8).toString();
 
 //                                        System.out.println("folio " + folio);
 //                                        System.out.println("folio1 " + folio1);
 //                                        System.out.println("codigo " + codigo);
 //                                        System.out.println("codigo1 " + codigo1);
                                         if (folio1.equals(folio) && (descipcionTabla.contains(descripcion) || descripcion.contains(descipcionTabla) || codigo1.contains(codigo))) {
-                                            String utilidad = jTable6.getModel().getValueAt(h, 15).toString();
+                                            String utilidad = jTableFabrica.getModel().getValueAt(h, 15).toString();
                                             Double valueOf = convertStringToDouble(utilidad);
 
-                                            String canttidad = jTable6.getModel().getValueAt(h, 8).toString();
+                                            String canttidad = jTableFabrica.getModel().getValueAt(h, 8).toString();
                                             Double valueOf1 = convertStringToDouble(canttidad);
 
                                             double name = valueOf / valueOf1;
@@ -1132,10 +1132,10 @@ public class Logica {
                     filaTabla3[8] = notaCredito.getMotivo();
                     filaTabla3[9] = selectFacturaPorFolio.getOrigen();
 
-                    for (int i = 0; i < jTable6.getModel().getRowCount(); i++) {
-                        String toString = jTable6.getModel().getValueAt(i, 2).toString();
+                    for (int i = 0; i < jTableFabrica.getModel().getRowCount(); i++) {
+                        String toString = jTableFabrica.getModel().getValueAt(i, 2).toString();
                         if (toString.equals(notaCredito.getFolioReferencia())) {
-                            filaTabla3[10] = jTable6.getModel().getValueAt(i, 18).toString();
+                            filaTabla3[10] = jTableFabrica.getModel().getValueAt(i, 18).toString();
                             break;
                         }
                     }
@@ -1144,31 +1144,31 @@ public class Logica {
                     modelTabla3.addRow(filaTabla3);
                 });
 
-                ((DefaultTableCellRenderer) jTable3.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
-                resizeColumnWidth(jTable3);
+                ((DefaultTableCellRenderer) jTableNotaDeCredito.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
+                resizeColumnWidth(jTableNotaDeCredito);
 
-                jTable3.setRowHeight(35);
-                jTable3.setShowHorizontalLines(true);
-                jTable3.setShowVerticalLines(true);
+                jTableNotaDeCredito.setRowHeight(35);
+                jTableNotaDeCredito.setShowHorizontalLines(true);
+                jTableNotaDeCredito.setShowVerticalLines(true);
 
                 renderer = new DefaultTableCellRenderer();
-                columnCount = jTable3.getColumnCount();
+                columnCount = jTableNotaDeCredito.getColumnCount();
                 for (int i = 0; i < columnCount; i++) {
-                    jTable3.getColumnModel().getColumn(i).setCellRenderer(renderer);
+                    jTableNotaDeCredito.getColumnModel().getColumn(i).setCellRenderer(renderer);
                 }
                 renderer.setHorizontalAlignment(JLabel.CENTER);
 
-                jTable3.getColumn("Fecha").setCellRenderer(new CustomRenderer4(jTable3, VentanaLogin.bool));
-                jTable3.getColumn("Fecha").setCellEditor(new CustomEditor4(jTable3, VentanaLogin.bool, 1));
+                jTableNotaDeCredito.getColumn("Fecha").setCellRenderer(new CustomRenderer4(jTableNotaDeCredito, VentanaLogin.bool));
+                jTableNotaDeCredito.getColumn("Fecha").setCellEditor(new CustomEditor4(jTableNotaDeCredito, VentanaLogin.bool, 1));
 
-                jTable3.getColumnModel().getColumn(0).setPreferredWidth(180);
+                jTableNotaDeCredito.getColumnModel().getColumn(0).setPreferredWidth(180);
 //</editor-fold>
 ////////////////////////////////////////////////////////////////////////////////
 //<editor-fold defaultstate="collapsed" desc="TABLA FLETE">
 //                System.out.println("E");
 
                 Object[] filaTabla4 = new Object[10];
-                DefaultTableModel modelTabla4 = (DefaultTableModel) jTable4.getModel();
+                DefaultTableModel modelTabla4 = (DefaultTableModel) jTableFlete.getModel();
 
                 Locale chileLocale = new Locale("es", "CL");
                 NumberFormat nf = NumberFormat.getNumberInstance(chileLocale);
@@ -1215,27 +1215,27 @@ public class Logica {
                     modelTabla4.addRow(filaTabla4);
                 });
 
-                ((DefaultTableCellRenderer) jTable4.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
-                resizeColumnWidth(jTable4);
+                ((DefaultTableCellRenderer) jTableFlete.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
+                resizeColumnWidth(jTableFlete);
 
-                jTable4.setRowHeight(60);
-                jTable4.setShowHorizontalLines(true);
-                jTable4.setShowVerticalLines(true);
+                jTableFlete.setRowHeight(60);
+                jTableFlete.setShowHorizontalLines(true);
+                jTableFlete.setShowVerticalLines(true);
 
                 renderer = new DefaultTableCellRenderer();
-                columnCount = jTable4.getColumnCount();
+                columnCount = jTableFlete.getColumnCount();
                 for (int i = 0; i < columnCount; i++) {
-                    jTable4.getColumnModel().getColumn(i).setCellRenderer(renderer);
+                    jTableFlete.getColumnModel().getColumn(i).setCellRenderer(renderer);
                 }
                 renderer.setHorizontalAlignment(JLabel.CENTER);
 
-                jTable4.getColumn("Observacion").setCellRenderer(new CustomRenderer2(jTable4, VentanaLogin.bool));
-                jTable4.getColumn("Observacion").setCellEditor(new CustomEditor2(jTable4, VentanaLogin.bool));
+                jTableFlete.getColumn("Observacion").setCellRenderer(new CustomRenderer2(jTableFlete, VentanaLogin.bool));
+                jTableFlete.getColumn("Observacion").setCellEditor(new CustomEditor2(jTableFlete, VentanaLogin.bool));
 
-                jTable4.getColumn("Eliminar").setCellRenderer(new CustomRenderer("Eliminar", VentanaLogin.bool));
-                jTable4.getColumn("Eliminar").setCellEditor(new CustomEditor("Eliminar", VentanaLogin.bool));
+                jTableFlete.getColumn("Eliminar").setCellRenderer(new CustomRenderer("Eliminar", VentanaLogin.bool));
+                jTableFlete.getColumn("Eliminar").setCellEditor(new CustomEditor("Eliminar", VentanaLogin.bool));
 
-                jTable4.getColumnModel().getColumn(5).setPreferredWidth(400);
+                jTableFlete.getColumnModel().getColumn(5).setPreferredWidth(400);
 //</editor-fold>
 ////////////////////////////////////////////////////////////////////////////////
 //<editor-fold defaultstate="collapsed" desc="TABLA COMISIONES">
@@ -1249,11 +1249,11 @@ public class Logica {
                 double sumaNeto = 0;
 
                 Object[] filaTabla5 = new Object[4];
-                DefaultTableModel modelTabla5 = (DefaultTableModel) jTable5.getModel();
+                DefaultTableModel modelTabla5 = (DefaultTableModel) jTableComisiones.getModel();
 
-                for (int j = 0; j < jTable2.getModel().getRowCount(); j++) {
-                    double neto = convertStringToDouble(jTable2.getModel().getValueAt(j, 6).toString());
-                    double utilidad = convertStringToDouble(jTable2.getModel().getValueAt(j, 7).toString());
+                for (int j = 0; j < jTableResumen.getModel().getRowCount(); j++) {
+                    double neto = convertStringToDouble(jTableResumen.getModel().getValueAt(j, 6).toString());
+                    double utilidad = convertStringToDouble(jTableResumen.getModel().getValueAt(j, 7).toString());
 
                     if (utilidad > 0) {
                         sumaNeto = sumaNeto + neto;
@@ -1275,21 +1275,21 @@ public class Logica {
                         double sumaCostoNCLocal = 0;
                         double sumaCostoNC = 0;
 
-                        for (int x = 0; x < jTable4.getModel().getRowCount(); x++) {
-                            String vendedor = jTable4.getValueAt(x, 2).toString();
-                            double monto = convertStringToDouble(jTable4.getValueAt(x, 4).toString());
+                        for (int x = 0; x < jTableFlete.getModel().getRowCount(); x++) {
+                            String vendedor = jTableFlete.getValueAt(x, 2).toString();
+                            double monto = convertStringToDouble(jTableFlete.getValueAt(x, 4).toString());
 
                             if (toString.equals(vendedor)) {
                                 sumaFlete = sumaFlete + monto;
                             }
                         }
 
-                        for (int j = 0; j < jTable3.getModel().getRowCount(); j++) {
-                            String fecha = jTable3.getModel().getValueAt(j, 0).toString();
-                            String vendedor = jTable3.getModel().getValueAt(j, 7).toString();
-                            String origen = jTable3.getModel().getValueAt(j, 9).toString();
-                            double costo = convertStringToDouble(jTable3.getModel().getValueAt(j, 4).toString());
-                            double utilidad = convertStringToDouble(jTable3.getModel().getValueAt(j, 6).toString());
+                        for (int j = 0; j < jTableNotaDeCredito.getModel().getRowCount(); j++) {
+                            String fecha = jTableNotaDeCredito.getModel().getValueAt(j, 0).toString();
+                            String vendedor = jTableNotaDeCredito.getModel().getValueAt(j, 7).toString();
+                            String origen = jTableNotaDeCredito.getModel().getValueAt(j, 9).toString();
+                            double costo = convertStringToDouble(jTableNotaDeCredito.getModel().getValueAt(j, 4).toString());
+                            double utilidad = convertStringToDouble(jTableNotaDeCredito.getModel().getValueAt(j, 6).toString());
 
                             if (toString.equals(vendedor)) {
                                 if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(fecha.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(fecha.replace("-", ""))) {
@@ -1304,13 +1304,13 @@ public class Logica {
                             }
                         }
 
-                        for (int j = 0; j < jTable2.getModel().getRowCount(); j++) {
-                            String folio = jTable2.getModel().getValueAt(j, 1).toString();
-                            String vendedor = jTable2.getModel().getValueAt(j, 4).toString();
-                            double costo = convertStringToDouble(jTable2.getModel().getValueAt(j, 5).toString());
-                            double utilidad = convertStringToDouble(jTable2.getModel().getValueAt(j, 7).toString());
-                            String margen = jTable2.getModel().getValueAt(j, 8).toString();
-                            String origen = jTable2.getModel().getValueAt(j, 9).toString();
+                        for (int j = 0; j < jTableResumen.getModel().getRowCount(); j++) {
+                            String folio = jTableResumen.getModel().getValueAt(j, 1).toString();
+                            String vendedor = jTableResumen.getModel().getValueAt(j, 4).toString();
+                            double costo = convertStringToDouble(jTableResumen.getModel().getValueAt(j, 5).toString());
+                            double utilidad = convertStringToDouble(jTableResumen.getModel().getValueAt(j, 7).toString());
+                            String margen = jTableResumen.getModel().getValueAt(j, 8).toString();
+                            String origen = jTableResumen.getModel().getValueAt(j, 9).toString();
 
                             if (toString.equals(vendedor)) {
 
@@ -1330,10 +1330,10 @@ public class Logica {
 //                                    System.out.println("valueOf " + valueOf);
                                     sumaBono = sumaBono + utilidad;
 
-                                    for (int r = 0; r < jTable3.getModel().getRowCount(); r++) {
-                                        String foliox = jTable3.getValueAt(r, 2).toString();
-                                        String vendedorx = jTable3.getValueAt(r, 7).toString();
-                                        double utilidadx = convertStringToDouble(jTable3.getModel().getValueAt(r, 6).toString());
+                                    for (int r = 0; r < jTableNotaDeCredito.getModel().getRowCount(); r++) {
+                                        String foliox = jTableNotaDeCredito.getValueAt(r, 2).toString();
+                                        String vendedorx = jTableNotaDeCredito.getValueAt(r, 7).toString();
+                                        double utilidadx = convertStringToDouble(jTableNotaDeCredito.getModel().getValueAt(r, 6).toString());
 
                                         if (toString.equals(vendedorx)) {
                                             if (folio.equals(foliox)) {
@@ -1544,21 +1544,21 @@ public class Logica {
                     }
                 }
 
-                ((DefaultTableCellRenderer) jTable5.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
-                resizeColumnWidth(jTable5);
+                ((DefaultTableCellRenderer) jTableComisiones.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
+                resizeColumnWidth(jTableComisiones);
 
-                jTable5.setRowHeight(25);
-                jTable5.setShowHorizontalLines(true);
-                jTable5.setShowVerticalLines(true);
+                jTableComisiones.setRowHeight(25);
+                jTableComisiones.setShowHorizontalLines(true);
+                jTableComisiones.setShowVerticalLines(true);
 
                 renderer = new DefaultTableCellRenderer();
-                columnCount = jTable5.getColumnCount();
+                columnCount = jTableComisiones.getColumnCount();
                 for (int i = 0; i < columnCount; i++) {
-                    jTable5.getColumnModel().getColumn(i).setCellRenderer(renderer);
+                    jTableComisiones.getColumnModel().getColumn(i).setCellRenderer(renderer);
                 }
                 renderer.setHorizontalAlignment(JLabel.CENTER);
 
-                Principal.jLabel27.setText("" + jTable2.getRowCount());
+                Principal.jLabel27.setText("" + jTableResumen.getRowCount());
 //</editor-fold>
 ////////////////////////////////////////////////////////////////////////////////
                 jComboBox5.removeAllItems();
@@ -2010,7 +2010,7 @@ public class Logica {
                         if (convertStringToDocument != null) {
 
                             String[] split1 = attribute.split("/");
-                            try ( FileOutputStream output = new FileOutputStream(System.getProperty("user.dir") + "\\XMLs\\" + split1[split1.length - 1])) {
+                            try (FileOutputStream output = new FileOutputStream(System.getProperty("user.dir") + "\\XMLs\\" + split1[split1.length - 1])) {
                                 writeXml(convertStringToDocument, output);
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -2260,7 +2260,7 @@ public class Logica {
                         if (convertStringToDocument != null) {
 
                             String[] split1 = attribute.split("/");
-                            try ( FileOutputStream output = new FileOutputStream(System.getProperty("user.dir") + "\\XMLs\\" + split1[split1.length - 1])) {
+                            try (FileOutputStream output = new FileOutputStream(System.getProperty("user.dir") + "\\XMLs\\" + split1[split1.length - 1])) {
                                 writeXml(convertStringToDocument, output);
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -3493,7 +3493,7 @@ public class Logica {
                 Document convertStringToDocument = convertStringToDocument(text1);
 
                 String[] split1 = attribute.split("/");
-                try ( FileOutputStream output = new FileOutputStream(System.getProperty("user.dir") + "\\XMLs\\" + split1[split1.length - 1])) {
+                try (FileOutputStream output = new FileOutputStream(System.getProperty("user.dir") + "\\XMLs\\" + split1[split1.length - 1])) {
                     writeXml(convertStringToDocument, output);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -4315,10 +4315,10 @@ public class Logica {
 
             System.out.println(insertFlete);
 
-            ((DefaultTableModel) jTable4.getModel()).setNumRows(0);
+            ((DefaultTableModel) jTableFlete.getModel()).setNumRows(0);
 
             Object[] filaTabla4 = new Object[10];
-            DefaultTableModel modelTabla4 = (DefaultTableModel) jTable4.getModel();
+            DefaultTableModel modelTabla4 = (DefaultTableModel) jTableFlete.getModel();
 
             ArrayList<Flete> selectFlete = null;
             try {
@@ -4395,7 +4395,7 @@ public class Logica {
     public static void filtraRecuadroDos() {
         try {
             try {
-                ((DefaultTableModel) jTable5.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableComisiones.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
@@ -4426,11 +4426,11 @@ public class Logica {
             NumberFormat nf = NumberFormat.getNumberInstance(chileLocale);
 
             Object[] filaTabla5 = new Object[4];
-            DefaultTableModel modelTabla5 = (DefaultTableModel) jTable5.getModel();
+            DefaultTableModel modelTabla5 = (DefaultTableModel) jTableComisiones.getModel();
 
-            for (int j = 0; j < jTable2.getModel().getRowCount(); j++) {
-                String fecha = jTable2.getModel().getValueAt(j, 0).toString();
-                String pagada = jTable2.getModel().getValueAt(j, 11).toString();
+            for (int j = 0; j < jTableResumen.getModel().getRowCount(); j++) {
+                String fecha = jTableResumen.getModel().getValueAt(j, 0).toString();
+                String pagada = jTableResumen.getModel().getValueAt(j, 11).toString();
 
                 DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
                 Date parse = dateFormat.parse(fecha.toString());
@@ -4439,8 +4439,8 @@ public class Logica {
 
                 if (selected == true && selected2 == true) {
                     if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
-                        double neto = Double.valueOf(jTable2.getModel().getValueAt(j, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
-                        double utilidad = Double.valueOf(jTable2.getModel().getValueAt(j, 7).toString().replace("$", "").replace(".", "").replace(",", "."));
+                        double neto = Double.valueOf(jTableResumen.getModel().getValueAt(j, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
+                        double utilidad = Double.valueOf(jTableResumen.getModel().getValueAt(j, 7).toString().replace("$", "").replace(".", "").replace(",", "."));
 
                         if (utilidad > 0) {
                             sumaNeto = sumaNeto + neto;
@@ -4449,8 +4449,8 @@ public class Logica {
                 } else if (selected == true && selected2 == false) {
                     if (pagada.trim().equals("false")) {
                         if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
-                            double neto = Double.valueOf(jTable2.getModel().getValueAt(j, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
-                            double utilidad = Double.valueOf(jTable2.getModel().getValueAt(j, 7).toString().replace("$", "").replace(".", "").replace(",", "."));
+                            double neto = Double.valueOf(jTableResumen.getModel().getValueAt(j, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
+                            double utilidad = Double.valueOf(jTableResumen.getModel().getValueAt(j, 7).toString().replace("$", "").replace(".", "").replace(",", "."));
 
                             if (utilidad > 0) {
                                 sumaNeto = sumaNeto + neto;
@@ -4460,8 +4460,8 @@ public class Logica {
                 } else if (selected == false && selected2 == true) {
                     if (pagada.trim().equals("true")) {
                         if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
-                            double neto = Double.valueOf(jTable2.getModel().getValueAt(j, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
-                            double utilidad = Double.valueOf(jTable2.getModel().getValueAt(j, 7).toString().replace("$", "").replace(".", "").replace(",", "."));
+                            double neto = Double.valueOf(jTableResumen.getModel().getValueAt(j, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
+                            double utilidad = Double.valueOf(jTableResumen.getModel().getValueAt(j, 7).toString().replace("$", "").replace(".", "").replace(",", "."));
 
                             if (utilidad > 0) {
                                 sumaNeto = sumaNeto + neto;
@@ -4488,12 +4488,12 @@ public class Logica {
                     double sumaFlete = 0;
                     double sumaBono = 0;
 
-                    for (int x = 0; x < jTable4.getModel().getRowCount(); x++) {
-                        String fecha = jTable4.getModel().getValueAt(x, 0).toString();
+                    for (int x = 0; x < jTableFlete.getModel().getRowCount(); x++) {
+                        String fecha = jTableFlete.getModel().getValueAt(x, 0).toString();
                         String[] split = fecha.split("-");
                         fecha = split[2] + split[1] + split[0];
-                        String vendedor = jTable4.getModel().getValueAt(x, 2).toString();
-                        double monto = Double.valueOf(jTable4.getModel().getValueAt(x, 4).toString().replace(".", "").replace(",", ".").replace("$", ""));
+                        String vendedor = jTableFlete.getModel().getValueAt(x, 2).toString();
+                        double monto = Double.valueOf(jTableFlete.getModel().getValueAt(x, 4).toString().replace(".", "").replace(",", ".").replace("$", ""));
 
                         if (toString.equals(vendedor)) {
                             if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
@@ -4502,12 +4502,12 @@ public class Logica {
                         }
                     }
 
-                    for (int j = 0; j < jTable3.getModel().getRowCount(); j++) {
-                        String fecha = jTable3.getModel().getValueAt(j, 0).toString();
-                        String vendedor = jTable3.getModel().getValueAt(j, 7).toString();
-                        String origen = jTable3.getModel().getValueAt(j, 9).toString();
-                        double costo = Double.valueOf(jTable3.getModel().getValueAt(j, 4).toString().replace("$", "").replace(".", "").replace(",", "."));
-                        double utilidad = Double.valueOf(jTable3.getModel().getValueAt(j, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
+                    for (int j = 0; j < jTableNotaDeCredito.getModel().getRowCount(); j++) {
+                        String fecha = jTableNotaDeCredito.getModel().getValueAt(j, 0).toString();
+                        String vendedor = jTableNotaDeCredito.getModel().getValueAt(j, 7).toString();
+                        String origen = jTableNotaDeCredito.getModel().getValueAt(j, 9).toString();
+                        double costo = Double.valueOf(jTableNotaDeCredito.getModel().getValueAt(j, 4).toString().replace("$", "").replace(".", "").replace(",", "."));
+                        double utilidad = Double.valueOf(jTableNotaDeCredito.getModel().getValueAt(j, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
 
                         if (toString.equals(vendedor)) {
                             if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
@@ -4522,15 +4522,15 @@ public class Logica {
                         }
                     }
 
-                    for (int j = 0; j < jTable2.getModel().getRowCount(); j++) {
-                        String folio = jTable2.getModel().getValueAt(j, 1).toString();
-                        String vendedor = jTable2.getModel().getValueAt(j, 4).toString();
-                        double costo = Double.valueOf(jTable2.getModel().getValueAt(j, 5).toString().replace("$", "").replace(".", "").replace(",", "."));
-                        double utilidad = Double.valueOf(jTable2.getModel().getValueAt(j, 7).toString().replace("$", "").replace(".", "").replace(",", "."));
-                        String margen = jTable2.getModel().getValueAt(j, 8).toString();
-                        String origen = jTable2.getModel().getValueAt(j, 9).toString();
-                        String fecha = jTable2.getModel().getValueAt(j, 0).toString();
-                        String pagada = jTable2.getModel().getValueAt(i, 11).toString();
+                    for (int j = 0; j < jTableResumen.getModel().getRowCount(); j++) {
+                        String folio = jTableResumen.getModel().getValueAt(j, 1).toString();
+                        String vendedor = jTableResumen.getModel().getValueAt(j, 4).toString();
+                        double costo = Double.valueOf(jTableResumen.getModel().getValueAt(j, 5).toString().replace("$", "").replace(".", "").replace(",", "."));
+                        double utilidad = Double.valueOf(jTableResumen.getModel().getValueAt(j, 7).toString().replace("$", "").replace(".", "").replace(",", "."));
+                        String margen = jTableResumen.getModel().getValueAt(j, 8).toString();
+                        String origen = jTableResumen.getModel().getValueAt(j, 9).toString();
+                        String fecha = jTableResumen.getModel().getValueAt(j, 0).toString();
+                        String pagada = jTableResumen.getModel().getValueAt(i, 11).toString();
 
                         DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
                         Date parse = dateFormat.parse(fecha.toString());
@@ -4556,10 +4556,10 @@ public class Logica {
                                     if (valueOf >= 10) {
                                         sumaBono = sumaBono + utilidad;
 
-                                        for (int r = 0; r < jTable3.getModel().getRowCount(); r++) {
-                                            String foliox = jTable3.getModel().getValueAt(r, 2).toString();
-                                            String vendedorx = jTable3.getModel().getValueAt(r, 7).toString();
-                                            double utilidadx = Double.valueOf(jTable3.getModel().getValueAt(r, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
+                                        for (int r = 0; r < jTableNotaDeCredito.getModel().getRowCount(); r++) {
+                                            String foliox = jTableNotaDeCredito.getModel().getValueAt(r, 2).toString();
+                                            String vendedorx = jTableNotaDeCredito.getModel().getValueAt(r, 7).toString();
+                                            double utilidadx = Double.valueOf(jTableNotaDeCredito.getModel().getValueAt(r, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
 
                                             if (toString.equals(vendedorx)) {
                                                 if (folio.equals(foliox)) {
@@ -4593,10 +4593,10 @@ public class Logica {
                                         if (valueOf >= 10) {
                                             sumaBono = sumaBono + utilidad;
 
-                                            for (int r = 0; r < jTable3.getModel().getRowCount(); r++) {
-                                                String foliox = jTable3.getModel().getValueAt(r, 2).toString();
-                                                String vendedorx = jTable3.getModel().getValueAt(r, 7).toString();
-                                                double utilidadx = Double.valueOf(jTable3.getModel().getValueAt(r, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
+                                            for (int r = 0; r < jTableNotaDeCredito.getModel().getRowCount(); r++) {
+                                                String foliox = jTableNotaDeCredito.getModel().getValueAt(r, 2).toString();
+                                                String vendedorx = jTableNotaDeCredito.getModel().getValueAt(r, 7).toString();
+                                                double utilidadx = Double.valueOf(jTableNotaDeCredito.getModel().getValueAt(r, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
 
                                                 if (toString.equals(vendedorx)) {
                                                     if (folio.equals(foliox)) {
@@ -4631,10 +4631,10 @@ public class Logica {
                                         if (valueOf >= 10) {
                                             sumaBono = sumaBono + utilidad;
 
-                                            for (int r = 0; r < jTable3.getModel().getRowCount(); r++) {
-                                                String foliox = jTable3.getModel().getValueAt(r, 2).toString();
-                                                String vendedorx = jTable3.getModel().getValueAt(r, 7).toString();
-                                                double utilidadx = Double.valueOf(jTable3.getModel().getValueAt(r, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
+                                            for (int r = 0; r < jTableNotaDeCredito.getModel().getRowCount(); r++) {
+                                                String foliox = jTableNotaDeCredito.getModel().getValueAt(r, 2).toString();
+                                                String vendedorx = jTableNotaDeCredito.getModel().getValueAt(r, 7).toString();
+                                                double utilidadx = Double.valueOf(jTableNotaDeCredito.getModel().getValueAt(r, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
 
                                                 if (toString.equals(vendedorx)) {
                                                     if (folio.equals(foliox)) {
@@ -4856,7 +4856,7 @@ public class Logica {
 
     public static void quitarFiltroRecuadroDos() {
         try {
-            ((DefaultTableModel) jTable5.getModel()).setNumRows(0);
+            ((DefaultTableModel) jTableComisiones.getModel()).setNumRows(0);
         } catch (Exception ex) {
 
         }
@@ -4873,11 +4873,11 @@ public class Logica {
         NumberFormat nf = NumberFormat.getNumberInstance(chileLocale);
 
         Object[] filaTabla5 = new Object[4];
-        DefaultTableModel modelTabla5 = (DefaultTableModel) jTable5.getModel();
+        DefaultTableModel modelTabla5 = (DefaultTableModel) jTableComisiones.getModel();
 
-        for (int j = 0; j < jTable2.getModel().getRowCount(); j++) {
-            double neto = Double.valueOf(jTable2.getModel().getValueAt(j, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
-            double utilidad = Double.valueOf(jTable2.getModel().getValueAt(j, 7).toString().replace("$", "").replace(".", "").replace(",", "."));
+        for (int j = 0; j < jTableResumen.getModel().getRowCount(); j++) {
+            double neto = Double.valueOf(jTableResumen.getModel().getValueAt(j, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
+            double utilidad = Double.valueOf(jTableResumen.getModel().getValueAt(j, 7).toString().replace("$", "").replace(".", "").replace(",", "."));
 
             if (utilidad > 0) {
                 sumaNeto = sumaNeto + neto;
@@ -4904,20 +4904,20 @@ public class Logica {
                 double sumaCostoLocal = 0;
                 double sumaBono = 0;
 
-                for (int x = 0; x < jTable4.getModel().getRowCount(); x++) {
-                    String vendedor = jTable4.getValueAt(x, 2).toString();
-                    double monto = Double.valueOf(jTable4.getValueAt(x, 4).toString().replace(".", "").replace(",", ".").replace("$", ""));
+                for (int x = 0; x < jTableFlete.getModel().getRowCount(); x++) {
+                    String vendedor = jTableFlete.getValueAt(x, 2).toString();
+                    double monto = Double.valueOf(jTableFlete.getValueAt(x, 4).toString().replace(".", "").replace(",", ".").replace("$", ""));
 
                     if (toString.equals(vendedor)) {
                         sumaFlete = sumaFlete + monto;
                     }
                 }
 
-                for (int j = 0; j < jTable3.getModel().getRowCount(); j++) {
-                    String vendedor = jTable3.getModel().getValueAt(j, 7).toString();
-                    String origen = jTable3.getModel().getValueAt(j, 9).toString();
-                    double costo = Double.valueOf(jTable3.getModel().getValueAt(j, 4).toString().replace("$", "").replace(".", "").replace(",", "."));
-                    double utilidad = Double.valueOf(jTable3.getModel().getValueAt(j, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
+                for (int j = 0; j < jTableNotaDeCredito.getModel().getRowCount(); j++) {
+                    String vendedor = jTableNotaDeCredito.getModel().getValueAt(j, 7).toString();
+                    String origen = jTableNotaDeCredito.getModel().getValueAt(j, 9).toString();
+                    double costo = Double.valueOf(jTableNotaDeCredito.getModel().getValueAt(j, 4).toString().replace("$", "").replace(".", "").replace(",", "."));
+                    double utilidad = Double.valueOf(jTableNotaDeCredito.getModel().getValueAt(j, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
 
                     if (toString.equals(vendedor)) {
                         sumaUtilidadNC = sumaUtilidadNC + utilidad;
@@ -4930,15 +4930,15 @@ public class Logica {
                     }
                 }
 
-                for (int j = 0; j < jTable2.getModel().getRowCount(); j++) {
-                    String folio = jTable2.getModel().getValueAt(j, 1).toString();
-                    String vendedor = jTable2.getModel().getValueAt(j, 4).toString();
-                    double costo = Double.valueOf(jTable2.getModel().getValueAt(j, 5).toString().replace("$", "").replace(".", "").replace(",", "."));
-                    double utilidad = Double.valueOf(jTable2.getModel().getValueAt(j, 7).toString().replace("$", "").replace(".", "").replace(",", "."));
-                    String margen = jTable2.getModel().getValueAt(j, 8).toString();
-                    String origen = jTable2.getModel().getValueAt(j, 9).toString();
-                    String fecha = jTable2.getModel().getValueAt(j, 0).toString();
-                    String pagada = jTable2.getModel().getValueAt(i, 11).toString();
+                for (int j = 0; j < jTableResumen.getModel().getRowCount(); j++) {
+                    String folio = jTableResumen.getModel().getValueAt(j, 1).toString();
+                    String vendedor = jTableResumen.getModel().getValueAt(j, 4).toString();
+                    double costo = Double.valueOf(jTableResumen.getModel().getValueAt(j, 5).toString().replace("$", "").replace(".", "").replace(",", "."));
+                    double utilidad = Double.valueOf(jTableResumen.getModel().getValueAt(j, 7).toString().replace("$", "").replace(".", "").replace(",", "."));
+                    String margen = jTableResumen.getModel().getValueAt(j, 8).toString();
+                    String origen = jTableResumen.getModel().getValueAt(j, 9).toString();
+                    String fecha = jTableResumen.getModel().getValueAt(j, 0).toString();
+                    String pagada = jTableResumen.getModel().getValueAt(i, 11).toString();
 
                     if (toString.equals(vendedor)) {
 
@@ -4956,10 +4956,10 @@ public class Logica {
                         if (valueOf >= 10) {
                             sumaBono = sumaBono + utilidad;
 
-                            for (int r = 0; r < jTable3.getModel().getRowCount(); r++) {
-                                String foliox = jTable3.getModel().getValueAt(r, 2).toString();
-                                String vendedorx = jTable3.getModel().getValueAt(r, 7).toString();
-                                double utilidadx = Double.valueOf(jTable3.getModel().getValueAt(r, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
+                            for (int r = 0; r < jTableNotaDeCredito.getModel().getRowCount(); r++) {
+                                String foliox = jTableNotaDeCredito.getModel().getValueAt(r, 2).toString();
+                                String vendedorx = jTableNotaDeCredito.getModel().getValueAt(r, 7).toString();
+                                double utilidadx = Double.valueOf(jTableNotaDeCredito.getModel().getValueAt(r, 6).toString().replace("$", "").replace(".", "").replace(",", "."));
 
                                 if (toString.equals(vendedorx)) {
                                     if (folio.equals(foliox)) {
@@ -5173,7 +5173,7 @@ public class Logica {
     }
 
     public static void filtraRecuadroUno() throws ParseException {
-        jTable2.setRowSorter(null);
+        jTableResumen.setRowSorter(null);
 
         Date datoFecha = rSDateChooser1.getDatoFecha();
         Date datoFecha2 = rSDateChooser2.getDatoFecha();
@@ -5189,12 +5189,12 @@ public class Logica {
             Double sumaCosto0 = 0.0;
             Double sumaCosto = 0.0;
 
-            for (int i = 0; i < jTable3.getRowCount(); i++) {
+            for (int i = 0; i < jTableNotaDeCredito.getRowCount(); i++) {
                 try {
-                    String costo = jTable3.getValueAt(i, 4).toString();
-                    String neto = jTable3.getValueAt(i, 5).toString();
-                    String utilidad = jTable3.getValueAt(i, 6).toString();
-                    String numeroOC = jTable3.getValueAt(i, 10).toString();
+                    String costo = jTableNotaDeCredito.getValueAt(i, 4).toString();
+                    String neto = jTableNotaDeCredito.getValueAt(i, 5).toString();
+                    String utilidad = jTableNotaDeCredito.getValueAt(i, 6).toString();
+                    String numeroOC = jTableNotaDeCredito.getValueAt(i, 10).toString();
 
                     if (numeroOCBox.equals(numeroOC)) {
                         System.out.println("Caso OC = OCBox");
@@ -5222,8 +5222,8 @@ public class Logica {
 
             double sumaTotalFlete = 0.0;
 
-            for (int i = 0; i < jTable4.getRowCount(); i++) {
-                String total = jTable4.getValueAt(i, 4).toString();
+            for (int i = 0; i < jTableFlete.getRowCount(); i++) {
+                String total = jTableFlete.getValueAt(i, 4).toString();
 
                 System.out.println("total " + total);
 
@@ -5279,12 +5279,12 @@ public class Logica {
                 }
             }
 
-            for (int i = 0; i < jTable2.getRowCount(); i++) {
+            for (int i = 0; i < jTableResumen.getRowCount(); i++) {
 
-                String costo = jTable2.getValueAt(i, 5).toString();
-                String neto = jTable2.getValueAt(i, 6).toString();
-                String utilidad = jTable2.getValueAt(i, 7).toString();
-                String numeroOC = jTable2.getValueAt(i, 10).toString();
+                String costo = jTableResumen.getValueAt(i, 5).toString();
+                String neto = jTableResumen.getValueAt(i, 6).toString();
+                String utilidad = jTableResumen.getValueAt(i, 7).toString();
+                String numeroOC = jTableResumen.getValueAt(i, 10).toString();
 
                 if (numeroOCBox.equals(numeroOC)) {
                     System.out.println("Caso OC = OCBox");
@@ -5428,40 +5428,25 @@ public class Logica {
             Double sumaCosto0 = 0.0;
             Double sumaCosto = 0.0;
 
-            for (int i = 0; i < jTable3.getRowCount(); i++) {
+            for (int i = 0; i < jTableNotaDeCredito.getRowCount(); i++) {
                 if (VentanaLogin.nombrex.equals("NICOLAS ROJIC")) {
-                    String fecha = jTable3.getValueAt(i, 0).toString();
-                    String costo = jTable3.getValueAt(i, 4).toString();
-                    String neto = jTable3.getValueAt(i, 5).toString();
-                    String utilidad = jTable3.getValueAt(i, 6).toString();
-                    String vendedor = jTable3.getValueAt(i, 7).toString();
-                    String origen = jTable3.getValueAt(i, 9).toString();
+                    try {
+                        String fecha = jTableNotaDeCredito.getValueAt(i, 0).toString();
+                        String costo = jTableNotaDeCredito.getValueAt(i, 4).toString();
+                        String neto = jTableNotaDeCredito.getValueAt(i, 5).toString();
+                        String utilidad = jTableNotaDeCredito.getValueAt(i, 6).toString();
+                        String vendedor2 = "";
+                        try {
+                            vendedor2 = jTableNotaDeCredito.getValueAt(i, 11).toString();
+                        } catch (Exception ex) {
 
-                    System.out.println("fecha " + fecha);
-
-                    if (vendedorBox.equals("Todos")) {
-                        if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
-                            System.out.println("pre Caso 1");
-
-                            String replace = neto.replace("$ ", "");
-                            String replace1 = replace.replace(".", "");
-                            String replace2 = replace1.replace(",", ".");
-                            sumaNeto0 = sumaNeto0 + Double.valueOf(replace2);
-
-                            replace = utilidad.replace("$ ", "");
-                            replace1 = replace.replace(".", "");
-                            replace2 = replace1.replace(",", ".");
-                            sumaUtilidad0 = sumaUtilidad0 + Double.valueOf(replace2);
-
-                            replace = costo.replace("$ ", "");
-                            replace1 = replace.replace(".", "");
-                            replace2 = replace1.replace(",", ".");
-                            sumaCosto0 = sumaCosto0 + Double.valueOf(replace2);
                         }
-                    } else if (!vendedorBox.equals("Todos") && origenBox.equals("Todos")) {
-                        if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
-                            if (vendedor.equals(vendedorBox)) {
-                                System.out.println("pre Caso 3");
+
+                        System.out.println("fecha " + fecha);
+
+                        if (vendedorBox.equals("Todos")) {
+                            if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
+                                System.out.println("pre Caso 1");
 
                                 String replace = neto.replace("$ ", "");
                                 String replace1 = replace.replace(".", "");
@@ -5478,16 +5463,58 @@ public class Logica {
                                 replace2 = replace1.replace(",", ".");
                                 sumaCosto0 = sumaCosto0 + Double.valueOf(replace2);
                             }
+                        } else if (!vendedorBox.equals("Todos")) {
+                            if (vendedorBox.equals("NICOLAS ROJIC") && !vendedor2.equals("VICTOR")) {
+                                if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
+                                    System.out.println("pre Caso 1");
+
+                                    String replace = neto.replace("$ ", "");
+                                    String replace1 = replace.replace(".", "");
+                                    String replace2 = replace1.replace(",", ".");
+                                    sumaNeto0 = sumaNeto0 + Double.valueOf(replace2);
+
+                                    replace = utilidad.replace("$ ", "");
+                                    replace1 = replace.replace(".", "");
+                                    replace2 = replace1.replace(",", ".");
+                                    sumaUtilidad0 = sumaUtilidad0 + Double.valueOf(replace2);
+
+                                    replace = costo.replace("$ ", "");
+                                    replace1 = replace.replace(".", "");
+                                    replace2 = replace1.replace(",", ".");
+                                    sumaCosto0 = sumaCosto0 + Double.valueOf(replace2);
+                                }
+                            } else if (vendedorBox.equals("VICTOR") && vendedor2.equals("VICTOR")) {
+                                if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
+                                    System.out.println("pre Caso 1");
+
+                                    String replace = neto.replace("$ ", "");
+                                    String replace1 = replace.replace(".", "");
+                                    String replace2 = replace1.replace(",", ".");
+                                    sumaNeto0 = sumaNeto0 + Double.valueOf(replace2);
+
+                                    replace = utilidad.replace("$ ", "");
+                                    replace1 = replace.replace(".", "");
+                                    replace2 = replace1.replace(",", ".");
+                                    sumaUtilidad0 = sumaUtilidad0 + Double.valueOf(replace2);
+
+                                    replace = costo.replace("$ ", "");
+                                    replace1 = replace.replace(".", "");
+                                    replace2 = replace1.replace(",", ".");
+                                    sumaCosto0 = sumaCosto0 + Double.valueOf(replace2);
+                                }
+                            }
                         }
-                  
+                    } catch (Exception ex) {
+                        System.out.println("ex " + ex);
+                    }
                 } else {
                     try {
-                        String fecha = jTable3.getValueAt(i, 0).toString();
-                        String costo = jTable3.getValueAt(i, 4).toString();
-                        String neto = jTable3.getValueAt(i, 5).toString();
-                        String utilidad = jTable3.getValueAt(i, 6).toString();
-                        String vendedor = jTable3.getValueAt(i, 7).toString();
-                        String origen = jTable3.getValueAt(i, 9).toString();
+                        String fecha = jTableNotaDeCredito.getValueAt(i, 0).toString();
+                        String costo = jTableNotaDeCredito.getValueAt(i, 4).toString();
+                        String neto = jTableNotaDeCredito.getValueAt(i, 5).toString();
+                        String utilidad = jTableNotaDeCredito.getValueAt(i, 6).toString();
+                        String vendedor = jTableNotaDeCredito.getValueAt(i, 7).toString();
+                        String origen = jTableNotaDeCredito.getValueAt(i, 9).toString();
 
                         System.out.println("fecha " + fecha);
 
@@ -5584,10 +5611,10 @@ public class Logica {
 
             double sumaTotalFlete = 0.0;
 
-            for (int i = 0; i < jTable4.getRowCount(); i++) {
-                String fecha = jTable4.getValueAt(i, 0).toString();
-                String vendedor = jTable4.getValueAt(i, 2).toString();
-                String total = jTable4.getValueAt(i, 4).toString();
+            for (int t = 0; t < jTableFlete.getRowCount(); t++) {
+                String fecha = jTableFlete.getValueAt(t, 0).toString();
+                String vendedor = jTableFlete.getValueAt(t, 2).toString();
+                String total = jTableFlete.getValueAt(t, 4).toString();
 
                 System.out.println("fecha " + fecha);
                 System.out.println("vendedor " + vendedor);
@@ -5677,20 +5704,27 @@ public class Logica {
                 }
             }
 
-            for (int i = 0; i < jTable2.getRowCount(); i++) {
+            for (int i = 0; i < jTableResumen.getRowCount(); i++) {
+                if (VentanaLogin.nombrex.equals("NICOLAS ROJIC")) {
+                    System.out.println("AHHH :D");
 
-                String fecha = jTable2.getValueAt(i, 0).toString();
-                String vendedor = jTable2.getValueAt(i, 4).toString();
-                String costo = jTable2.getValueAt(i, 5).toString();
-                String neto = jTable2.getValueAt(i, 6).toString();
-                String utilidad = jTable2.getValueAt(i, 7).toString();
-                String origen = jTable2.getValueAt(i, 9).toString();
-                String pagada = jTable2.getValueAt(i, 11).toString();
+                    String fecha = jTableResumen.getValueAt(i, 0).toString();
+                    String vendedor = jTableResumen.getValueAt(i, 4).toString();
+                    String costo = jTableResumen.getValueAt(i, 5).toString();
+                    String neto = jTableResumen.getValueAt(i, 6).toString();
+                    String utilidad = jTableResumen.getValueAt(i, 7).toString();
+                    String origen = jTableResumen.getValueAt(i, 9).toString();
+                    String vendedor2 = "";
+                    try {
+                        vendedor2 = jTableResumen.getValueAt(i, 12).toString();
+                    } catch (Exception ex) {
 
-                DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
-                Date parse = dateFormat.parse(fecha.toString());
-                dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                fecha = dateFormat.format(parse);
+                    }
+
+                    DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
+                    Date parse = dateFormat.parse(fecha.toString());
+                    dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    fecha = dateFormat.format(parse);
 
 //                System.out.println("fecha " + fecha);
 //
@@ -5698,7 +5732,94 @@ public class Logica {
 //                System.out.println("" + Integer.valueOf(date.replace("-", "")));
 //                System.out.println("" + Integer.valueOf(date2.replace("-", "")));
 //                System.out.println("");
-                if (selected == true && selected2 == true) {
+                    if (vendedorBox.equals("Todos")) {
+                        if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
+                            System.out.println("Caso 1");
+
+                            String replace = neto.replace("$ ", "");
+                            String replace1 = replace.replace(".", "");
+                            String replace2 = replace1.replace(",", ".");
+                            sumaNeto = sumaNeto + Double.valueOf(replace2);
+
+                            replace = utilidad.replace("$ ", "");
+                            replace1 = replace.replace(".", "");
+                            replace2 = replace1.replace(",", ".");
+                            sumaUtilidad = sumaUtilidad + Double.valueOf(replace2);
+
+                            replace = costo.replace("$ ", "");
+                            replace1 = replace.replace(".", "");
+                            replace2 = replace1.replace(",", ".");
+                            sumaCosto = sumaCosto + Double.valueOf(replace2);
+
+                            System.out.println("replace2 " + replace2);
+                        }
+                    } else if (!vendedorBox.equals("Todos")) {
+                        System.out.println("vendedor " + vendedor);
+                        System.out.println("vendedor2 " + vendedor2);
+
+                        if (vendedorBox.equals("NICOLAS ROJIC") && !vendedor2.equals("VICTOR")) {
+                            if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
+                                System.out.println("Caso !VICTOR");
+
+                                String replace = neto.replace("$ ", "");
+                                String replace1 = replace.replace(".", "");
+                                String replace2 = replace1.replace(",", ".");
+                                sumaNeto = sumaNeto + Double.valueOf(replace2);
+
+                                replace = utilidad.replace("$ ", "");
+                                replace1 = replace.replace(".", "");
+                                replace2 = replace1.replace(",", ".");
+                                sumaUtilidad = sumaUtilidad + Double.valueOf(replace2);
+
+                                replace = costo.replace("$ ", "");
+                                replace1 = replace.replace(".", "");
+                                replace2 = replace1.replace(",", ".");
+                                sumaCosto = sumaCosto + Double.valueOf(replace2);
+
+                                System.out.println("replace2 " + replace2);
+                            }
+                        } else if (vendedorBox.equals("VICTOR") && vendedor2.equals("VICTOR")) {
+                            if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
+                                System.out.println("Caso VICTOR");
+
+                                String replace = neto.replace("$ ", "");
+                                String replace1 = replace.replace(".", "");
+                                String replace2 = replace1.replace(",", ".");
+                                sumaNeto = sumaNeto + Double.valueOf(replace2);
+
+                                replace = utilidad.replace("$ ", "");
+                                replace1 = replace.replace(".", "");
+                                replace2 = replace1.replace(",", ".");
+                                sumaUtilidad = sumaUtilidad + Double.valueOf(replace2);
+
+                                replace = costo.replace("$ ", "");
+                                replace1 = replace.replace(".", "");
+                                replace2 = replace1.replace(",", ".");
+                                sumaCosto = sumaCosto + Double.valueOf(replace2);
+
+                                System.out.println("replace2 " + replace2);
+                            }
+                        }
+                    }
+                } else {
+                    String fecha = jTableResumen.getValueAt(i, 0).toString();
+                    String vendedor = jTableResumen.getValueAt(i, 4).toString();
+                    String costo = jTableResumen.getValueAt(i, 5).toString();
+                    String neto = jTableResumen.getValueAt(i, 6).toString();
+                    String utilidad = jTableResumen.getValueAt(i, 7).toString();
+                    String origen = jTableResumen.getValueAt(i, 9).toString();
+
+                    DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
+                    Date parse = dateFormat.parse(fecha.toString());
+                    dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    fecha = dateFormat.format(parse);
+
+//                System.out.println("fecha " + fecha);
+//
+//                System.out.println("" + Integer.valueOf(fecha.replace("-", "")));
+//                System.out.println("" + Integer.valueOf(date.replace("-", "")));
+//                System.out.println("" + Integer.valueOf(date2.replace("-", "")));
+//                System.out.println("");
                     if (vendedorBox.equals("Todos") && origenBox.equals("Todos")) {
                         if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
                             System.out.println("Caso 1");
@@ -5790,202 +5911,6 @@ public class Logica {
                                     sumaCosto = sumaCosto + Double.valueOf(replace2);
 
                                     System.out.println("replace2 " + replace2);
-                                }
-                            }
-                        }
-                    }
-                } else if (selected == true && selected2 == false) {
-                    if (pagada.trim().equals("false")) {
-                        if (vendedorBox.equals("Todos") && origenBox.equals("Todos")) {
-                            if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
-                                System.out.println("Caso 1");
-
-                                String replace = neto.replace("$ ", "");
-                                String replace1 = replace.replace(".", "");
-                                String replace2 = replace1.replace(",", ".");
-                                sumaNeto = sumaNeto + Double.valueOf(replace2);
-
-                                replace = utilidad.replace("$ ", "");
-                                replace1 = replace.replace(".", "");
-                                replace2 = replace1.replace(",", ".");
-                                sumaUtilidad = sumaUtilidad + Double.valueOf(replace2);
-
-                                replace = costo.replace("$ ", "");
-                                replace1 = replace.replace(".", "");
-                                replace2 = replace1.replace(",", ".");
-                                sumaCosto = sumaCosto + Double.valueOf(replace2);
-
-                                System.out.println("replace2 " + replace2);
-                            }
-                        } else if (vendedorBox.equals("Todos") && !origenBox.equals("Todos")) {
-                            if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
-                                System.out.println("origen " + origen);
-                                System.out.println("origenBox " + origenBox);
-                                if (origen.equals(origenBox)) {
-                                    System.out.println("Caso 2");
-
-                                    String replace = neto.replace("$ ", "");
-                                    String replace1 = replace.replace(".", "");
-                                    String replace2 = replace1.replace(",", ".");
-                                    sumaNeto = sumaNeto + Double.valueOf(replace2);
-
-                                    replace = utilidad.replace("$ ", "");
-                                    replace1 = replace.replace(".", "");
-                                    replace2 = replace1.replace(",", ".");
-                                    sumaUtilidad = sumaUtilidad + Double.valueOf(replace2);
-
-                                    replace = costo.replace("$ ", "");
-                                    replace1 = replace.replace(".", "");
-                                    replace2 = replace1.replace(",", ".");
-                                    sumaCosto = sumaCosto + Double.valueOf(replace2);
-
-                                    System.out.println("replace2 " + replace2);
-                                }
-                            }
-                        } else if (!vendedorBox.equals("Todos") && origenBox.equals("Todos")) {
-                            if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
-                                if (vendedor.equals(vendedorBox)) {
-                                    System.out.println("Caso 3");
-
-                                    String replace = neto.replace("$ ", "");
-                                    String replace1 = replace.replace(".", "");
-                                    String replace2 = replace1.replace(",", ".");
-                                    sumaNeto = sumaNeto + Double.valueOf(replace2);
-
-                                    replace = utilidad.replace("$ ", "");
-                                    replace1 = replace.replace(".", "");
-                                    replace2 = replace1.replace(",", ".");
-                                    sumaUtilidad = sumaUtilidad + Double.valueOf(replace2);
-
-                                    replace = costo.replace("$ ", "");
-                                    replace1 = replace.replace(".", "");
-                                    replace2 = replace1.replace(",", ".");
-                                    sumaCosto = sumaCosto + Double.valueOf(replace2);
-
-                                    System.out.println("replace2 " + replace2);
-                                }
-                            }
-                        } else if (!vendedorBox.equals("Todos") && !origenBox.equals("Todos")) {
-                            if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
-                                if (origen.equals(origenBox)) {
-                                    if (vendedor.equals(vendedorBox)) {
-                                        System.out.println("Caso 4");
-
-                                        String replace = neto.replace("$ ", "");
-                                        String replace1 = replace.replace(".", "");
-                                        String replace2 = replace1.replace(",", ".");
-                                        sumaNeto = sumaNeto + Double.valueOf(replace2);
-
-                                        replace = utilidad.replace("$ ", "");
-                                        replace1 = replace.replace(".", "");
-                                        replace2 = replace1.replace(",", ".");
-                                        sumaUtilidad = sumaUtilidad + Double.valueOf(replace2);
-
-                                        replace = costo.replace("$ ", "");
-                                        replace1 = replace.replace(".", "");
-                                        replace2 = replace1.replace(",", ".");
-                                        sumaCosto = sumaCosto + Double.valueOf(replace2);
-
-                                        System.out.println("replace2 " + replace2);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                } else if (selected == false && selected2 == true) {
-                    if (pagada.trim().equals("true")) {
-                        if (vendedorBox.equals("Todos") && origenBox.equals("Todos")) {
-                            if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
-                                System.out.println("Caso 1");
-
-                                String replace = neto.replace("$ ", "");
-                                String replace1 = replace.replace(".", "");
-                                String replace2 = replace1.replace(",", ".");
-                                sumaNeto = sumaNeto + Double.valueOf(replace2);
-
-                                replace = utilidad.replace("$ ", "");
-                                replace1 = replace.replace(".", "");
-                                replace2 = replace1.replace(",", ".");
-                                sumaUtilidad = sumaUtilidad + Double.valueOf(replace2);
-
-                                replace = costo.replace("$ ", "");
-                                replace1 = replace.replace(".", "");
-                                replace2 = replace1.replace(",", ".");
-                                sumaCosto = sumaCosto + Double.valueOf(replace2);
-
-                                System.out.println("replace2 " + replace2);
-                            }
-                        } else if (vendedorBox.equals("Todos") && !origenBox.equals("Todos")) {
-                            if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
-                                System.out.println("origen " + origen);
-                                System.out.println("origenBox " + origenBox);
-                                if (origen.equals(origenBox)) {
-                                    System.out.println("Caso 2");
-
-                                    String replace = neto.replace("$ ", "");
-                                    String replace1 = replace.replace(".", "");
-                                    String replace2 = replace1.replace(",", ".");
-                                    sumaNeto = sumaNeto + Double.valueOf(replace2);
-
-                                    replace = utilidad.replace("$ ", "");
-                                    replace1 = replace.replace(".", "");
-                                    replace2 = replace1.replace(",", ".");
-                                    sumaUtilidad = sumaUtilidad + Double.valueOf(replace2);
-
-                                    replace = costo.replace("$ ", "");
-                                    replace1 = replace.replace(".", "");
-                                    replace2 = replace1.replace(",", ".");
-                                    sumaCosto = sumaCosto + Double.valueOf(replace2);
-
-                                    System.out.println("replace2 " + replace2);
-                                }
-                            }
-                        } else if (!vendedorBox.equals("Todos") && origenBox.equals("Todos")) {
-                            if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
-                                if (vendedor.equals(vendedorBox)) {
-                                    System.out.println("Caso 3");
-
-                                    String replace = neto.replace("$ ", "");
-                                    String replace1 = replace.replace(".", "");
-                                    String replace2 = replace1.replace(",", ".");
-                                    sumaNeto = sumaNeto + Double.valueOf(replace2);
-
-                                    replace = utilidad.replace("$ ", "");
-                                    replace1 = replace.replace(".", "");
-                                    replace2 = replace1.replace(",", ".");
-                                    sumaUtilidad = sumaUtilidad + Double.valueOf(replace2);
-
-                                    replace = costo.replace("$ ", "");
-                                    replace1 = replace.replace(".", "");
-                                    replace2 = replace1.replace(",", ".");
-                                    sumaCosto = sumaCosto + Double.valueOf(replace2);
-
-                                    System.out.println("replace2 " + replace2);
-                                }
-                            }
-                        } else if (!vendedorBox.equals("Todos") && !origenBox.equals("Todos")) {
-                            if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
-                                if (origen.equals(origenBox)) {
-                                    if (vendedor.equals(vendedorBox)) {
-                                        System.out.println("Caso 4");
-
-                                        String replace = neto.replace("$ ", "");
-                                        String replace1 = replace.replace(".", "");
-                                        String replace2 = replace1.replace(",", ".");
-                                        sumaNeto = sumaNeto + Double.valueOf(replace2);
-
-                                        replace = utilidad.replace("$ ", "");
-                                        replace1 = replace.replace(".", "");
-                                        replace2 = replace1.replace(",", ".");
-                                        sumaUtilidad = sumaUtilidad + Double.valueOf(replace2);
-
-                                        replace = costo.replace("$ ", "");
-                                        replace1 = replace.replace(".", "");
-                                        replace2 = replace1.replace(",", ".");
-                                        sumaCosto = sumaCosto + Double.valueOf(replace2);
-
-                                        System.out.println("replace2 " + replace2);
-                                    }
                                 }
                             }
                         }
@@ -6107,27 +6032,27 @@ public class Logica {
             jLabel6.setText(new DecimalFormat("#.##").format(name) + "%");
 
             System.out.println("//////");
+
+            String toString = jComboBox1.getSelectedItem().toString();
+            String toString1 = jComboBox2.getSelectedItem().toString();
+
+            boolean selected0 = jCheckBox2.isSelected();
+            boolean selected1 = jCheckBox1.isSelected();
+
+            String valueOf = String.valueOf(selected0);
+            String valueOf1 = String.valueOf(selected1);
+
+            String condicion = "";
+            if (valueOf.equals("true") && valueOf1.equals("true")) {
+                condicion = "";
+            } else if (valueOf.equals("true") && !valueOf1.equals("true")) {
+                condicion = "true";
+            } else if (!valueOf.equals("true") && valueOf1.equals("true")) {
+                condicion = "false";
+            }
+
+            filter(datoFecha, datoFecha2, jTableResumen, toString, toString1, condicion);
         }
-
-        String toString = jComboBox1.getSelectedItem().toString();
-        String toString1 = jComboBox2.getSelectedItem().toString();
-
-        boolean selected = jCheckBox2.isSelected();
-        boolean selected1 = jCheckBox1.isSelected();
-
-        String valueOf = String.valueOf(selected);
-        String valueOf1 = String.valueOf(selected1);
-
-        String condicion = "";
-        if (valueOf.equals("true") && valueOf1.equals("true")) {
-            condicion = "";
-        } else if (valueOf.equals("true") && !valueOf1.equals("true")) {
-            condicion = "true";
-        } else if (!valueOf.equals("true") && valueOf1.equals("true")) {
-            condicion = "false";
-        }
-
-        filter(datoFecha, datoFecha2, jTable2, toString, toString1, condicion);
     }
 
     public static void filter(Date startDate, Date endDate, JTable jTable, String vendedor, String origen, String pagada) {
@@ -6147,27 +6072,66 @@ public class Logica {
         LocalDate plusDays = dateEnd.plusDays(1);
         Date datexEnd = Date.from(plusDays.atStartOfDay(defaultZoneId).toInstant());
 
-        List<RowFilter<Object, Object>> filters = new ArrayList<>(5);
-        filters.add(RowFilter.dateFilter(ComparisonType.AFTER, datex));
-        filters.add(RowFilter.dateFilter(ComparisonType.BEFORE, datexEnd));
-        filters.add(RowFilter.regexFilter(vendedor, 4));
-        filters.add(RowFilter.regexFilter(origen, 9));
-        filters.add(RowFilter.regexFilter(pagada, 11));
+        if (vendedor.equals("VICTOR")) {
+            List<RowFilter<Object, Object>> filters = new ArrayList<>(5);
+            filters.add(RowFilter.dateFilter(ComparisonType.AFTER, datex));
+            filters.add(RowFilter.dateFilter(ComparisonType.BEFORE, datexEnd));
+            filters.add(RowFilter.regexFilter(vendedor, 12));
+            filters.add(RowFilter.regexFilter(origen, 9));
+            filters.add(RowFilter.regexFilter(pagada, 11));
 
-        DefaultTableModel dtm = (DefaultTableModel) jTable.getModel();
-        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<>(dtm);
-        jTable.setRowSorter(tr);
-        RowFilter<Object, Object> rf = RowFilter.andFilter(filters);
-        tr.setRowFilter(rf);
+            DefaultTableModel dtm = (DefaultTableModel) jTable.getModel();
+            TableRowSorter<DefaultTableModel> tr = new TableRowSorter<>(dtm);
+            jTable.setRowSorter(tr);
+            RowFilter<Object, Object> rf = RowFilter.andFilter(filters);
+            tr.setRowFilter(rf);
+        } else if (vendedor.equals("NICOLAS ROJIC")) {
+            RowFilter<Object, Object> filter1 = RowFilter.notFilter(RowFilter.regexFilter("VICTOR", 12));
+
+            RowFilter<Object, Object> filter2 = RowFilter.dateFilter(ComparisonType.AFTER, datex);
+            RowFilter<Object, Object> filter3 = RowFilter.dateFilter(ComparisonType.BEFORE, datexEnd);
+            RowFilter<Object, Object> filter4 = RowFilter.regexFilter(vendedor, 4);
+            RowFilter<Object, Object> filter5 = RowFilter.regexFilter(origen, 9);
+            RowFilter<Object, Object> filter6 = RowFilter.regexFilter(pagada, 11);
+
+            // Agregar todos los filtros a la lista de filtros
+            List<RowFilter<Object, Object>> filters = new ArrayList<>();
+            filters.add(filter1);
+            filters.add(filter2);
+            filters.add(filter3);
+            filters.add(filter4);
+            filters.add(filter5);
+            filters.add(filter6);
+
+            RowFilter<Object, Object> rf = RowFilter.andFilter(filters);
+
+            DefaultTableModel dtm = (DefaultTableModel) jTable.getModel();
+            TableRowSorter<DefaultTableModel> tr = new TableRowSorter<>(dtm);
+            jTable.setRowSorter(tr);
+            tr.setRowFilter(rf);
+        } else {
+            List<RowFilter<Object, Object>> filters = new ArrayList<>(5);
+            filters.add(RowFilter.dateFilter(ComparisonType.AFTER, datex));
+            filters.add(RowFilter.dateFilter(ComparisonType.BEFORE, datexEnd));
+            filters.add(RowFilter.regexFilter(vendedor, 4));
+            filters.add(RowFilter.regexFilter(origen, 9));
+            filters.add(RowFilter.regexFilter(pagada, 11));
+
+            DefaultTableModel dtm = (DefaultTableModel) jTable.getModel();
+            TableRowSorter<DefaultTableModel> tr = new TableRowSorter<>(dtm);
+            jTable.setRowSorter(tr);
+            RowFilter<Object, Object> rf = RowFilter.andFilter(filters);
+            tr.setRowFilter(rf);
+        }
     }
 
     public static void graficaCarteraVendedor() throws IOException, SQLException {
         Principal.newJFrame.jButton6.setEnabled(false);
-        Principal.jTable7.setVisible(false);
+        Principal.jTableEstadisticas.setVisible(false);
 
         Thread thread = new Thread(() -> {
             try {
-                ((DefaultTableModel) jTable7.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableEstadisticas.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
@@ -6179,17 +6143,21 @@ public class Logica {
             ArrayList<ClienteVE> selectXNombre = null;
             try {
                 selectXNombre = clientesDAO.selectXNombre(vendedor);
+
             } catch (IOException ex) {
-                Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Logica.class
+                        .getName()).log(Level.SEVERE, null, ex);
+
             } catch (SQLException ex) {
-                Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Logica.class
+                        .getName()).log(Level.SEVERE, null, ex);
             }
 
             System.out.println("datoFecha " + datoFecha);
             System.out.println("datoFecha1 " + datoFecha1);
 
             Object[] filaTabla7 = new Object[3];
-            DefaultTableModel modelTabla7 = (DefaultTableModel) jTable7.getModel();
+            DefaultTableModel modelTabla7 = (DefaultTableModel) jTableEstadisticas.getModel();
 
             selectXNombre.stream().forEach((ClienteVE clienteVE) -> {
                 String rut = clienteVE.getRut();
@@ -6199,12 +6167,12 @@ public class Logica {
 
                 double sumaNeto = 0.0;
 
-                for (int i = 0; i < jTable2.getModel().getRowCount(); i++) {
+                for (int i = 0; i < jTableResumen.getModel().getRowCount(); i++) {
                     try {
-                        String fechaTabla = jTable2.getModel().getValueAt(i, 0).toString();
-                        String rutTabla = jTable2.getModel().getValueAt(i, 3).toString();
-                        String vendedorTabla = jTable2.getModel().getValueAt(i, 4).toString();
-                        String netoTabla = jTable2.getModel().getValueAt(i, 6).toString();
+                        String fechaTabla = jTableResumen.getModel().getValueAt(i, 0).toString();
+                        String rutTabla = jTableResumen.getModel().getValueAt(i, 3).toString();
+                        String vendedorTabla = jTableResumen.getModel().getValueAt(i, 4).toString();
+                        String netoTabla = jTableResumen.getModel().getValueAt(i, 6).toString();
 
                         DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
                         Date parse = dateFormat.parse(fechaTabla);
@@ -6232,19 +6200,21 @@ public class Logica {
                                     sumaNeto = sumaNeto + Double.parseDouble(netoTabla.replace("$", "").replace(".", "").replace(",", ".").trim());
                                 } else {
                                     System.out.println("   " + netoTabla.replace("$", "").replace(".", "").replace(",", "."));
+
                                 }
                             }
                         }
                     } catch (ParseException ex) {
-                        Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(Logica.class
+                                .getName()).log(Level.SEVERE, null, ex);
                     }
                 }
 
-                for (int i = 0; i < jTable3.getRowCount(); i++) {
-                    String fechaTabla = jTable3.getValueAt(i, 0).toString();
-                    String rutTabla = jTable3.getValueAt(i, 1).toString();
-                    String netoTabla = jTable3.getValueAt(i, 5).toString();
-                    String vendedorTabla = jTable3.getValueAt(i, 7).toString();
+                for (int i = 0; i < jTableNotaDeCredito.getRowCount(); i++) {
+                    String fechaTabla = jTableNotaDeCredito.getValueAt(i, 0).toString();
+                    String rutTabla = jTableNotaDeCredito.getValueAt(i, 1).toString();
+                    String netoTabla = jTableNotaDeCredito.getValueAt(i, 5).toString();
+                    String vendedorTabla = jTableNotaDeCredito.getValueAt(i, 7).toString();
 
                     DateFormat dateFormatx = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -6284,30 +6254,31 @@ public class Logica {
                 modelTabla7.addRow(filaTabla7);
             });
 
-            jTable7.setModel(modelTabla7);
+            jTableEstadisticas.setModel(modelTabla7);
 
             TableRowSorter trs = new TableRowSorter(modelTabla7);
             trs.setComparator(2, new IntComparator());
-            jTable7.setRowSorter(trs);
+            jTableEstadisticas.setRowSorter(trs);
 
-            ((DefaultTableCellRenderer) jTable7.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
-            resizeColumnWidth(jTable7);
+            ((DefaultTableCellRenderer) jTableEstadisticas.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
+            resizeColumnWidth(jTableEstadisticas);
 
-            jTable7.setRowHeight(35);
-            jTable7.setShowHorizontalLines(true);
-            jTable7.setShowVerticalLines(true);
+            jTableEstadisticas.setRowHeight(35);
+            jTableEstadisticas.setShowHorizontalLines(true);
+            jTableEstadisticas.setShowVerticalLines(true);
 
             DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
-            int columnCount = jTable7.getColumnCount();
+            int columnCount = jTableEstadisticas.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
-                jTable7.getColumnModel().getColumn(i).setCellRenderer(renderer);
+                jTableEstadisticas.getColumnModel().getColumn(i).setCellRenderer(renderer);
             }
             renderer.setHorizontalAlignment(JLabel.CENTER);
 
             Principal.newJFrame.jButton6.setEnabled(true);
-            Principal.jTable7.setVisible(true);
+            Principal.jTableEstadisticas.setVisible(true);
         });
         thread.start();
+
     }
 }
 
@@ -6394,16 +6365,16 @@ class CustomEditor extends AbstractCellEditor implements TableCellEditor, Action
         if (JOptionPane.showConfirmDialog(Principal.newJFrame, "Quieres eliminar?", "Eliminar?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             stopCellEditing();
 
-            int selectedRow = jTable4.getSelectedRow();
+            int selectedRow = jTableFlete.getSelectedRow();
             System.out.println("selectedRow " + selectedRow);
 
             Flete flete = new Flete();
-            flete.setFechaFa(jTable4.getValueAt(selectedRow, 0).toString());
-            flete.setNumeroFa(jTable4.getValueAt(selectedRow, 1).toString());
-            flete.setVendedor(jTable4.getValueAt(selectedRow, 2).toString());
-            flete.setMontoFa(jTable4.getValueAt(selectedRow, 3).toString().replace("$", "").replace(".", "").trim());
-            flete.setMontoFaVendedor(jTable4.getValueAt(selectedRow, 4).toString().replace("$", "").replace(".", "").trim());
-            flete.setObservacion(jTable4.getValueAt(selectedRow, 5).toString());
+            flete.setFechaFa(jTableFlete.getValueAt(selectedRow, 0).toString());
+            flete.setNumeroFa(jTableFlete.getValueAt(selectedRow, 1).toString());
+            flete.setVendedor(jTableFlete.getValueAt(selectedRow, 2).toString());
+            flete.setMontoFa(jTableFlete.getValueAt(selectedRow, 3).toString().replace("$", "").replace(".", "").trim());
+            flete.setMontoFaVendedor(jTableFlete.getValueAt(selectedRow, 4).toString().replace("$", "").replace(".", "").trim());
+            flete.setObservacion(jTableFlete.getValueAt(selectedRow, 5).toString());
 
             try {
                 fleteDAO.eliminarFlete(flete);
@@ -6411,10 +6382,10 @@ class CustomEditor extends AbstractCellEditor implements TableCellEditor, Action
                 Logger.getLogger(CustomEditor.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            ((DefaultTableModel) jTable4.getModel()).setNumRows(0);
+            ((DefaultTableModel) jTableFlete.getModel()).setNumRows(0);
 
             Object[] filaTabla4 = new Object[10];
-            DefaultTableModel modelTabla4 = (DefaultTableModel) jTable4.getModel();
+            DefaultTableModel modelTabla4 = (DefaultTableModel) jTableFlete.getModel();
 
             ArrayList<Flete> selectFlete = null;
             try {
@@ -6582,17 +6553,17 @@ class CustomEditor1 extends AbstractCellEditor implements TableCellEditor, Actio
             int selectedIndex = Principal.newJFrame.jTabbedPane1.getSelectedIndex();
 
             if (selectedIndex == 1) {
-                int selectedRow = jTable1.getSelectedRow();
+                int selectedRow = jTableLocal.getSelectedRow();
 
-                codigo = jTable1.getValueAt(selectedRow, 6).toString();
-                costoUnitario = jTable1.getValueAt(selectedRow, 10).toString();
-                folio = jTable1.getValueAt(selectedRow, 2).toString();
+                codigo = jTableLocal.getValueAt(selectedRow, 6).toString();
+                costoUnitario = jTableLocal.getValueAt(selectedRow, 10).toString();
+                folio = jTableLocal.getValueAt(selectedRow, 2).toString();
             } else if (selectedIndex == 2) {
-                int selectedRow = jTable6.getSelectedRow();
+                int selectedRow = jTableFabrica.getSelectedRow();
 
-                codigo = jTable6.getValueAt(selectedRow, 6).toString();
-                costoUnitario = jTable6.getValueAt(selectedRow, 11).toString();
-                folio = jTable6.getValueAt(selectedRow, 2).toString();
+                codigo = jTableFabrica.getValueAt(selectedRow, 6).toString();
+                costoUnitario = jTableFabrica.getValueAt(selectedRow, 11).toString();
+                folio = jTableFabrica.getValueAt(selectedRow, 2).toString();
             }
 
             int count = 0;
@@ -6617,27 +6588,27 @@ class CustomEditor1 extends AbstractCellEditor implements TableCellEditor, Actio
                         productoDAO.actualizaProducto(codigo, costoUnitario, folio);
 
 //                        try {
-//                            ((DefaultTableModel) jTable1.getModel()).setNumRows(0);
+//                            ((DefaultTableModel) jTableLocal.getModel()).setNumRows(0);
 //                        } catch (Exception ex) {
 //
 //                        }
 //                        try {
-//                            ((DefaultTableModel) jTable2.getModel()).setNumRows(0);
+//                            ((DefaultTableModel) jTableResumen.getModel()).setNumRows(0);
 //                        } catch (Exception ex) {
 //
 //                        }
 //                        try {
-//                            ((DefaultTableModel) jTable3.getModel()).setNumRows(0);
+//                            ((DefaultTableModel) jTableNotaDeCredito.getModel()).setNumRows(0);
 //                        } catch (Exception ex) {
 //
 //                        }
 //                        try {
-//                            ((DefaultTableModel) jTable4.getModel()).setNumRows(0);
+//                            ((DefaultTableModel) jTableFlete.getModel()).setNumRows(0);
 //                        } catch (Exception ex) {
 //
 //                        }
 //                        try {
-//                            ((DefaultTableModel) jTable6.getModel()).setNumRows(0);
+//                            ((DefaultTableModel) jTableFabrica.getModel()).setNumRows(0);
 //                        } catch (Exception ex) {
 //
 //                        }
@@ -6778,15 +6749,15 @@ class CustomEditor2 extends AbstractCellEditor implements TableCellEditor, Actio
             if (JOptionPane.showConfirmDialog(Principal.newJFrame, "Quieres guardar los cambios?", "Quieres guardar?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 stopCellEditing();
 
-                int selectedRow = jTable4.getSelectedRow();
+                int selectedRow = jTableFlete.getSelectedRow();
 
                 Flete flete = new Flete();
-                flete.setFechaFa(jTable4.getValueAt(selectedRow, 0).toString());
-                flete.setNumeroFa(jTable4.getValueAt(selectedRow, 1).toString());
-                flete.setVendedor(jTable4.getValueAt(selectedRow, 2).toString());
-                flete.setMontoFa(jTable4.getValueAt(selectedRow, 3).toString().replace("$", "").replace(".", "").trim());
-                flete.setMontoFaVendedor(jTable4.getValueAt(selectedRow, 4).toString().replace("$", "").replace(".", "").trim());
-                flete.setObservacion(jTable4.getValueAt(selectedRow, 5).toString());
+                flete.setFechaFa(jTableFlete.getValueAt(selectedRow, 0).toString());
+                flete.setNumeroFa(jTableFlete.getValueAt(selectedRow, 1).toString());
+                flete.setVendedor(jTableFlete.getValueAt(selectedRow, 2).toString());
+                flete.setMontoFa(jTableFlete.getValueAt(selectedRow, 3).toString().replace("$", "").replace(".", "").trim());
+                flete.setMontoFaVendedor(jTableFlete.getValueAt(selectedRow, 4).toString().replace("$", "").replace(".", "").trim());
+                flete.setObservacion(jTableFlete.getValueAt(selectedRow, 5).toString());
 
                 try {
                     fleteDAO.actualizaFlete(flete);
@@ -6794,10 +6765,10 @@ class CustomEditor2 extends AbstractCellEditor implements TableCellEditor, Actio
                     Logger.getLogger(CustomEditor2.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
-                ((DefaultTableModel) jTable4.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableFlete.getModel()).setNumRows(0);
 
                 Object[] filaTabla4 = new Object[10];
-                DefaultTableModel modelTabla4 = (DefaultTableModel) jTable4.getModel();
+                DefaultTableModel modelTabla4 = (DefaultTableModel) jTableFlete.getModel();
 
                 ArrayList<Flete> selectFlete = null;
                 try {
@@ -6923,10 +6894,10 @@ class CustomEditor3 extends AbstractCellEditor implements TableCellEditor {
                 if (showConfirmDialog == JOptionPane.YES_OPTION) {
                     stopCellEditing();
 
-                    int selectedRow = jTable2.getSelectedRow();
+                    int selectedRow = jTableResumen.getSelectedRow();
 
-                    String folio = jTable2.getValueAt(selectedRow, 1).toString();
-                    String vendedor = jTable2.getValueAt(selectedRow, 4).toString();
+                    String folio = jTableResumen.getValueAt(selectedRow, 1).toString();
+                    String vendedor = jTableResumen.getValueAt(selectedRow, 4).toString();
 
                     System.out.println("folioxx " + folio);
                     System.out.println("vendedorxx " + vendedor);
@@ -6934,27 +6905,27 @@ class CustomEditor3 extends AbstractCellEditor implements TableCellEditor {
                     facturaDAO.actualizaFactura(folio, vendedor);
 
 //                    try {
-//                        ((DefaultTableModel) jTable1.getModel()).setNumRows(0);
+//                        ((DefaultTableModel) jTableLocal.getModel()).setNumRows(0);
 //                    } catch (Exception ex) {
 //
 //                    }
 //                    try {
-//                        ((DefaultTableModel) jTable2.getModel()).setNumRows(0);
+//                        ((DefaultTableModel) jTableResumen.getModel()).setNumRows(0);
 //                    } catch (Exception ex) {
 //
 //                    }
 //                    try {
-//                        ((DefaultTableModel) jTable3.getModel()).setNumRows(0);
+//                        ((DefaultTableModel) jTableNotaDeCredito.getModel()).setNumRows(0);
 //                    } catch (Exception ex) {
 //
 //                    }
 //                    try {
-//                        ((DefaultTableModel) jTable4.getModel()).setNumRows(0);
+//                        ((DefaultTableModel) jTableFlete.getModel()).setNumRows(0);
 //                    } catch (Exception ex) {
 //
 //                    }
 //                    try {
-//                        ((DefaultTableModel) jTable6.getModel()).setNumRows(0);
+//                        ((DefaultTableModel) jTableFabrica.getModel()).setNumRows(0);
 //                    } catch (Exception ex) {
 //
 //                    }
@@ -7093,9 +7064,9 @@ class CustomEditor4 extends AbstractCellEditor implements TableCellEditor {
                 if (showConfirmDialog == JOptionPane.YES_OPTION) {
                     if (num == 0) {
                         stopCellEditing();
-                        int selectedRow = jTable2.getSelectedRow();
+                        int selectedRow = jTableResumen.getSelectedRow();
                         System.out.println("selectedRow " + selectedRow);
-                        String folio = jTable2.getValueAt(selectedRow, 1).toString();
+                        String folio = jTableResumen.getValueAt(selectedRow, 1).toString();
                         Date datoFecha = rSDateChooser1.getDatoFecha();
 
                         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -7107,9 +7078,9 @@ class CustomEditor4 extends AbstractCellEditor implements TableCellEditor {
                         facturaDAO.actualizaFecha(folio, strDate);
                     } else {
                         stopCellEditing();
-                        int selectedRow = jTable3.getSelectedRow();
+                        int selectedRow = jTableNotaDeCredito.getSelectedRow();
                         System.out.println("selectedRow " + selectedRow);
-                        String folioNC = jTable3.getValueAt(selectedRow, 2).toString();
+                        String folioNC = jTableNotaDeCredito.getValueAt(selectedRow, 2).toString();
                         Date datoFecha = rSDateChooser1.getDatoFecha();
 
                         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -7259,9 +7230,9 @@ class CustomEditor6 extends AbstractCellEditor implements TableCellEditor {
         jCheckBox1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                int selectedRow = jTable2.getSelectedRow();
-                String folio = jTable2.getValueAt(selectedRow, 1).toString();
-                jTable2.setValueAt(jCheckBox1.isSelected(), selectedRow, 11);
+                int selectedRow = jTableResumen.getSelectedRow();
+                String folio = jTableResumen.getValueAt(selectedRow, 1).toString();
+                jTableResumen.setValueAt(jCheckBox1.isSelected(), selectedRow, 11);
 
                 System.out.println("folio " + jCheckBox1.isSelected());
 

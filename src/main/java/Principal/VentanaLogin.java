@@ -4,13 +4,6 @@ import Clases.Usuario;
 import static DAO.usuariosDAO.selectUsuario;
 import static Logica.Logica.cargaTablaLocal;
 import static Principal.Principal.jTabbedPane1;
-import static Principal.Principal.jTable1;
-import static Principal.Principal.jTable2;
-import static Principal.Principal.jTable3;
-import static Principal.Principal.jTable4;
-import static Principal.Principal.jTable5;
-import static Principal.Principal.jTable6;
-import static Principal.Principal.jTable7;
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -27,6 +20,13 @@ import javax.swing.text.AbstractDocument;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
+import static Principal.Principal.jTableResumen;
+import static Principal.Principal.jTableLocal;
+import static Principal.Principal.jTableFabrica;
+import static Principal.Principal.jTableNotaDeCredito;
+import static Principal.Principal.jTableFlete;
+import static Principal.Principal.jTableComisiones;
+import static Principal.Principal.jTableEstadisticas;
 
 public class VentanaLogin extends javax.swing.JDialog {
 
@@ -358,37 +358,37 @@ public class VentanaLogin extends javax.swing.JDialog {
                 Principal.vl.dispose();
 
                 try {
-                    ((DefaultTableModel) jTable1.getModel()).setNumRows(0);
+                    ((DefaultTableModel) jTableLocal.getModel()).setNumRows(0);
                 } catch (Exception ex) {
 
                 }
                 try {
-                    ((DefaultTableModel) jTable2.getModel()).setNumRows(0);
+                    ((DefaultTableModel) jTableResumen.getModel()).setNumRows(0);
                 } catch (Exception ex) {
 
                 }
                 try {
-                    ((DefaultTableModel) jTable3.getModel()).setNumRows(0);
+                    ((DefaultTableModel) jTableNotaDeCredito.getModel()).setNumRows(0);
                 } catch (Exception ex) {
 
                 }
                 try {
-                    ((DefaultTableModel) jTable4.getModel()).setNumRows(0);
+                    ((DefaultTableModel) jTableFlete.getModel()).setNumRows(0);
                 } catch (Exception ex) {
 
                 }
                 try {
-                    ((DefaultTableModel) jTable5.getModel()).setNumRows(0);
+                    ((DefaultTableModel) jTableComisiones.getModel()).setNumRows(0);
                 } catch (Exception ex) {
 
                 }
                 try {
-                    ((DefaultTableModel) jTable6.getModel()).setNumRows(0);
+                    ((DefaultTableModel) jTableFabrica.getModel()).setNumRows(0);
                 } catch (Exception ex) {
 
                 }
                 try {
-                    ((DefaultTableModel) jTable7.getModel()).setNumRows(0);
+                    ((DefaultTableModel) jTableEstadisticas.getModel()).setNumRows(0);
                 } catch (Exception ex) {
 
                 }

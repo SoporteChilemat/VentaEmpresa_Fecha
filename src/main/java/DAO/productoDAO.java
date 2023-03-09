@@ -91,6 +91,7 @@ public class productoDAO {
                         || vendedor.equals("TOSFRA")
                         || vendedor.equals("KURSAD")
                         || vendedor.equals("ROJICD")
+                        || vendedor.equals("CAMILO")
                         || vendedor.equals("ESPINV")) {
                     query = "SELECT a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
                             + "                     fechaReferencia, ocCliente, origen, vendedor, vendedor2, pagada, codigo, descripcion, unidad, precioUnitario, costoUnitario, cantidad, precioTotal, b.folio, \n"
@@ -198,6 +199,7 @@ public class productoDAO {
                         || vendedor.equals("TOSFRA")
                         || vendedor.equals("KURSAD")
                         || vendedor.equals("ROJICD")
+                        || vendedor.equals("CAMILO")
                         || vendedor.equals("ESPINV")) {
                     query = "SELECT sum(cast(costoUnitario as float) * cast(cantidad as float)) as suma , a.numeroOC "
                             + "FROM dbo.producto as a inner join dbo.factura as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and b.vendedor <> 'NICOLAS ROJIC' and b.vendedor <> 'PATRICIO ROMAN' group by b.folio, a.numeroOC order by b.folio asc";

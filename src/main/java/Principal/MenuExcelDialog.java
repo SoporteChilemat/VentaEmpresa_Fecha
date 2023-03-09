@@ -52,11 +52,6 @@ import org.apache.commons.codec.EncoderException;
 import static Logica.Logica.procedimientoCargarDocumento;
 import static Logica.Logica.resizeColumnWidth;
 import static Principal.Principal.jLabel4;
-import static Principal.Principal.jTable1;
-import static Principal.Principal.jTable2;
-import static Principal.Principal.jTable3;
-import static Principal.Principal.jTable4;
-import static Principal.Principal.jTable6;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -65,8 +60,13 @@ import org.xml.sax.SAXException;
 import static Logica.Logica.arrErrorExito;
 import static Logica.Logica.crearExcel4;
 import static Logica.Logica.crearExcel5;
-import static Principal.Principal.jTable5;
-import static Principal.Principal.jTable7;
+import static Principal.Principal.jTableResumen;
+import static Principal.Principal.jTableLocal;
+import static Principal.Principal.jTableFabrica;
+import static Principal.Principal.jTableNotaDeCredito;
+import static Principal.Principal.jTableFlete;
+import static Principal.Principal.jTableComisiones;
+import static Principal.Principal.jTableEstadisticas;
 
 public class MenuExcelDialog extends javax.swing.JDialog {
 
@@ -365,37 +365,37 @@ public class MenuExcelDialog extends javax.swing.JDialog {
             }
 
             try {
-                ((DefaultTableModel) jTable1.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableLocal.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable2.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableResumen.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable3.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableNotaDeCredito.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable4.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableFlete.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable5.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableComisiones.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable6.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableFabrica.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable7.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableEstadisticas.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
@@ -504,37 +504,37 @@ public class MenuExcelDialog extends javax.swing.JDialog {
             }
 
             try {
-                ((DefaultTableModel) jTable1.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableLocal.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable2.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableResumen.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable3.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableNotaDeCredito.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable4.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableFlete.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable5.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableComisiones.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable6.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableFabrica.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable7.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableEstadisticas.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
@@ -651,37 +651,37 @@ public class MenuExcelDialog extends javax.swing.JDialog {
             }
 
             try {
-                ((DefaultTableModel) jTable1.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableLocal.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable2.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableResumen.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable3.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableNotaDeCredito.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable4.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableFlete.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable5.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableComisiones.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable6.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableFabrica.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
             try {
-                ((DefaultTableModel) jTable7.getModel()).setNumRows(0);
+                ((DefaultTableModel) jTableEstadisticas.getModel()).setNumRows(0);
             } catch (Exception ex) {
 
             }
