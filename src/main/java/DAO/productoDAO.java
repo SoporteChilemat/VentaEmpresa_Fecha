@@ -60,51 +60,70 @@ public class productoDAO {
         }
     }
 
-    public static void prueba(String tipo, String usuario) {
+    public static void prueba(String tipo, String usuario, String vendedor) {
         try {
             String query = "";
             if (usuario.equals("MOYRIC")) {
                 query = "SELECT a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
-                        + "                     fechaReferencia, ocCliente, origen, vendedor, pagada, codigo, descripcion, unidad, precioUnitario, costoUnitario, cantidad, precioTotal, b.folio, \n"
+                        + "                     fechaReferencia, ocCliente, origen, vendedor, vendedor2, pagada, codigo, descripcion, unidad, precioUnitario, costoUnitario, cantidad, precioTotal, b.folio, \n"
                         + "                     costoFinal, numeroOC, codigoOC, cantidadOC, \n"
                         + "		ROW_NUMBER() OVER (\n"
                         + "            PARTITION BY a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
-                        + "                     fechaReferencia, ocCliente, origen, vendedor, pagada\n"
+                        + "                     fechaReferencia, ocCliente, origen, vendedor, vendedor2, pagada\n"
                         + "            ORDER BY a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
-                        + "                     fechaReferencia, ocCliente, origen, vendedor, pagada) rownum \n"
+                        + "                     fechaReferencia, ocCliente, origen, vendedor, vendedor2, pagada) rownum \n"
                         + "					 \n"
                         + "					 FROM dbo.factura as a inner join dbo.producto as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and a.vendedor = 'PATRICIO ROMAN' order by a.folio asc";
             } else if (usuario.equals("ROJICN")) {
                 query = "SELECT a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
-                        + "                     fechaReferencia, ocCliente, origen, vendedor, pagada, codigo, descripcion, unidad, precioUnitario, costoUnitario, cantidad, precioTotal, b.folio, \n"
+                        + "                     fechaReferencia, ocCliente, origen, vendedor, vendedor2, pagada, codigo, descripcion, unidad, precioUnitario, costoUnitario, cantidad, precioTotal, b.folio, \n"
                         + "                     costoFinal, numeroOC, codigoOC, cantidadOC, \n"
                         + "		ROW_NUMBER() OVER (\n"
                         + "            PARTITION BY a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
-                        + "                     fechaReferencia, ocCliente, origen, vendedor, pagada\n"
+                        + "                     fechaReferencia, ocCliente, origen, vendedor, vendedor2, pagada\n"
                         + "            ORDER BY a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
-                        + "                     fechaReferencia, ocCliente, origen, vendedor, pagada) rownum \n"
+                        + "                     fechaReferencia, ocCliente, origen, vendedor, vendedor2, pagada) rownum \n"
                         + "					 \n"
                         + "					 FROM dbo.factura as a inner join dbo.producto as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and a.vendedor = 'NICOLAS ROJIC' order by a.folio asc";
             } else {
-                query = "SELECT a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
-                        + "                     fechaReferencia, ocCliente, origen, vendedor, pagada, codigo, descripcion, unidad, precioUnitario, costoUnitario, cantidad, precioTotal, b.folio, \n"
-                        + "                     costoFinal, numeroOC, codigoOC, cantidadOC, \n"
-                        + "		ROW_NUMBER() OVER (\n"
-                        + "            PARTITION BY a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
-                        + "                     fechaReferencia, ocCliente, origen, vendedor, pagada\n"
-                        + "            ORDER BY a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
-                        + "                     fechaReferencia, ocCliente, origen, vendedor, pagada) rownum \n"
-                        + "					 \n"
-                        + "					 FROM dbo.factura as a inner join dbo.producto as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and a.vendedor <> 'NICOLAS ROJIC' and a.vendedor <> 'PATRICIO ROMAN' order by a.folio asc";
+                if (vendedor.equals("VALDEK")
+                        || vendedor.equals("TOSGIA")
+                        || vendedor.equals("TOSFRA")
+                        || vendedor.equals("KURSAD")
+                        || vendedor.equals("ROJICD")
+                        || vendedor.equals("ESPINV")) {
+                    query = "SELECT a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
+                            + "                     fechaReferencia, ocCliente, origen, vendedor, vendedor2, pagada, codigo, descripcion, unidad, precioUnitario, costoUnitario, cantidad, precioTotal, b.folio, \n"
+                            + "                     costoFinal, numeroOC, codigoOC, cantidadOC, \n"
+                            + "		ROW_NUMBER() OVER (\n"
+                            + "            PARTITION BY a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
+                            + "                     fechaReferencia, ocCliente, origen, vendedor, vendedor2, pagada\n"
+                            + "            ORDER BY a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
+                            + "                     fechaReferencia, ocCliente, origen, vendedor, vendedor2, pagada) rownum \n"
+                            + "					 \n"
+                            + "					 FROM dbo.factura as a inner join dbo.producto as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and a.vendedor <> 'NICOLAS ROJIC' and a.vendedor <> 'PATRICIO ROMAN' order by a.folio asc";
+                } else {
+                    query = "SELECT a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
+                            + "                     fechaReferencia, ocCliente, origen, vendedor, vendedor2, pagada, codigo, descripcion, unidad, precioUnitario, costoUnitario, cantidad, precioTotal, b.folio, \n"
+                            + "                     costoFinal, numeroOC, codigoOC, cantidadOC, \n"
+                            + "		ROW_NUMBER() OVER (\n"
+                            + "            PARTITION BY a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
+                            + "                     fechaReferencia, ocCliente, origen, vendedor, vendedor2, pagada\n"
+                            + "            ORDER BY a.folio, fechaEmision, rutCliente, giro, direccion, comuna, ciudad, razonSocial, montoNeto, iva, montoTotal, tipoDocumento, folioReferencia, \n"
+                            + "                     fechaReferencia, ocCliente, origen, vendedor, vendedor2, pagada) rownum \n"
+                            + "					 \n"
+                            + "					 FROM dbo.factura as a inner join dbo.producto as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and a.vendedor = '" + vendedor + "' and a.vendedor <> 'NICOLAS ROJIC' and a.vendedor <> 'PATRICIO ROMAN' order by a.folio asc";
+
+                }
             }
 
             PreparedStatement estatuto = conex.getConnection().prepareStatement(query);
 
             // Iterar sobre los resultados y guardarlos en los arreglos correspondientes        
-            try (ResultSet rs = estatuto.executeQuery()) {
+            try ( ResultSet rs = estatuto.executeQuery()) {
                 while (rs.next()) {
                     Factura factura = new Factura();
-                    String string = rs.getString(31);
+                    String string = rs.getString(32);
                     if (string.equals("1")) {
                         factura.setFolio(rs.getString(1));
                         factura.setFechaEmision(rs.getString(2));
@@ -123,7 +142,8 @@ public class productoDAO {
                         factura.setOcCliente(rs.getString(15));
                         factura.setOrigen(rs.getString(16));
                         factura.setVendedor(rs.getString(17));
-                        factura.setPagada(rs.getString(18));
+                        factura.setVendedor2(rs.getString(18));
+                        factura.setPagada(rs.getString(19));
                         if (tipo.equals("52")) {
                             arrFacturas.add(factura);
                         } else {
@@ -132,18 +152,18 @@ public class productoDAO {
                     }
 
                     Producto producto = new Producto();
-                    producto.setCodigo(rs.getString(19));
-                    producto.setDescripcion(rs.getString(20));
-                    producto.setUnidad(rs.getString(21));
-                    producto.setPrecioUnitario(rs.getString(22));
-                    producto.setCostoUnitario(rs.getString(23));
-                    producto.setCantidad(rs.getString(24));
-                    producto.setPrecioTotal(rs.getString(25));
-                    producto.setFolio(rs.getString(26));
-                    producto.setCostoFinal(rs.getString(27));
-                    producto.setNumeroOC(rs.getString(28));
-                    producto.setCodigoOC(rs.getString(29));
-                    producto.setCantidadOC(rs.getString(30));
+                    producto.setCodigo(rs.getString(20));
+                    producto.setDescripcion(rs.getString(21));
+                    producto.setUnidad(rs.getString(22));
+                    producto.setPrecioUnitario(rs.getString(23));
+                    producto.setCostoUnitario(rs.getString(24));
+                    producto.setCantidad(rs.getString(25));
+                    producto.setPrecioTotal(rs.getString(26));
+                    producto.setFolio(rs.getString(27));
+                    producto.setCostoFinal(rs.getString(28));
+                    producto.setNumeroOC(rs.getString(29));
+                    producto.setCodigoOC(rs.getString(30));
+                    producto.setCantidadOC(rs.getString(31));
                     if (tipo.equals("52")) {
                         selectProductosPorFolio.add(producto);
                     } else {
@@ -162,7 +182,7 @@ public class productoDAO {
         }
     }
 
-    public static ArrayList<SumasNumeroOC> prueba2(String tipo, String usuario) {
+    public static ArrayList<SumasNumeroOC> prueba2(String tipo, String usuario, String vendedor) {
         ArrayList<SumasNumeroOC> arrsumasNumeroOC = new ArrayList<>();
         try {
             String query = "";
@@ -173,12 +193,22 @@ public class productoDAO {
                 query = "SELECT sum(cast(costoUnitario as float) * cast(cantidad as float)) as suma, a.numeroOC "
                         + "FROM dbo.producto as a inner join dbo.factura as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and b.vendedor = 'NICOLAS ROJIC' group by b.folio, a.numeroOC order by b.folio asc";
             } else {
-                query = "SELECT sum(cast(costoUnitario as float) * cast(cantidad as float)) as suma , a.numeroOC "
-                        + "FROM dbo.producto as a inner join dbo.factura as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and b.vendedor <> 'NICOLAS ROJIC' and b.vendedor <> 'PATRICIO ROMAN' group by b.folio, a.numeroOC order by b.folio asc";
+                if (vendedor.equals("VALDEK")
+                        || vendedor.equals("TOSGIA")
+                        || vendedor.equals("TOSFRA")
+                        || vendedor.equals("KURSAD")
+                        || vendedor.equals("ROJICD")
+                        || vendedor.equals("ESPINV")) {
+                    query = "SELECT sum(cast(costoUnitario as float) * cast(cantidad as float)) as suma , a.numeroOC "
+                            + "FROM dbo.producto as a inner join dbo.factura as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and b.vendedor <> 'NICOLAS ROJIC' and b.vendedor <> 'PATRICIO ROMAN' group by b.folio, a.numeroOC order by b.folio asc";
+                } else {
+                    query = "SELECT sum(cast(costoUnitario as float) * cast(cantidad as float)) as suma , a.numeroOC "
+                            + "FROM dbo.producto as a inner join dbo.factura as b on a.folio = b.folio WHERE tipoDocumento = '" + tipo + "' and b.vendedor = '" + vendedor + "' and b.vendedor <> 'NICOLAS ROJIC' and b.vendedor <> 'PATRICIO ROMAN' group by b.folio, a.numeroOC order by b.folio asc";
+                }
             }
 
             PreparedStatement estatuto = conex.getConnection().prepareStatement(query);
-            try (ResultSet rs = estatuto.executeQuery()) {
+            try ( ResultSet rs = estatuto.executeQuery()) {
                 while (rs.next()) {
                     SumasNumeroOC sumasNumeroOC = new SumasNumeroOC();
                     sumasNumeroOC.setSuma(rs.getDouble("suma"));
@@ -234,7 +264,7 @@ public class productoDAO {
 
     public static void actualizaProducto(String codigo, String costoUnitario, String folio) {
 
-        try (Statement estatuto = conex.getConnection().createStatement()) {
+        try ( Statement estatuto = conex.getConnection().createStatement()) {
             estatuto.executeUpdate("UPDATE dbo.producto SET costoUnitario ='" + costoUnitario + "' WHERE codigo = '" + codigo + "' AND folio = '" + folio + "'");
             estatuto.close();
         } catch (SQLException e) {

@@ -15,6 +15,8 @@ import Logica.Logica;
 import static Logica.Logica.abrirExcel;
 import static Logica.Logica.abrirExcel2;
 import static Logica.Logica.abrirExcel3;
+import static Logica.Logica.abrirExcel4;
+import static Logica.Logica.abrirExcel5;
 import static Logica.Logica.arrMaestra;
 import static Logica.Logica.cargaTablaLocal;
 import static Logica.Logica.chromeDriverNotaDeCredito;
@@ -61,6 +63,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 import static Logica.Logica.arrErrorExito;
+import static Logica.Logica.crearExcel4;
+import static Logica.Logica.crearExcel5;
 import static Principal.Principal.jTable5;
 import static Principal.Principal.jTable7;
 
@@ -424,8 +428,13 @@ public class MenuExcelDialog extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         try {
-            crearExcel();
-            abrirExcel();
+            if (VentanaLogin.nombrex.equals("NICOLAS ROJIC")) {
+                crearExcel4();
+                abrirExcel4();
+            } else {
+                crearExcel();
+                abrirExcel();
+            }
         } catch (IOException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -434,9 +443,15 @@ public class MenuExcelDialog extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         CompletableFuture.runAsync(() -> {
             try {
-                ejecucion1 = 1;
-                arrReportes = Logica.arrReportes(System.getProperty("user.dir") + "\\ListadoFacturas.xlsx");
-                procedimientoCargarDocumento(0);
+                if (VentanaLogin.nombrex.equals("NICOLAS ROJIC")) {
+                    ejecucion1 = 1;
+                    arrReportes2 = Logica.arrReportes2(System.getProperty("user.dir") + "\\FacturasNombre.xlsx");
+                    procedimientoCargarDocumento(0);
+                } else {
+                    ejecucion1 = 1;
+                    arrReportes = Logica.arrReportes(System.getProperty("user.dir") + "\\ListadoFacturas.xlsx");
+                    procedimientoCargarDocumento(0);
+                }
             } catch (InterruptedException ex) {
                 Logger.getLogger(MenuExcelDialog.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -544,6 +559,16 @@ public class MenuExcelDialog extends javax.swing.JDialog {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            try {
+                File f = new File(System.getProperty("user.dir") + "\\ListadoFacturasNombre.xlsx");
+                if (f.delete()) {
+                    System.out.println(f.getName() + " deleted");
+                } else {
+                    System.out.println("failed");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
             dispose();
         });
@@ -552,8 +577,13 @@ public class MenuExcelDialog extends javax.swing.JDialog {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         try {
             // TODO add your handling code here:
-            crearExcel3();
-            abrirExcel3();
+            if (VentanaLogin.nombrex.equals("NICOLAS ROJIC")) {
+                crearExcel5();
+                abrirExcel5();
+            } else {
+                crearExcel3();
+                abrirExcel3();
+            }
         } catch (IOException ex) {
             Logger.getLogger(MenuExcelDialog.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -563,9 +593,16 @@ public class MenuExcelDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         CompletableFuture.runAsync(() -> {
             try {
-                ejecucion3 = 1;
-                arrReportes3 = Logica.arrReportes(System.getProperty("user.dir") + "\\ListadoNotasCredito.xlsx");
-                chromeDriverNotaDeCredito();
+                if (VentanaLogin.nombrex.equals("NICOLAS ROJIC")) {
+                    System.out.println("x");
+                    ejecucion3 = 1;
+                    arrReportes2 = Logica.arrReportes2(System.getProperty("user.dir") + "\\ListadoNotasCreditoNombre.xlsx");
+                    chromeDriverNotaDeCredito();
+                } else {
+                    ejecucion3 = 1;
+                    arrReportes3 = Logica.arrReportes(System.getProperty("user.dir") + "\\ListadoNotasCredito.xlsx");
+                    chromeDriverNotaDeCredito();
+                }
             } catch (IOException ex) {
                 Logger.getLogger(MenuExcelDialog.class.getName()).log(Level.SEVERE, null, ex);
             } catch (InterruptedException ex) {

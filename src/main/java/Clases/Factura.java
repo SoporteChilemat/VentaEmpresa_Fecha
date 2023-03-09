@@ -27,7 +27,16 @@ public class Factura {
     String ocCliente;
     String origen;
     String vendedor;
+    String vendedor2;
     String pagada;
+
+    public String getVendedor2() {
+        return vendedor2;
+    }
+
+    public void setVendedor2(String vendedor2) {
+        this.vendedor2 = vendedor2;
+    }
 
     public String getPagada() {
         return pagada;

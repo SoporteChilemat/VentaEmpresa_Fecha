@@ -18,7 +18,16 @@ public class NotaCredito {
     String fechaReferencia;
     String motivo;
     String vendedor;
+    String vendedor2;
     String origen;
+
+    public String getVendedor2() {
+        return vendedor2;
+    }
+
+    public void setVendedor2(String vendedor2) {
+        this.vendedor2 = vendedor2;
+    }
 
     public String getVendedor() {
         return vendedor;

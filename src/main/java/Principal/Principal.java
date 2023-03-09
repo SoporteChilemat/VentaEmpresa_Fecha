@@ -169,7 +169,7 @@ public class Principal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Fecha FA", "N° Factura", "Razon Social", "Cliente", "Vendedor", "Costo Total", "Neto Total", "Utilidad", "Margen", "Origen", "N° Orden de Compra", "Pagada"
+                "Fecha FA", "N° Factura", "Razon Social", "Cliente", "Vendedor", "Costo Total", "Neto Total", "Utilidad", "Margen", "Origen", "N° Orden de Compra", "Pagada", "Vendedor 2"
             }
         ));
         jTable2.setCellSelectionEnabled(true);
@@ -577,7 +577,7 @@ public class Principal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Fecha Factura", "Fecha GD", "Folio", "OC Cliente", "Rut Cliente", "N° G.D.", "Codigo", "Cantidad", "Descripcion", "Unidad", "Costo Unitario", "Neto Unitario", "Costo Total", "Neto Total", "Utilidad", "Margen", "Vendedor"
+                "Fecha Factura", "Fecha GD", "Folio", "OC Cliente", "Rut Cliente", "N° G.D.", "Codigo", "Cantidad", "Descripcion", "Unidad", "Costo Unitario", "Neto Unitario", "Costo Total", "Neto Total", "Utilidad", "Margen", "Vendedor", "Vendedor 2"
             }
         ));
         jTable1.setCellSelectionEnabled(true);
@@ -642,7 +642,7 @@ public class Principal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Fecha", "Cliente", "Folio NC", "Folio FA", "Costo Total", "Neto N.C.", "Utilidad", "Vendedor", "Observacion", "Origen", "OC Referencia"
+                "Fecha", "Cliente", "Folio NC", "Folio FA", "Costo Total", "Neto N.C.", "Utilidad", "Vendedor", "Observacion", "Origen", "OC Referencia", "Vendedor2"
             }
         ));
         jTable3.setCellSelectionEnabled(true);

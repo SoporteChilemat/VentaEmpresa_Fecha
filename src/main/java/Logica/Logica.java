@@ -165,6 +165,7 @@ import static Principal.Principal.jTable7;
 import static Principal.Principal.rSDateChooser6;
 import static Principal.Principal.rSDateChooser7;
 import Principal.VentanaLogin;
+import static Principal.VentanaLogin.nombrex;
 import Principal.VentanaPareo;
 import java.awt.Dimension;
 import java.io.FileWriter;
@@ -252,14 +253,14 @@ public class Logica {
                 arrSumasNumeroOC = new ArrayList<>();
 
                 if (VentanaLogin.nombre.equals("MOYRIC")) {
-                    productoDAO.prueba("52", "MOYRIC");
-                    arrSumasNumeroOC = productoDAO.prueba2("52", "MOYRIC");
+                    productoDAO.prueba("52", "MOYRIC", "");
+                    arrSumasNumeroOC = productoDAO.prueba2("52", "MOYRIC", "");
                 } else if (VentanaLogin.nombre.equals("ROJICN")) {
-                    productoDAO.prueba("52", "ROJICN");
-                    arrSumasNumeroOC = productoDAO.prueba2("52", "ROJICN");
+                    productoDAO.prueba("52", "ROJICN", "");
+                    arrSumasNumeroOC = productoDAO.prueba2("52", "ROJICN", "");
                 } else {
-                    productoDAO.prueba("52", "");
-                    arrSumasNumeroOC = productoDAO.prueba2("52", "");
+                    productoDAO.prueba("52", "", nombrex);
+                    arrSumasNumeroOC = productoDAO.prueba2("52", "", nombrex);
                 }
 
 //                System.out.println("arrFacturas.size() " + arrFacturas.size());
@@ -272,14 +273,14 @@ public class Logica {
                 arrSumasNumeroOCF = new ArrayList<>();
 
                 if (VentanaLogin.nombre.equals("MOYRIC")) {
-                    productoDAO.prueba("GDT", "MOYRIC");
-                    arrSumasNumeroOCF = productoDAO.prueba2("GDT", "MOYRIC");
+                    productoDAO.prueba("GDT", "MOYRIC", "");
+                    arrSumasNumeroOCF = productoDAO.prueba2("GDT", "MOYRIC", "");
                 } else if (VentanaLogin.nombre.equals("ROJICN")) {
-                    productoDAO.prueba("GDT", "ROJICN");
-                    arrSumasNumeroOCF = productoDAO.prueba2("GDT", "ROJICN");
+                    productoDAO.prueba("GDT", "ROJICN", "");
+                    arrSumasNumeroOCF = productoDAO.prueba2("GDT", "ROJICN", "");
                 } else {
-                    productoDAO.prueba("GDT", "");
-                    arrSumasNumeroOCF = productoDAO.prueba2("GDT", "");
+                    productoDAO.prueba("GDT", "", nombrex);
+                    arrSumasNumeroOCF = productoDAO.prueba2("GDT", "", nombrex);
                 }
 
 //                System.out.println("arrFacturasF.size() " + arrFacturasF.size());
@@ -350,6 +351,7 @@ public class Logica {
                     String rutCliente = null;
                     String ocCliente = null;
                     String vendedor = null;
+                    String vendedor2 = null;
 
                     for (Factura factura : arrFacturas) {
                         if (folio.equals(factura.getFolio())) {
@@ -359,6 +361,7 @@ public class Logica {
                             rutCliente = factura.getRutCliente();
                             ocCliente = factura.getOcCliente();
                             vendedor = factura.getVendedor();
+                            vendedor2 = factura.getVendedor2();
                             break;
                         }
                     }
@@ -380,7 +383,8 @@ public class Logica {
                         formatCurrency(netoTotal),
                         formatCurrency(netoTotal - costoTotal),
                         new DecimalFormat("#.##").format(((netoUnitario - costoUnitario) / costoUnitario) * 100) + "%",
-                        vendedor
+                        vendedor,
+                        vendedor2
                     };
 
                     model.addRow(row);
@@ -627,7 +631,14 @@ public class Logica {
                         filaTabla2[4] = factura.getVendedor();
 
                         arrNombresVendedores.add(factura.getVendedor());
+                        try {
+                            String vendedor2 = factura.getVendedor2();
+                            if (vendedor2.equals("VICTOR")) {
+                                arrNombresVendedores.add(factura.getVendedor2());
+                            }
+                        } catch (Exception ex) {
 
+                        }
                         Locale chileLocale = new Locale("es", "CL");
                         NumberFormat nf = NumberFormat.getNumberInstance(chileLocale);
 
@@ -684,6 +695,7 @@ public class Logica {
                         }
 
                         filaTabla2[11] = factura.getPagada();
+                        filaTabla2[12] = factura.getVendedor2();
 
                         arrOrigenes.add(factura.getOrigen());
 
@@ -851,7 +863,7 @@ public class Logica {
 ////////////////////////////////////////////////////////////////////////////////
 //<editor-fold defaultstate="collapsed" desc="TABLA NOTA DE CREDITO">
 //                System.out.println("D");
-                Object[] filaTabla3 = new Object[11];
+                Object[] filaTabla3 = new Object[12];
                 DefaultTableModel modelTabla3 = (DefaultTableModel) jTable3.getModel();
 
                 AtomicInteger at2 = new AtomicInteger(0);
@@ -901,7 +913,7 @@ public class Logica {
 //                                System.out.println("codigoNC " + codigoNC);
 //                                System.out.println("folio " + folio);
 //                                System.out.println("folioReferencia " + folioReferencia);
-                                if (folio.equals(folioReferencia) &&  (descipcionTabla.contains(descripcion) || descripcion.contains(descipcionTabla) || codigo1.contains(codigo))) {
+                                if (folio.equals(folioReferencia) && (descipcionTabla.contains(descripcion) || descripcion.contains(descipcionTabla) || codigo1.contains(codigo))) {
                                     costoUnitario = jTable1.getModel().getValueAt(i, 10).toString();
                                     costoUnitarioTotal = convertStringToDouble(costoUnitario) * Double.valueOf(productoNotaCredito.getCantidad());
 ////                                    System.out.println("--->");
@@ -916,7 +928,7 @@ public class Logica {
                                 String codigo2 = jTable6.getModel().getValueAt(i, 6).toString();
                                 String descipcionTabla2 = jTable6.getModel().getValueAt(i, 6).toString();
 
-                                if (folio.equals(folioReferencia)  &&  (descipcionTabla2.contains(descripcion) || descripcion.contains(descipcionTabla2) || codigo2.contains(codigo))) {
+                                if (folio.equals(folioReferencia) && (descipcionTabla2.contains(descripcion) || descripcion.contains(descipcionTabla2) || codigo2.contains(codigo))) {
                                     costoUnitario = jTable6.getModel().getValueAt(i, 11).toString();
                                     costoUnitarioTotal = convertStringToDouble(costoUnitario) * Double.valueOf(productoNotaCredito.getCantidad());
 ////                                    System.out.println("--->");
@@ -1128,6 +1140,7 @@ public class Logica {
                         }
                     }
 
+                    filaTabla3[11] = notaCredito.getVendedor2();
                     modelTabla3.addRow(filaTabla3);
                 });
 
@@ -1710,6 +1723,94 @@ public class Logica {
         out.close();
     }
 
+    public static void crearExcel4() throws FileNotFoundException, IOException {
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet spreadsheet = workbook.createSheet("FacturasNombre");
+
+        XSSFFont headerFont = workbook.createFont();
+        headerFont.setColor(IndexedColors.WHITE.index);
+        CellStyle headerCellStyle = spreadsheet.getWorkbook().createCellStyle();
+        // fill foreground color ...
+        headerCellStyle.setFillForegroundColor(IndexedColors.GREY_50_PERCENT.index);
+        // and solid fill pattern produces solid grey cell fill
+        headerCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        headerCellStyle.setFont(headerFont);
+        headerCellStyle.setAlignment(HorizontalAlignment.CENTER);
+
+        Map<String, Object[]> data = new TreeMap<>();
+        data.put("1", new Object[]{"FOLIO", "NOMBRE"});
+        // Iterate over data and write to sheet 
+        Set<String> keyset = data.keySet();
+        int rownum = 0;
+        for (String key : keyset) {
+            // this creates a new row in the sheet 
+            Row row = spreadsheet.createRow(rownum++);
+            Object[] objArr = data.get(key);
+            int cellnum = 0;
+            for (Object obj : objArr) {
+                // this line creates a cell in the next column of that row 
+                Cell cell = row.createCell(cellnum++);
+                // if rownum is 1 (first row was created before) then set header CellStyle
+                if (rownum == 1) {
+                    cell.setCellStyle(headerCellStyle);
+                }
+                if (obj instanceof String) {
+                    cell.setCellValue((String) obj);
+                } else if (obj instanceof Integer) {
+                    cell.setCellValue((Integer) obj);
+                }
+            }
+        }
+
+        FileOutputStream out = new FileOutputStream(new File("FacturasNombre.xlsx"));
+        workbook.write(out);
+        out.close();
+    }
+
+    public static void crearExcel5() throws FileNotFoundException, IOException {
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet spreadsheet = workbook.createSheet("NotasCreditoNombre");
+
+        XSSFFont headerFont = workbook.createFont();
+        headerFont.setColor(IndexedColors.WHITE.index);
+        CellStyle headerCellStyle = spreadsheet.getWorkbook().createCellStyle();
+        // fill foreground color ...
+        headerCellStyle.setFillForegroundColor(IndexedColors.GREY_50_PERCENT.index);
+        // and solid fill pattern produces solid grey cell fill
+        headerCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        headerCellStyle.setFont(headerFont);
+        headerCellStyle.setAlignment(HorizontalAlignment.CENTER);
+
+        Map<String, Object[]> data = new TreeMap<>();
+        data.put("1", new Object[]{"FOLIO", "NOMBRE"});
+        // Iterate over data and write to sheet 
+        Set<String> keyset = data.keySet();
+        int rownum = 0;
+        for (String key : keyset) {
+            // this creates a new row in the sheet 
+            Row row = spreadsheet.createRow(rownum++);
+            Object[] objArr = data.get(key);
+            int cellnum = 0;
+            for (Object obj : objArr) {
+                // this line creates a cell in the next column of that row 
+                Cell cell = row.createCell(cellnum++);
+                // if rownum is 1 (first row was created before) then set header CellStyle
+                if (rownum == 1) {
+                    cell.setCellStyle(headerCellStyle);
+                }
+                if (obj instanceof String) {
+                    cell.setCellValue((String) obj);
+                } else if (obj instanceof Integer) {
+                    cell.setCellValue((Integer) obj);
+                }
+            }
+        }
+
+        FileOutputStream out = new FileOutputStream(new File("ListadoNotasCreditoNombre.xlsx"));
+        workbook.write(out);
+        out.close();
+    }
+
     public static void abrirExcel() throws IOException {
         File file = new File("ListadoFacturas.xlsx");
         Desktop desktop = Desktop.getDesktop();
@@ -1732,6 +1833,39 @@ public class Logica {
         if (file.exists()) {
             desktop.open(file);
         }
+    }
+
+    public static void abrirExcel4() throws IOException {
+        File file = new File("FacturasNombre.xlsx");
+        Desktop desktop = Desktop.getDesktop();
+        if (file.exists()) {
+            desktop.open(file);
+        }
+    }
+
+    public static void abrirExcel5() throws IOException {
+        File file = new File("ListadoNotasCreditoNombre.xlsx");
+        Desktop desktop = Desktop.getDesktop();
+        if (file.exists()) {
+            desktop.open(file);
+        }
+    }
+
+    public static ArrayList<String>[] convertir(ArrayList<ArrayList<String>> listaDeListas) {
+        ArrayList<String> listaA = new ArrayList<String>();
+        ArrayList<String> listaB = new ArrayList<String>();
+        for (ArrayList<String> lista : listaDeListas) {
+            int i = 0;
+            for (String elemento : lista) {
+                if (i == 0) {
+                    listaA.add(elemento);
+                } else if (i == 1) {
+                    listaB.add(elemento);
+                }
+                i++;
+            }
+        }
+        return new ArrayList[]{listaA, listaB};
     }
 
     public static void procedimientoCargarDocumento(int num) throws InterruptedException, MalformedURLException, IOException, EncoderException, TransformerException, SQLException, ParserConfigurationException, SAXException {
@@ -1773,6 +1907,12 @@ public class Logica {
         driver.findElement(By.xpath("//*[@id=\"username\"]")).sendKeys(rut);
         driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys(password);
         driver.findElement(By.xpath("//*[@id=\"content\"]/div/div[2]/form/div[3]/button")).click();
+
+        ArrayList<String>[] convertir = null;
+        if (VentanaLogin.nombrex.equals("NICOLAS ROJIC")) {
+            convertir = convertir(arrReportes2);
+            arrReportes = convertir[0];
+        }
 
         if (num == 0) {
             //<editor-fold defaultstate="collapsed" desc="Acoplar IF">
@@ -1870,7 +2010,7 @@ public class Logica {
                         if (convertStringToDocument != null) {
 
                             String[] split1 = attribute.split("/");
-                            try (FileOutputStream output = new FileOutputStream(System.getProperty("user.dir") + "\\XMLs\\" + split1[split1.length - 1])) {
+                            try ( FileOutputStream output = new FileOutputStream(System.getProperty("user.dir") + "\\XMLs\\" + split1[split1.length - 1])) {
                                 writeXml(convertStringToDocument, output);
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -1927,6 +2067,10 @@ public class Logica {
                                 ///// REGISTRA FECHA DE CARGA /////
                                 DateTimeFormatter formatterx = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                                 String formatx = LocalDate.now().format(formatterx);
+
+                                if (VentanaLogin.nombrex.equals("NICOLAS ROJIC")) {
+                                    factura.setVendedor2(convertir[1].get(i));
+                                }
 
                                 ///// REGISTRA FACTURA /////
                                 int insertFactura = registraFactura(factura);
@@ -2116,7 +2260,7 @@ public class Logica {
                         if (convertStringToDocument != null) {
 
                             String[] split1 = attribute.split("/");
-                            try (FileOutputStream output = new FileOutputStream(System.getProperty("user.dir") + "\\XMLs\\" + split1[split1.length - 1])) {
+                            try ( FileOutputStream output = new FileOutputStream(System.getProperty("user.dir") + "\\XMLs\\" + split1[split1.length - 1])) {
                                 writeXml(convertStringToDocument, output);
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -3271,11 +3415,20 @@ public class Logica {
 
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"username\"]")));
 
+        System.out.println("------");
+
         driver.findElement(By.xpath("//*[@id=\"username\"]")).sendKeys(rut);
         driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys(password);
         driver.findElement(By.xpath("//*[@id=\"content\"]/div/div[2]/form/div[3]/button")).click();
 
-        System.out.println("arrReportes.size() " + arrReportes3.size());
+        System.out.println("------");
+
+//        System.out.println("arrReportes.size() " + arrReportes3.size());
+        ArrayList<String>[] convertir = null;
+        if (VentanaLogin.nombrex.equals("NICOLAS ROJIC")) {
+            convertir = convertir(arrReportes2);
+            arrReportes3 = convertir[0];
+        }
 
         for (int i = 0; i < arrReportes3.size(); i++) {
             try {
@@ -3340,7 +3493,7 @@ public class Logica {
                 Document convertStringToDocument = convertStringToDocument(text1);
 
                 String[] split1 = attribute.split("/");
-                try (FileOutputStream output = new FileOutputStream(System.getProperty("user.dir") + "\\XMLs\\" + split1[split1.length - 1])) {
+                try ( FileOutputStream output = new FileOutputStream(System.getProperty("user.dir") + "\\XMLs\\" + split1[split1.length - 1])) {
                     writeXml(convertStringToDocument, output);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -3470,6 +3623,10 @@ public class Logica {
                             Logger.getLogger(Logica.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         notaCredito.setVendedor(vendedorCliente);
+
+                        if (VentanaLogin.nombrex.equals("NICOLAS ROJIC")) {
+                            notaCredito.setVendedor2(convertir[1].get(i));
+                        }
 
                         int insertNotaCredito = insertNotaCredito(notaCredito);
 
@@ -3958,6 +4115,18 @@ public class Logica {
                             MenuExcelDialog.jButton1.setEnabled(false);
                         }
 
+                        File file4 = new File(System.getProperty("user.dir") + "\\FacturasNombre.xlsx");
+                        boolean exists4 = file4.exists();
+                        if (ejecucion1 == 0) {
+                            if (exists4) {
+                                MenuExcelDialog.jButton1.setEnabled(true);
+                            } else {
+                                MenuExcelDialog.jButton1.setEnabled(false);
+                            }
+                        } else {
+                            MenuExcelDialog.jButton1.setEnabled(false);
+                        }
+
                         File file2 = new File(System.getProperty("user.dir") + "\\ListadoFacturas2.xlsx");
                         boolean exists2 = file2.exists();
                         if (ejecucion2 == 0) {
@@ -3974,6 +4143,18 @@ public class Logica {
                         boolean exists3 = file3.exists();
                         if (ejecucion3 == 0) {
                             if (exists3) {
+                                MenuExcelDialog.jButton6.setEnabled(true);
+                            } else {
+                                MenuExcelDialog.jButton6.setEnabled(false);
+                            }
+                        } else {
+                            MenuExcelDialog.jButton6.setEnabled(false);
+                        }
+
+                        File file5 = new File(System.getProperty("user.dir") + "\\ListadoNotasCreditoNombre.xlsx");
+                        boolean exists5 = file5.exists();
+                        if (ejecucion3 == 0) {
+                            if (exists5) {
                                 MenuExcelDialog.jButton6.setEnabled(true);
                             } else {
                                 MenuExcelDialog.jButton6.setEnabled(false);
@@ -5248,7 +5429,7 @@ public class Logica {
             Double sumaCosto = 0.0;
 
             for (int i = 0; i < jTable3.getRowCount(); i++) {
-                try {
+                if (VentanaLogin.nombrex.equals("NICOLAS ROJIC")) {
                     String fecha = jTable3.getValueAt(i, 0).toString();
                     String costo = jTable3.getValueAt(i, 4).toString();
                     String neto = jTable3.getValueAt(i, 5).toString();
@@ -5258,7 +5439,7 @@ public class Logica {
 
                     System.out.println("fecha " + fecha);
 
-                    if (vendedorBox.equals("Todos") && origenBox.equals("Todos")) {
+                    if (vendedorBox.equals("Todos")) {
                         if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
                             System.out.println("pre Caso 1");
 
@@ -5276,27 +5457,6 @@ public class Logica {
                             replace1 = replace.replace(".", "");
                             replace2 = replace1.replace(",", ".");
                             sumaCosto0 = sumaCosto0 + Double.valueOf(replace2);
-                        }
-                    } else if (vendedorBox.equals("Todos") && !origenBox.equals("Todos")) {
-                        if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
-                            if (origen.equals(origenBox)) {
-                                System.out.println("pre Caso 2");
-
-                                String replace = neto.replace("$ ", "");
-                                String replace1 = replace.replace(".", "");
-                                String replace2 = replace1.replace(",", ".");
-                                sumaNeto0 = sumaNeto0 + Double.valueOf(replace2);
-
-                                replace = utilidad.replace("$ ", "");
-                                replace1 = replace.replace(".", "");
-                                replace2 = replace1.replace(",", ".");
-                                sumaUtilidad0 = sumaUtilidad0 + Double.valueOf(replace2);
-
-                                replace = costo.replace("$ ", "");
-                                replace1 = replace.replace(".", "");
-                                replace2 = replace1.replace(",", ".");
-                                sumaCosto0 = sumaCosto0 + Double.valueOf(replace2);
-                            }
                         }
                     } else if (!vendedorBox.equals("Todos") && origenBox.equals("Todos")) {
                         if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
@@ -5319,11 +5479,41 @@ public class Logica {
                                 sumaCosto0 = sumaCosto0 + Double.valueOf(replace2);
                             }
                         }
-                    } else if (!vendedorBox.equals("Todos") && !origenBox.equals("Todos")) {
-                        if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
-                            if (origen.equals(origenBox)) {
-                                if (vendedor.equals(vendedorBox)) {
-                                    System.out.println("pre Caso 4");
+                  
+                } else {
+                    try {
+                        String fecha = jTable3.getValueAt(i, 0).toString();
+                        String costo = jTable3.getValueAt(i, 4).toString();
+                        String neto = jTable3.getValueAt(i, 5).toString();
+                        String utilidad = jTable3.getValueAt(i, 6).toString();
+                        String vendedor = jTable3.getValueAt(i, 7).toString();
+                        String origen = jTable3.getValueAt(i, 9).toString();
+
+                        System.out.println("fecha " + fecha);
+
+                        if (vendedorBox.equals("Todos") && origenBox.equals("Todos")) {
+                            if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
+                                System.out.println("pre Caso 1");
+
+                                String replace = neto.replace("$ ", "");
+                                String replace1 = replace.replace(".", "");
+                                String replace2 = replace1.replace(",", ".");
+                                sumaNeto0 = sumaNeto0 + Double.valueOf(replace2);
+
+                                replace = utilidad.replace("$ ", "");
+                                replace1 = replace.replace(".", "");
+                                replace2 = replace1.replace(",", ".");
+                                sumaUtilidad0 = sumaUtilidad0 + Double.valueOf(replace2);
+
+                                replace = costo.replace("$ ", "");
+                                replace1 = replace.replace(".", "");
+                                replace2 = replace1.replace(",", ".");
+                                sumaCosto0 = sumaCosto0 + Double.valueOf(replace2);
+                            }
+                        } else if (vendedorBox.equals("Todos") && !origenBox.equals("Todos")) {
+                            if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
+                                if (origen.equals(origenBox)) {
+                                    System.out.println("pre Caso 2");
 
                                     String replace = neto.replace("$ ", "");
                                     String replace1 = replace.replace(".", "");
@@ -5341,10 +5531,54 @@ public class Logica {
                                     sumaCosto0 = sumaCosto0 + Double.valueOf(replace2);
                                 }
                             }
+                        } else if (!vendedorBox.equals("Todos") && origenBox.equals("Todos")) {
+                            if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
+                                if (vendedor.equals(vendedorBox)) {
+                                    System.out.println("pre Caso 3");
+
+                                    String replace = neto.replace("$ ", "");
+                                    String replace1 = replace.replace(".", "");
+                                    String replace2 = replace1.replace(",", ".");
+                                    sumaNeto0 = sumaNeto0 + Double.valueOf(replace2);
+
+                                    replace = utilidad.replace("$ ", "");
+                                    replace1 = replace.replace(".", "");
+                                    replace2 = replace1.replace(",", ".");
+                                    sumaUtilidad0 = sumaUtilidad0 + Double.valueOf(replace2);
+
+                                    replace = costo.replace("$ ", "");
+                                    replace1 = replace.replace(".", "");
+                                    replace2 = replace1.replace(",", ".");
+                                    sumaCosto0 = sumaCosto0 + Double.valueOf(replace2);
+                                }
+                            }
+                        } else if (!vendedorBox.equals("Todos") && !origenBox.equals("Todos")) {
+                            if (Integer.valueOf(fecha.replace("-", "")) >= Integer.valueOf(date.replace("-", "")) && Integer.valueOf(fecha.replace("-", "")) <= Integer.valueOf(date2.replace("-", ""))) {
+                                if (origen.equals(origenBox)) {
+                                    if (vendedor.equals(vendedorBox)) {
+                                        System.out.println("pre Caso 4");
+
+                                        String replace = neto.replace("$ ", "");
+                                        String replace1 = replace.replace(".", "");
+                                        String replace2 = replace1.replace(",", ".");
+                                        sumaNeto0 = sumaNeto0 + Double.valueOf(replace2);
+
+                                        replace = utilidad.replace("$ ", "");
+                                        replace1 = replace.replace(".", "");
+                                        replace2 = replace1.replace(",", ".");
+                                        sumaUtilidad0 = sumaUtilidad0 + Double.valueOf(replace2);
+
+                                        replace = costo.replace("$ ", "");
+                                        replace1 = replace.replace(".", "");
+                                        replace2 = replace1.replace(",", ".");
+                                        sumaCosto0 = sumaCosto0 + Double.valueOf(replace2);
+                                    }
+                                }
+                            }
                         }
+                    } catch (Exception ex) {
+                        System.out.println("ex " + ex);
                     }
-                } catch (Exception ex) {
-                    System.out.println("ex " + ex);
                 }
             }
 

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><EnvioDTE xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://www.sii.cl/SiiDte EnvioDTE_v10.xsd">
+<SetDTE ID="SETDTE76008058X61X84153X318780408">
+<Caratula version="1.0">
+<RutEmisor>76008058-6</RutEmisor>
+<RutEnvia>9788569-9</RutEnvia>
+<RutReceptor>61102010-4</RutReceptor>
+<FchResol>2012-03-30</FchResol>
+<NroResol>47</NroResol>
+<TmstFirmaEnv>2023-03-01T17:54:17</TmstFirmaEnv>
+<SubTotDTE>
+<TpoDTE>61</TpoDTE>
+<NroDTE>1</NroDTE>
+</SubTotDTE>
+</Caratula>
+<DTE version="1.0">
+<Documento ID="DTE76008058X61X84153X20230301175403">
+<Encabezado>
+<IdDoc>
+<TipoDTE>61</TipoDTE>
+<Folio>84153</Folio>
+<FchEmis>2023-03-01</FchEmis>
+</IdDoc>
+<Emisor>
+<RUTEmisor>76008058-6</RUTEmisor>
+<RznSoc>COMERCIAL FRANCISCO TOSO LTDA</RznSoc>
+<GiroEmis>Grandes Tiendas - Productos de Ferreteria y para e</GiroEmis>
+<Acteco>471990</Acteco>
+<DirOrigen>Direccion 34</DirOrigen>
+<CmnaOrigen>Santiago</CmnaOrigen>
+<CiudadOrigen>Santiago</CiudadOrigen>
+</Emisor>
+<Receptor>
+<RUTRecep>61102010-4</RUTRecep>
+<CdgIntRecep>1330665</CdgIntRecep>
+<RznSocRecep>ESCUELA NAVAL ARTURO PRAT</RznSocRecep>
+<GiroRecep>ARMADA</GiroRecep>
+<Contacto>0</Contacto>
+<DirRecep>GONZALEZ HONTANEDA11</DirRecep>
+<CmnaRecep>VALPARAISO</CmnaRecep>
+<CiudadRecep>VALPARAISO</CiudadRecep>
+</Receptor>
+<Totales>
+<MntNeto>246000</MntNeto>
+<TasaIVA>19</TasaIVA>
+<IVA>46740</IVA>
+<MntTotal>292740</MntTotal>
+</Totales>
+</Encabezado>
+<Detalle>
+<NroLinDet>1</NroLinDet>
+<CdgItem>
+<TpoCodigo>INT</TpoCodigo>
+<VlrCodigo>10005005</VlrCodigo>
+</CdgItem>
+<NmbItem>WD-40 SPRAY DE 155 GR [-1][WD-40] 155GR</NmbItem>
+<QtyItem>60</QtyItem>
+<PrcItem>4100</PrcItem>
+<MontoItem>246000</MontoItem>
+</Detalle>
+<Referencia>
+<NroLinRef>1</NroLinRef>
+<TpoDocRef>33</TpoDocRef>
+<FolioRef>475094</FolioRef>
+<FchRef>2023-02-01</FchRef>
+<CodRef>1</CodRef>
+</Referencia>
+<TED version="1.0">
+<DD>
+<RE>76008058-6</RE>
+<TD>61</TD>
+<F>84153</F>
+<FE>2023-03-01</FE>
+<RR>61102010-4</RR>
+<RSR>ESCUELA NAVAL ARTURO PRAT</RSR>
+<MNT>292740</MNT>
+<IT1>WD-40 SPRAY DE 155 GR [-1][WD-40] 155GR</IT1>
+<CAF version="1.0">
+<DA>
+<RE>76008058-6</RE>
+<RS>COMERCIAL FRANCISCO TOSO LIMITADA</RS>
+<TD>61</TD>
+<RNG>
+<D>83161</D>
+<H>84160</H>
+</RNG>
+<FA>2022-12-05</FA>
+<RSAPK>
+<M>yOnuUtoeUxl0Kl10G47WA4gE6WpdQYv3EFIBOtjOISVtfY6rKIxfMAF+Kci09jRRjsr6TuHzstP5gt8QDM0Opw==</M>
+<E>Aw==</E>
+</RSAPK>
+<IDK>300</IDK>
+</DA>
+<FRMA algoritmo="SHA1withRSA">eIdohO9ynOzrIz4iCCuyx8H85oNSm5ysbj1CRNbWhVtroHI7Th9swKjalf3psexZjYWw+rq9SnVGP+rFrOCDKA==</FRMA>
+</CAF>
+<TSTED>2023-03-01T17:54:02</TSTED>
+</DD>
+<FRMT algoritmo="SHA1withRSA">uw+CQFgCrYTZXLADbtWMu70dAmlv5L95+t+eeIC4YXK3XZ65EbKL2BNOwZfOzEPYb5pVCpDZKd45ESHtVawdrA==</FRMT>
+</TED>
+<TmstFirma>2023-03-01T17:54:04</TmstFirma>
+</Documento>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+<SignedInfo>
+<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<Reference URI="#DTE76008058X61X84153X20230301175403">
+<Transforms>
+<Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+</Transforms>
+<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<DigestValue>a9ab/lW2MSZby4bn5Pz3mS6mC3o=</DigestValue>
+</Reference>
+</SignedInfo>
+<SignatureValue> jC4NsvG69dVay99s3amIwK156dZ3AvghvKnCOrbxi/41HTCL+1lPGDqHbI1TvgXT6TC/cIwvbp6T 4XNZpkbykHKxj3JU7pnb0nbyJCDtRlNd1EEy0cRZ2Fe4fMh48Nt8JFdP7j6tu5BioY+RYHnl+tIG wCt5ytjFa+7nSbhAj/MTPyFXpH6OsRZ0FEktPK4Cfck+htLCV8kq7y60KCNDvO5vQ2eDeLR4rOy8 7/4kgQiHaeE71s1r+WNwaYYOxLhqhTo+AJcwdoH+ltd/U5k7rAo/z1ORw3Z2MHi0Qe9ac/mafx52 X3ye86CmMIrqpJrbCXHa7VW8gq/Z7UxaUKStaA== </SignatureValue>
+<KeyInfo>
+<KeyValue>
+<RSAKeyValue>
+<Modulus> kWbX958TCVfy+XXOd1tvwuhEAHvu+4GBcidPb/AsYBv+s9+z1tsHKKu6vY/t4Nt/uwOp9mf99AHZ MQLgd/iTmvsIg5hMyiYSqW7rqiPvGKiP8a9tGMGYqk9REDMqicuZLjH24nvg1TzBKss79FaEeAS9 OFjlKp5rZE+T1ESKZ8DOL2jWrGEk9gWR6No0QueHgZC20e5l4fv4K2uQs+dL3Cxp4ois6VAqelHN JnsrW53NwljAUXvT/KBfP7VsA6A+dSqJXGbASnqohnnSeEwftUfgGo398guAbYhDqH51nARbWKvJ yXJxGCsUbPpfPRPFxXgJDizHz1zbMZ4r8XGN6Q== </Modulus>
+<Exponent>AQAB</Exponent>
+</RSAKeyValue>
+</KeyValue>
+<X509Data>
+<X509Certificate> MIIGSTCCBTGgAwIBAgIIQlrMjVUvrywwDQYJKoZIhvcNAQELBQAwga8xCzAJBgNVBAYTAkNMMRQw EgYDVQQKDAtFLVNpZ24gUy5BLjE5MDcGA1UECwwwVGVybXMgb2YgdXNlIGF0IHd3dy5lc2lnbi1s YS5jb20vYWN1ZXJkb3RlcmNlcm9zMSswKQYDVQQDDCJFLVNpZ24gQ2xhc3MgMiBGaXJtYSBUcmli dXRhcmlhIENBMSIwIAYJKoZIhvcNAQkBFhNlLXNpZ25AZXNpZ24tbGEuY29tMB4XDTIwMDUxODEy NDgwMFoXDTIzMDUxODEyNDgwMFowgagxCzAJBgNVBAYTAkNMMRQwEgYDVQQKDAtFLVNpZ24gUy5B LjE5MDcGA1UECwwwVGVybXMgb2YgdXNlIGF0IHd3dy5lc2lnbi1sYS5jb20vYWN1ZXJkb3RlcmNl cm9zMSQwIgYDVQQDDBtmcmFuY2lzY28gamF2aWVyIHRvc28gcm9qaWMxIjAgBgkqhkiG9w0BCQEW E2ZlcnJldGVyaWFAZnRvc28uY2wwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCRZtf3 nxMJV/L5dc53W2/C6EQAe+77gYFyJ09v8CxgG/6z37PW2wcoq7q9j+3g23+7A6n2Z/30AdkxAuB3 +JOa+wiDmEzKJhKpbuuqI+8YqI/xr20YwZiqT1EQMyqJy5kuMfbie+DVPMEqyzv0VoR4BL04WOUq nmtkT5PURIpnwM4vaNasYST2BZHo2jRC54eBkLbR7mXh+/gra5Cz50vcLGniiKzpUCp6Uc0meytb nc3CWMBRe9P8oF8/tWwDoD51KolcZsBKeqiGedJ4TB+1R+Aajf3yC4BtiEOofnWcBFtYq8nJcnEY KxRs+l89E8XFeAkOLMfPXNsxnivxcY3pAgMBAAGjggJsMIICaDCBgAYIKwYBBQUHAQEEdDByMEoG CCsGAQUFBzAChj5odHRwOi8vcGtpLmVzaWduLWxhLmNvbS9jYWNlcnRzL3BraUNsYXNzMkZpcm1h VHJpYnV0YXJpYUNBLmNydDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZXNpZ24tbGEuY29tMB0G A1UdDgQWBBQEKlFPSxE/xNnKjdXwkJ6lhwHarzAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFPlK +sLHbsLnEpxXRTWEGm0o6UqkMIHIBgNVHSAEgcAwgb0wgboGDCsGAQQBgspqAQQBAjCBqTB+Bggr BgEFBQcCAjByHnAAQwBlAHIAdABpAGYAaQBjAGEAZABvACAAcABhAHIAYQAgAHUAcwBvACAAVABy AGkAYgB1AHQAYQByAGkAbwAsACAAQwBvAG0AZQByAGMAaQBvACwAIABQAGEAZwBvAHMAIAB5ACAA TwB0AHIAbwBzMCcGCCsGAQUFBwIBFhtodHRwOi8vd3d3LmVzaWduLWxhLmNvbS9jcHMwUQYDVR0f BEowSDBGoESgQoZAaHR0cDovL3BraS5lc2lnbi1sYS5jb20vY3JsL3BraUNsYXNzMkZpcm1hVHJp YnV0YXJpYS9lbmR1c2VyLmNybDAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwIG CCsGAQUFBwMEMCMGA1UdEQQcMBqgGAYIKwYBBAHBAQGgDBYKMTM5ODk0NzEtNTAjBgNVHRIEHDAa oBgGCCsGAQQBwQECoAwWCjk5NTUxNzQwLUswDQYJKoZIhvcNAQELBQADggEBABJxkQrSv3Tpmg/N /konGyx4qdmHINJ88qiPGkjq8pzOqTizjYuFLSlOtJdfQ8dbysj1ZgxUkucDm59ayBv0VDAq4fLd Csr1FaO7b5iy5ku6XfRvTk+Xdxl/k6j8Jhfu0OI1pbG/pc4uPG0BECRfKXRiga7eHz5jw+G86gvb b3qTgWOEGm61lHa1R0e5q00qCJ45wSm0W8LvnBupJnW7GOAPPLKkFPw13Yzao2PmTzHpixxKQEbI dvtu3pr3yd6mEtnO2XrM0lSJgSFDpk5dlD2Nct/UdjFdclWLK0QCRWwsFYylu65MI26QyEOi173I 8OekEpenuVUFeJ6fc8qPl0o= </X509Certificate>
+</X509Data>
+</KeyInfo>
+</Signature>
+</DTE>
+</SetDTE>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+<SignedInfo>
+<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<Reference URI="#SETDTE76008058X61X84153X318780408">
+<Transforms>
+<Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+</Transforms>
+<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<DigestValue>ph7j+Evhr6aqQdTBGKOkqiifEtA=</DigestValue>
+</Reference>
+</SignedInfo>
+<SignatureValue> qII5Ru7dsIE8K9ET6ggw3ipgxkjSgOecVfSqWUJFwUudBV/bkGSuaafUaslJx2lC6xdSGwZUTqVg 1PY9Oddg+oxNSCh02+rLAWPJncUJlOk6JAtldiybVk7P8TpW/eiAo5TZKfdfIphAADJPX8XmDXYr 9KjajHPOMdCruJh2evj00fYb16x4RvL5Qav8ZwvPeokoE0WH1NfJu3fjukwwGiB2X4Mxkh8bmD5N lT9PLcQaEIV1WDS3sU6CiP2a8NO7J/HGLT35EfaTJpHjA2WRa6acbELnLZaBd2Z1XkJzEa76zRao topaS/olLvEjlZR/Q+kMSMhB8FNHEIDxNq2BKg== </SignatureValue>
+<KeyInfo>
+<KeyValue>
+<RSAKeyValue>
+<Modulus> 1VvdZRCq9lKkm2uZo60dYHhOIF9Q9p3sE4GRkcCVnjYd2Wc9ggMLcDnWlwXJOo0HTE61I8cAsScv 6W5TiHuocqtFofiZaWeJs5NveHFgJyG11nmkZd9EibMzpGM6RfTIsE140I9YhRUY7+Y4hNUvS636 vfvzSSCJJ0yluS7ulE6+Op4drpKT33WUQJMHP1IlxA1lYn+CAD+BMobN/z0LNlWN0r8SzxbMialN xyPpfK/6pgyibOnQfctWcA8ylbaepqJRg1SF0ziFPotjgawamv7N6DtGF1lqMbGvvYBfIkT3Hw0J wNooJ+VwMVtSDsR22NyLrJCJmxvge3tvQ/seKw== </Modulus>
+<Exponent>AQAB</Exponent>
+</RSAKeyValue>
+</KeyValue>
+<X509Data>
+<X509Certificate> MIIGZzCCBU+gAwIBAgIDBJasMA0GCSqGSIb3DQEBCwUAMIGmMQswCQYDVQQGEwJDTDEYMBYGA1UE ChMPQWNlcHRhLmNvbSBTLkEuMUgwRgYDVQQDEz9BY2VwdGEuY29tIEF1dG9yaWRhZCBDZXJ0aWZp Y2Fkb3JhIENsYXNlIDIgUGVyc29uYSBOYXR1cmFsIC0gRzQxHjAcBgkqhkiG9w0BCQEWD2luZm9A YWNlcHRhLmNvbTETMBEGA1UEBRMKOTY5MTkwNTAtODAeFw0yMDA1MjgxNzQ1MjdaFw0yMzA1Mjgx NzQ1MjdaMIGEMQswCQYDVQQGEwJDTDEYMBYGA1UEDBMPUEVSU09OQSBOQVRVUkFMMSYwJAYDVQQD Ex1MQURJU0xBTyBST0JFUlRPIENPUlRFUyBUT0JBUjEfMB0GCSqGSIb3DQEJARYQTENPUlRFU0BF TlRFTC5DTDESMBAGA1UEBRMJOTc4ODU2OS05MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC AQEA1VvdZRCq9lKkm2uZo60dYHhOIF9Q9p3sE4GRkcCVnjYd2Wc9ggMLcDnWlwXJOo0HTE61I8cA sScv6W5TiHuocqtFofiZaWeJs5NveHFgJyG11nmkZd9EibMzpGM6RfTIsE140I9YhRUY7+Y4hNUv S636vfvzSSCJJ0yluS7ulE6+Op4drpKT33WUQJMHP1IlxA1lYn+CAD+BMobN/z0LNlWN0r8SzxbM ialNxyPpfK/6pgyibOnQfctWcA8ylbaepqJRg1SF0ziFPotjgawamv7N6DtGF1lqMbGvvYBfIkT3 Hw0JwNooJ+VwMVtSDsR22NyLrJCJmxvge3tvQ/seKwIDAQABo4ICvDCCArgwHwYDVR0jBBgwFoAU ZaWrPj/ItlFtEX5fwwoH5kOgCLYwHQYDVR0OBBYEFLLkCmbg0JeA0w7T1HcWAEft/eigMAsGA1Ud DwQEAwIE8DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwEQYJYIZIAYb4QgEBBAQDAgWg MIH1BgNVHSAEge0wgeowgecGCCsGAQQBtWsCMIHaMDEGCCsGAQUFBwIBFiVodHRwczovL2FjZzQu YWNlcHRhLmNvbS9DUFMtQWNlcHRhY29tMIGkBggrBgEFBQcCAjCBlzAWFg9BY2VwdGEuY29tIFMu QS4wAwIBCRp9RWwgdGl0dWxhciBoYSBzaWRvIHZhbGlkYWRvIGVuIGZvcm1hIG9ubGluZSwgcXVl ZGFuZG8gaGFiaWxpdGFkbyBlbCBDZXJ0aWZpY2FkbyBwYXJhIHVzbyB0cmlidXRhcmlvLCBwYWdv cywgY29tZXJjaW8geSBvdHJvcy4wWgYDVR0SBFMwUaAYBggrBgEEAcEBAqAMFgo5NjkxOTA1MC04 oCQGCCsGAQUFBwgDoBgwFgwKOTY5MTkwNTAtOAYIKwYBBAHBAQKBD2luZm9AYWNlcHRhLmNvbTBZ BgNVHREEUjBQoBcGCCsGAQQBwQEBoAsWCTk3ODg1NjktOaAjBggrBgEFBQcIA6AXMBUMCTk3ODg1 NjktOQYIKwYBBAHBAQKBEExDT1JURVNARU5URUwuQ0wwRwYIKwYBBQUHAQEEOzA5MDcGCCsGAQUF BzABhitodHRwczovL2FjZzQuYWNlcHRhLmNvbS9hY2c0L29jc3AvQ2xhc2UyLUc0MD8GA1UdHwQ4 MDYwNKAyoDCGLmh0dHBzOi8vYWNnNC5hY2VwdGEuY29tL2FjZzQvY3JsL0NsYXNlMi1HNC5jcmww DQYJKoZIhvcNAQELBQADggEBADc4tLDTH+DhrQwJ+gJujLSTa7AL4E+71qCTDl7XhtiiNZMFlyn7 FBoMNJSDoLFeovkSE1V9i1PRUDmlGY5GDJRvhTsqP8kMua2cCJ6/bBVsfCA7SV06pxZLR+fJE+/v NatXQaReLS4Mp+DSYQPThl5fn192nEphGKH2sdCkIb9nhBwb3my8iEzOGuxfR0IuIZfFRaGAsY9R I0v19UqAaQq6QfGER6YVhxswjokbUZtqq9zdPQVY86OI74j/vB8HKgEt51Vs6otEE1JR3X9FjgpT CjXdL27QkPPNAKaaizYrximm4L6PY18kMKZ2DANyUo3rYW4KmHaMv6ev4NXyNlk= </X509Certificate>
+</X509Data>
+</KeyInfo>
+</Signature>
+<Personalizados>
+<DocPersonalizado dteID="DTE76008058X61X84153X20230301175403">
+<campoString name="SolicitadoPor">KARINA VALDES</campoString>
+<campoString name="Observacion">ANULA</campoString>
+<campoString name="SucursalEmite">2002363</campoString>
+<campoString name="Regla">70889241</campoString>
+<campoString name="Motivo">ANULA DOCUMENTO</campoString>
+<campoString name="MontoPalabra">DOSCIENTOS NOVENTA Y DOS MIL SETECIENTOS CUARENTA PESOS</campoString>
+</DocPersonalizado>
+</Personalizados>
+</EnvioDTE>

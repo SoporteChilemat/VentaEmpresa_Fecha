@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><EnvioDTE xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://www.sii.cl/SiiDte EnvioDTE_v10.xsd">
+<SetDTE ID="SETDTE76008058X33X474106X315212604">
+<Caratula version="1.0">
+<RutEmisor>76008058-6</RutEmisor>
+<RutEnvia>9788569-9</RutEnvia>
+<RutReceptor>69060600-3</RutReceptor>
+<FchResol>2012-03-30</FchResol>
+<NroResol>47</NroResol>
+<TmstFirmaEnv>2023-01-23T12:56:06</TmstFirmaEnv>
+<SubTotDTE>
+<TpoDTE>33</TpoDTE>
+<NroDTE>1</NroDTE>
+</SubTotDTE>
+</Caratula>
+<DTE version="1.0">
+<Documento ID="DTE76008058X33X474106X20230123125541">
+<Encabezado>
+<IdDoc>
+<TipoDTE>33</TipoDTE>
+<Folio>474106</Folio>
+<FchEmis>2023-01-23</FchEmis>
+</IdDoc>
+<Emisor>
+<RUTEmisor>76008058-6</RUTEmisor>
+<RznSoc>COMERCIAL FRANCISCO TOSO LTDA</RznSoc>
+<GiroEmis>Grandes Tiendas - Productos de Ferreteria y para e</GiroEmis>
+<Acteco>471990</Acteco>
+<DirOrigen>Direccion 34</DirOrigen>
+<CmnaOrigen>Santiago</CmnaOrigen>
+<CiudadOrigen>Santiago</CiudadOrigen>
+<CdgVendedor>ARANDM</CdgVendedor>
+</Emisor>
+<Receptor>
+<RUTRecep>69060600-3</RUTRecep>
+<CdgIntRecep>1553652</CdgIntRecep>
+<RznSocRecep>ILUSTRE MUNICIPALIDAD DE NOGALES</RznSocRecep>
+<GiroRecep>MUNICIPALIDAD</GiroRecep>
+<Contacto>-56 9 9449 2719</Contacto>
+<DirRecep>PEDRO FELIX VICUNA N. 199, NOGALES.</DirRecep>
+<CmnaRecep>NOGALES</CmnaRecep>
+<CiudadRecep>NOGALES</CiudadRecep>
+</Receptor>
+<Totales>
+<MntNeto>220000</MntNeto>
+<TasaIVA>19</TasaIVA>
+<IVA>41800</IVA>
+<MntTotal>261800</MntTotal>
+</Totales>
+</Encabezado>
+<Detalle>
+<NroLinDet>1</NroLinDet>
+<CdgItem>
+<TpoCodigo>INT</TpoCodigo>
+<VlrCodigo>D-1124-2</VlrCodigo>
+</CdgItem>
+<NmbItem>ESCALA TELESCOPICA ALUMINIO 24P. 6,39 MTS. CARGA 105</NmbItem>
+<UnmdRef>UNI</UnmdRef>
+<PrcRef>220000</PrcRef>
+<QtyItem>1</QtyItem>
+<PrcItem>220000</PrcItem>
+<MontoItem>220000</MontoItem>
+</Detalle>
+<Referencia>
+<NroLinRef>1</NroLinRef>
+<TpoDocRef>52</TpoDocRef>
+<FolioRef>381540</FolioRef>
+<FchRef>2023-01-18</FchRef>
+</Referencia>
+<Referencia>
+<NroLinRef>2</NroLinRef>
+<TpoDocRef>801</TpoDocRef>
+<FolioRef>3624-18-AG23</FolioRef>
+<FchRef>2023-01-18</FchRef>
+</Referencia>
+<TED version="1.0">
+<DD>
+<RE>76008058-6</RE>
+<TD>33</TD>
+<F>474106</F>
+<FE>2023-01-23</FE>
+<RR>69060600-3</RR>
+<RSR>ILUSTRE MUNICIPALIDAD DE NOGALES</RSR>
+<MNT>261800</MNT>
+<IT1>ESCALA TELESCOPICA ALUMINIO 24P. 6,39 MT</IT1>
+<CAF version="1.0">
+<DA>
+<RE>76008058-6</RE>
+<RS>COMERCIAL FRANCISCO TOSO LIMITADA</RS>
+<TD>33</TD>
+<RNG>
+<D>470321</D>
+<H>475320</H>
+</RNG>
+<FA>2022-12-14</FA>
+<RSAPK>
+<M>s+GphxX6Oy8hY7kfqll1Cj6DjMnK6uP3Gk1QcyLfVURCTSDQfenEwX0GzAhySt62LET5LyrpXBxOAoIZJmgTOw==</M>
+<E>Aw==</E>
+</RSAPK>
+<IDK>300</IDK>
+</DA>
+<FRMA algoritmo="SHA1withRSA">faAQqsyYOWrSVAU5APEIp7CVzqAjwtfZDZnQW0p+grOWCSkH1jjIy5swg8FXGqnWDhTEgy3WgVn5jmO2D49S1w==</FRMA>
+</CAF>
+<TSTED>2023-01-23T12:55:41</TSTED>
+</DD>
+<FRMT algoritmo="SHA1withRSA">MsnSWXjyBDaPbgoQDey1om4QE7/3+FiVyzy43L3+31K+5YGiljACVMvRl2JrDqAL/Me1K6a3bTYQ70lzKDGEKA==</FRMT>
+</TED>
+<TmstFirma>2023-01-23T12:55:41</TmstFirma>
+</Documento>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+<SignedInfo>
+<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<Reference URI="#DTE76008058X33X474106X20230123125541">
+<Transforms>
+<Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+</Transforms>
+<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<DigestValue>xjAdhEM0Kl1Q7kf3mHKXj+vH3wc=</DigestValue>
+</Reference>
+</SignedInfo>
+<SignatureValue> BkTzl+HDjOHkkCffJhlI69UhEMqG/5253x+Pe48u1Q2ZsYcJ3gV2/v7ozjBRBcSWGfvlZe6cTily Vb7rP3hrDpmolnI0N2XecFRL8earvj2VGnvFM5OI8X+2JDeQbUn2l+2+pF8APT+QSNJoudSlVXLN UVSKVV/Oy6cldJj5R284JhvkbJRi6gsolkhFqi+dnp2uXZbDzH/VoT+Bmd1mg0r4wI+yb7pbW3ft 59MLi5V4/N+P1wNHXuKcVqUMTBy7roQ6r6pMj+fUrOunhu4MBlsXZTLacweAXZO500r0N7MvKw5n trE9Za4TAkVbptPMgGre9NN6vNubbdDcFG/tvg== </SignatureValue>
+<KeyInfo>
+<KeyValue>
+<RSAKeyValue>
+<Modulus> kWbX958TCVfy+XXOd1tvwuhEAHvu+4GBcidPb/AsYBv+s9+z1tsHKKu6vY/t4Nt/uwOp9mf99AHZ MQLgd/iTmvsIg5hMyiYSqW7rqiPvGKiP8a9tGMGYqk9REDMqicuZLjH24nvg1TzBKss79FaEeAS9 OFjlKp5rZE+T1ESKZ8DOL2jWrGEk9gWR6No0QueHgZC20e5l4fv4K2uQs+dL3Cxp4ois6VAqelHN JnsrW53NwljAUXvT/KBfP7VsA6A+dSqJXGbASnqohnnSeEwftUfgGo398guAbYhDqH51nARbWKvJ yXJxGCsUbPpfPRPFxXgJDizHz1zbMZ4r8XGN6Q== </Modulus>
+<Exponent>AQAB</Exponent>
+</RSAKeyValue>
+</KeyValue>
+<X509Data>
+<X509Certificate> MIIGSTCCBTGgAwIBAgIIQlrMjVUvrywwDQYJKoZIhvcNAQELBQAwga8xCzAJBgNVBAYTAkNMMRQw EgYDVQQKDAtFLVNpZ24gUy5BLjE5MDcGA1UECwwwVGVybXMgb2YgdXNlIGF0IHd3dy5lc2lnbi1s YS5jb20vYWN1ZXJkb3RlcmNlcm9zMSswKQYDVQQDDCJFLVNpZ24gQ2xhc3MgMiBGaXJtYSBUcmli dXRhcmlhIENBMSIwIAYJKoZIhvcNAQkBFhNlLXNpZ25AZXNpZ24tbGEuY29tMB4XDTIwMDUxODEy NDgwMFoXDTIzMDUxODEyNDgwMFowgagxCzAJBgNVBAYTAkNMMRQwEgYDVQQKDAtFLVNpZ24gUy5B LjE5MDcGA1UECwwwVGVybXMgb2YgdXNlIGF0IHd3dy5lc2lnbi1sYS5jb20vYWN1ZXJkb3RlcmNl cm9zMSQwIgYDVQQDDBtmcmFuY2lzY28gamF2aWVyIHRvc28gcm9qaWMxIjAgBgkqhkiG9w0BCQEW E2ZlcnJldGVyaWFAZnRvc28uY2wwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCRZtf3 nxMJV/L5dc53W2/C6EQAe+77gYFyJ09v8CxgG/6z37PW2wcoq7q9j+3g23+7A6n2Z/30AdkxAuB3 +JOa+wiDmEzKJhKpbuuqI+8YqI/xr20YwZiqT1EQMyqJy5kuMfbie+DVPMEqyzv0VoR4BL04WOUq nmtkT5PURIpnwM4vaNasYST2BZHo2jRC54eBkLbR7mXh+/gra5Cz50vcLGniiKzpUCp6Uc0meytb nc3CWMBRe9P8oF8/tWwDoD51KolcZsBKeqiGedJ4TB+1R+Aajf3yC4BtiEOofnWcBFtYq8nJcnEY KxRs+l89E8XFeAkOLMfPXNsxnivxcY3pAgMBAAGjggJsMIICaDCBgAYIKwYBBQUHAQEEdDByMEoG CCsGAQUFBzAChj5odHRwOi8vcGtpLmVzaWduLWxhLmNvbS9jYWNlcnRzL3BraUNsYXNzMkZpcm1h VHJpYnV0YXJpYUNBLmNydDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZXNpZ24tbGEuY29tMB0G A1UdDgQWBBQEKlFPSxE/xNnKjdXwkJ6lhwHarzAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFPlK +sLHbsLnEpxXRTWEGm0o6UqkMIHIBgNVHSAEgcAwgb0wgboGDCsGAQQBgspqAQQBAjCBqTB+Bggr BgEFBQcCAjByHnAAQwBlAHIAdABpAGYAaQBjAGEAZABvACAAcABhAHIAYQAgAHUAcwBvACAAVABy AGkAYgB1AHQAYQByAGkAbwAsACAAQwBvAG0AZQByAGMAaQBvACwAIABQAGEAZwBvAHMAIAB5ACAA TwB0AHIAbwBzMCcGCCsGAQUFBwIBFhtodHRwOi8vd3d3LmVzaWduLWxhLmNvbS9jcHMwUQYDVR0f BEowSDBGoESgQoZAaHR0cDovL3BraS5lc2lnbi1sYS5jb20vY3JsL3BraUNsYXNzMkZpcm1hVHJp YnV0YXJpYS9lbmR1c2VyLmNybDAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwIG CCsGAQUFBwMEMCMGA1UdEQQcMBqgGAYIKwYBBAHBAQGgDBYKMTM5ODk0NzEtNTAjBgNVHRIEHDAa oBgGCCsGAQQBwQECoAwWCjk5NTUxNzQwLUswDQYJKoZIhvcNAQELBQADggEBABJxkQrSv3Tpmg/N /konGyx4qdmHINJ88qiPGkjq8pzOqTizjYuFLSlOtJdfQ8dbysj1ZgxUkucDm59ayBv0VDAq4fLd Csr1FaO7b5iy5ku6XfRvTk+Xdxl/k6j8Jhfu0OI1pbG/pc4uPG0BECRfKXRiga7eHz5jw+G86gvb b3qTgWOEGm61lHa1R0e5q00qCJ45wSm0W8LvnBupJnW7GOAPPLKkFPw13Yzao2PmTzHpixxKQEbI dvtu3pr3yd6mEtnO2XrM0lSJgSFDpk5dlD2Nct/UdjFdclWLK0QCRWwsFYylu65MI26QyEOi173I 8OekEpenuVUFeJ6fc8qPl0o= </X509Certificate>
+</X509Data>
+</KeyInfo>
+</Signature>
+</DTE>
+</SetDTE>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+<SignedInfo>
+<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<Reference URI="#SETDTE76008058X33X474106X315212604">
+<Transforms>
+<Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+</Transforms>
+<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<DigestValue>5eobqPLCo+OHqU5g/CYLxoSBFj8=</DigestValue>
+</Reference>
+</SignedInfo>
+<SignatureValue> cMyRt3kBjT9I0o/HxQxNUK1K/jXXANsKd0d7JUhnplQjaZ6pTpWfWg8cpVJLuEUQCoPJZYHPxA0+ a5nFIGVRmMZe21dYSEOq+PBUG3oRkOk77rRY82jfbRmNPtpojpQyQD0KMR/Niz0l9TXkc1QPZ/JH qdcyIcDx30j3bNqJoPt1quv5X305WD44tEFlS+E2I13+pa9bOWGqFgTNbmyDjGUL/cw3aFVdZ1/T XVq0eWJt4BCw4uDDWopCH8XqYcgpLMZB8sg7lELDuzx0nKPGSjsmzNdJu6PFP68b1D7zoC4gc0wB nadyFbs1QOVIPdB365Or9BxJLfOAxUq4VCQsjQ== </SignatureValue>
+<KeyInfo>
+<KeyValue>
+<RSAKeyValue>
+<Modulus> 1VvdZRCq9lKkm2uZo60dYHhOIF9Q9p3sE4GRkcCVnjYd2Wc9ggMLcDnWlwXJOo0HTE61I8cAsScv 6W5TiHuocqtFofiZaWeJs5NveHFgJyG11nmkZd9EibMzpGM6RfTIsE140I9YhRUY7+Y4hNUvS636 vfvzSSCJJ0yluS7ulE6+Op4drpKT33WUQJMHP1IlxA1lYn+CAD+BMobN/z0LNlWN0r8SzxbMialN xyPpfK/6pgyibOnQfctWcA8ylbaepqJRg1SF0ziFPotjgawamv7N6DtGF1lqMbGvvYBfIkT3Hw0J wNooJ+VwMVtSDsR22NyLrJCJmxvge3tvQ/seKw== </Modulus>
+<Exponent>AQAB</Exponent>
+</RSAKeyValue>
+</KeyValue>
+<X509Data>
+<X509Certificate> MIIGZzCCBU+gAwIBAgIDBJasMA0GCSqGSIb3DQEBCwUAMIGmMQswCQYDVQQGEwJDTDEYMBYGA1UE ChMPQWNlcHRhLmNvbSBTLkEuMUgwRgYDVQQDEz9BY2VwdGEuY29tIEF1dG9yaWRhZCBDZXJ0aWZp Y2Fkb3JhIENsYXNlIDIgUGVyc29uYSBOYXR1cmFsIC0gRzQxHjAcBgkqhkiG9w0BCQEWD2luZm9A YWNlcHRhLmNvbTETMBEGA1UEBRMKOTY5MTkwNTAtODAeFw0yMDA1MjgxNzQ1MjdaFw0yMzA1Mjgx NzQ1MjdaMIGEMQswCQYDVQQGEwJDTDEYMBYGA1UEDBMPUEVSU09OQSBOQVRVUkFMMSYwJAYDVQQD Ex1MQURJU0xBTyBST0JFUlRPIENPUlRFUyBUT0JBUjEfMB0GCSqGSIb3DQEJARYQTENPUlRFU0BF TlRFTC5DTDESMBAGA1UEBRMJOTc4ODU2OS05MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC AQEA1VvdZRCq9lKkm2uZo60dYHhOIF9Q9p3sE4GRkcCVnjYd2Wc9ggMLcDnWlwXJOo0HTE61I8cA sScv6W5TiHuocqtFofiZaWeJs5NveHFgJyG11nmkZd9EibMzpGM6RfTIsE140I9YhRUY7+Y4hNUv S636vfvzSSCJJ0yluS7ulE6+Op4drpKT33WUQJMHP1IlxA1lYn+CAD+BMobN/z0LNlWN0r8SzxbM ialNxyPpfK/6pgyibOnQfctWcA8ylbaepqJRg1SF0ziFPotjgawamv7N6DtGF1lqMbGvvYBfIkT3 Hw0JwNooJ+VwMVtSDsR22NyLrJCJmxvge3tvQ/seKwIDAQABo4ICvDCCArgwHwYDVR0jBBgwFoAU ZaWrPj/ItlFtEX5fwwoH5kOgCLYwHQYDVR0OBBYEFLLkCmbg0JeA0w7T1HcWAEft/eigMAsGA1Ud DwQEAwIE8DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwEQYJYIZIAYb4QgEBBAQDAgWg MIH1BgNVHSAEge0wgeowgecGCCsGAQQBtWsCMIHaMDEGCCsGAQUFBwIBFiVodHRwczovL2FjZzQu YWNlcHRhLmNvbS9DUFMtQWNlcHRhY29tMIGkBggrBgEFBQcCAjCBlzAWFg9BY2VwdGEuY29tIFMu QS4wAwIBCRp9RWwgdGl0dWxhciBoYSBzaWRvIHZhbGlkYWRvIGVuIGZvcm1hIG9ubGluZSwgcXVl ZGFuZG8gaGFiaWxpdGFkbyBlbCBDZXJ0aWZpY2FkbyBwYXJhIHVzbyB0cmlidXRhcmlvLCBwYWdv cywgY29tZXJjaW8geSBvdHJvcy4wWgYDVR0SBFMwUaAYBggrBgEEAcEBAqAMFgo5NjkxOTA1MC04 oCQGCCsGAQUFBwgDoBgwFgwKOTY5MTkwNTAtOAYIKwYBBAHBAQKBD2luZm9AYWNlcHRhLmNvbTBZ BgNVHREEUjBQoBcGCCsGAQQBwQEBoAsWCTk3ODg1NjktOaAjBggrBgEFBQcIA6AXMBUMCTk3ODg1 NjktOQYIKwYBBAHBAQKBEExDT1JURVNARU5URUwuQ0wwRwYIKwYBBQUHAQEEOzA5MDcGCCsGAQUF BzABhitodHRwczovL2FjZzQuYWNlcHRhLmNvbS9hY2c0L29jc3AvQ2xhc2UyLUc0MD8GA1UdHwQ4 MDYwNKAyoDCGLmh0dHBzOi8vYWNnNC5hY2VwdGEuY29tL2FjZzQvY3JsL0NsYXNlMi1HNC5jcmww DQYJKoZIhvcNAQELBQADggEBADc4tLDTH+DhrQwJ+gJujLSTa7AL4E+71qCTDl7XhtiiNZMFlyn7 FBoMNJSDoLFeovkSE1V9i1PRUDmlGY5GDJRvhTsqP8kMua2cCJ6/bBVsfCA7SV06pxZLR+fJE+/v NatXQaReLS4Mp+DSYQPThl5fn192nEphGKH2sdCkIb9nhBwb3my8iEzOGuxfR0IuIZfFRaGAsY9R I0v19UqAaQq6QfGER6YVhxswjokbUZtqq9zdPQVY86OI74j/vB8HKgEt51Vs6otEE1JR3X9FjgpT CjXdL27QkPPNAKaaizYrximm4L6PY18kMKZ2DANyUo3rYW4KmHaMv6ev4NXyNlk= </X509Certificate>
+</X509Data>
+</KeyInfo>
+</Signature>
+<Personalizados>
+<DocPersonalizado dteID="DTE76008058X33X474106X20230123125541">
+<campoString name="Observacion">credito</campoString>
+<campoString name="MontoPalabra">DOSCIENTOS SESENTA Y UN MIL OCHOCIENTOS PESOS</campoString>
+<campoString line="1" name="Medida">UNI</campoString>
+<campoString name="Hora_Emi">12:55:38</campoString>
+<campoString name="Localidad">GUIA</campoString>
+<campoString name="OrdenCompra">3624-18-AG2</campoString>
+<campoString name="CondiPago">30 dias</campoString>
+<campoFecha name="FechaVence">2023-02-22</campoFecha>
+</DocPersonalizado>
+</Personalizados>
+</EnvioDTE>
