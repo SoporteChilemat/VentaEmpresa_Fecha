@@ -16,6 +16,7 @@ import Clases.Producto;
 import Clases.ProductoNotaCredito;
 import Clases.ProductoOC;
 import Clases.SumasNumeroOC;
+import static DAO.UpdaterDAO.select;
 import DAO.clientesDAO;
 import static DAO.clientesDAO.vendedorCliente;
 import DAO.facturaDAO;
@@ -155,6 +156,8 @@ import static Principal.Principal.jCheckBox2;
 import static Principal.Principal.jCheckBox3;
 import static Principal.Principal.jCheckBox4;
 import static Principal.Principal.jComboBox5;
+import static Principal.Principal.jMenu2;
+import static Principal.Principal.jMenuItem10;
 import static Principal.Principal.rSDateChooser6;
 import static Principal.Principal.rSDateChooser7;
 import Principal.VentanaLogin;
@@ -191,7 +194,12 @@ import static Principal.Principal.jTableNotaDeCredito;
 import static Principal.Principal.jTableFlete;
 import static Principal.Principal.jTableComisiones;
 import static Principal.Principal.jTableEstadisticas;
-import javax.swing.table.TableModel;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.ini4j.Ini;
+import org.ini4j.Profile.Section;
 
 public class Logica {
 
@@ -1570,8 +1578,44 @@ public class Logica {
                 }
             }
         }).thenRunAsync(() -> {
+
             Principal.newJFrame.jTabbedPane1.setVisible(true);
             Principal.newJFrame.jPanel15.setVisible(false);
+
+            Thread keepAliveThread = new Thread(() -> {
+                while (true) {
+                    try {
+                        Ini ini = new Ini(new File("config.ini"));
+
+                        Section section2 = ini.get("Version");
+                        String version = section2.get("v");
+
+                        Section section = ini.get("Programa");
+                        String value = section.get("p");
+
+                        String select = select(value);
+
+                        if (version.trim().equals(select.trim())) {
+                            jMenuItem10.setEnabled(false);
+                        } else {
+                            ImageIcon imageIcon = new ImageIcon(System.getProperty("user.dir") + "\\Logo\\alerta.png");
+                            Image originalImage = imageIcon.getImage();
+
+                            int width = 20; // The desired width of the resized image
+                            int height = 20; // The desired height of the resized image
+
+                            Image resizedImage = originalImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                            ImageIcon resizedIcon = new ImageIcon(resizedImage);
+                            jMenu2.setIcon(resizedIcon);
+
+                            jMenuItem10.setEnabled(true);
+                        }
+                        Thread.sleep(60000); // Sleep for 1 minute
+                    } catch (Exception ex) {
+                    }
+                }
+            });
+            keepAliveThread.start();
         });
     }
 
@@ -1811,6 +1855,41 @@ public class Logica {
         out.close();
     }
 
+    public static void crearExcel6() throws FileNotFoundException, IOException {
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet spreadsheet = workbook.createSheet("LS");
+        XSSFFont headerFont = workbook.createFont();
+        headerFont.setColor(IndexedColors.WHITE.index);
+        XSSFCellStyle xSSFCellStyle = spreadsheet.getWorkbook().createCellStyle();
+        xSSFCellStyle.setFillForegroundColor(IndexedColors.GREY_50_PERCENT.index);
+        xSSFCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        xSSFCellStyle.setFont((Font) headerFont);
+        xSSFCellStyle.setAlignment(HorizontalAlignment.CENTER);
+        Map<String, Object[]> data = (Map) new TreeMap<>();
+        data.put("1", new Object[]{"CODIGO", "PRECIO"});
+        Set<String> keyset = data.keySet();
+        int rownum = 0;
+        for (String key : keyset) {
+            XSSFRow xSSFRow = spreadsheet.createRow(rownum++);
+            Object[] objArr = data.get(key);
+            int cellnum = 0;
+            for (Object obj : objArr) {
+                Cell cell = xSSFRow.createCell(cellnum++);
+                if (rownum == 1) {
+                    cell.setCellStyle((CellStyle) xSSFCellStyle);
+                }
+                if (obj instanceof String) {
+                    cell.setCellValue((String) obj);
+                } else if (obj instanceof Integer) {
+                    cell.setCellValue(((Integer) obj).intValue());
+                }
+            }
+        }
+        FileOutputStream out = new FileOutputStream(new File("LS.xlsx"));
+        workbook.write(out);
+        out.close();
+    }
+
     public static void abrirExcel() throws IOException {
         File file = new File("ListadoFacturas.xlsx");
         Desktop desktop = Desktop.getDesktop();
@@ -1845,6 +1924,14 @@ public class Logica {
 
     public static void abrirExcel5() throws IOException {
         File file = new File("ListadoNotasCreditoNombre.xlsx");
+        Desktop desktop = Desktop.getDesktop();
+        if (file.exists()) {
+            desktop.open(file);
+        }
+    }
+
+    public static void abrirExcel6() throws IOException {
+        File file = new File("LS.xlsx");
         Desktop desktop = Desktop.getDesktop();
         if (file.exists()) {
             desktop.open(file);

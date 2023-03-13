@@ -1,11 +1,9 @@
 package Principal;
 
-import Clases.ActualizaCodigoPrecio;
 import Clases.OrdenCompra;
 import Clases.ProductoOC;
 import Connect.DbConnection;
 import Connect.DbConnection2;
-import DAO.ActualizaCodigoPrecioDAO;
 import DAO.ordenCompraDAO;
 import DAO.productoOCDAO;
 import Logica.AutoCompletion;
@@ -27,6 +25,7 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 import javax.swing.event.PopupMenuEvent;
@@ -45,7 +44,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel15.setVisible(false);
         jPanel15.setSize(0, 0);
-        
+
         jCheckBox1.setVisible(false);
         jCheckBox2.setVisible(false);
     }
@@ -156,6 +155,8 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem10 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Venta Empresa");
@@ -1090,6 +1091,18 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu3);
 
+        jMenu2.setText("Opciones");
+
+        jMenuItem10.setText("Actualizar");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem10);
+
+        jMenuBar2.add(jMenu2);
+
         setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1329,22 +1342,18 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
-        try {
-            ArrayList<ActualizaCodigoPrecio> arrReportes31 = arrReportes3(System.getProperty("user.dir") + "\\LS.xlsx");
-            arrReportes31.size();
-            System.out.println("arrReportes31.size() " + arrReportes31.size());
-
-            for (int i = 0; i < arrReportes31.size(); i++) {
-                ActualizaCodigoPrecio get = arrReportes31.get(i);
-                System.out.println(get.getCodigo() + " " + get.getPrecio());
-                ActualizaCodigoPrecioDAO.actualizar(get.getPrecio(), get.getCodigo().replace("V.E.", ""));
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        VentanaActualizaCodigosLS vacls = new VentanaActualizaCodigosLS(newJFrame, true);
+        vacls.setLocationRelativeTo(newJFrame);
+        vacls.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        int opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que quieres continuar, esto cerrara el programa...?", "Confirmar", JOptionPane.YES_NO_OPTION);
+        if (opcion == JOptionPane.YES_OPTION) {
+            
+        }
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     public static void connection() throws IOException {
         Runtime.getRuntime().addShutdownHook(new Thread() {
@@ -1741,9 +1750,11 @@ public class Principal extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
+    public static javax.swing.JMenu jMenu2;
     public static javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar2;
     public static javax.swing.JMenuItem jMenuItem1;
+    public static javax.swing.JMenuItem jMenuItem10;
     public static javax.swing.JMenuItem jMenuItem2;
     public static javax.swing.JMenuItem jMenuItem3;
     public static javax.swing.JMenuItem jMenuItem4;

@@ -15,27 +15,14 @@ import java.sql.SQLException;
  */
 public class ActualizaCodigoPrecioDAO {
 
-    public static void actualizar(String precio, String codigo) throws SQLException {
-// Then, create a SQL query string with placeholders for the parameters
-        String query = "UPDATE [ventaempresa].[dbo].[producto] "
-                + "SET [ventaempresa].[dbo].[producto].costoUnitario = ? "
-                + "FROM [ventaempresa].[dbo].[producto] as a "
-                + "INNER JOIN [dbo].[factura] as b ON a.folio = b.folio "
-                + "WHERE b.vendedor = ? AND a.codigo = ?";
-
-// Prepare the SQL statement and set the parameter values
+    public static void actualizar(String precio, String codigo, String desde, String hasta) throws SQLException {
+        String query = "UPDATE [ventaempresa].[dbo].[producto] \nSET [ventaempresa].[dbo].[producto].costoUnitario = ? \nFROM [ventaempresa].[dbo].[producto] as a \nINNER JOIN [dbo].[factura] as b ON a.folio = b.folio \nWHERE b.vendedor = ? AND a.codigo = ? and CONVERT(date, b.fechaEmision, 23) BETWEEN '" + desde + "' AND '" + hasta + "'";
         PreparedStatement stmt = conex.getConnection().prepareStatement(query);
         stmt.setString(1, precio);
         stmt.setString(2, "PATRICIO ROMAN");
         stmt.setString(3, codigo);
-
-// Execute the update statement
         int rowsAffected = stmt.executeUpdate();
-
-// Print the number of rows affected
         System.out.println(rowsAffected + " rows updated.");
-
-// Close the statement and connection
         stmt.close();
     }
 }
